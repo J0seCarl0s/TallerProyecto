@@ -1,7 +1,7 @@
 # Solo Elvis
 
-> php artisan migrate
-> php artisan passport:install --force
+>> php artisan migrate
+>> php artisan passport:install --force
 
 
 
