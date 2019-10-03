@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/material-dashboard.css?v=2.1.1",
+              "src/assets/css/material-dashboard.min.css",
+              "src/assets/demo/demo.css"
             ],
             "scripts": []
           },
@@ -89,7 +92,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/material-dashboard.css?v=2.1.1",
+              "src/assets/css/material-dashboard.min.css",
+              "src/assets/demo/demo.css"
             ],
             "scripts": []
           }

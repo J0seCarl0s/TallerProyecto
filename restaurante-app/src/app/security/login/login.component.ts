@@ -13,8 +13,8 @@ import { SecurityService } from '../security.service';
 export class LoginComponent implements OnInit {
 
 
-  email:string="elvis@gmail.com";
-  password:string="123456";
+  username:string="";
+  password:string="";
 
   constructor(private router:Router, private securityService:SecurityService) { }
 
@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
 
-  login()
+  btnIniciarSesion()
   {
-    this.securityService.login(this.email,this.password)
+    //this.router.navigate(['/admin/dashboard']);
+    //localStorage.setItem("token", "sddsfsdfd");
+
+    this.securityService.login(this.username,this.password)
       .subscribe(
         (response)=>{
           console.log(response);

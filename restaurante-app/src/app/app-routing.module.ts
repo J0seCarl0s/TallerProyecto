@@ -7,12 +7,26 @@ import { ContainerInsideAdminComponent } from './shared/components/container-ins
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 
 import { Page404Component } from './shared/components/page404/page404.component';
+import { PlatosListComponent } from './admin/platos/platos-list/platos-list.component';
+import { PlatosEditComponent } from './admin/platos/platos-edit/platos-edit.component';
+import { InsumosListComponent } from './admin/insumos/insumos-list/insumos-list.component';
+import { InsumosEditComponent } from './admin/insumos/insumos-edit/insumos-edit.component';
+import { ProveedoresListComponent } from './admin/proveedores/proveedores-list/proveedores-list.component';
+import { ProveedoresEditComponent } from './admin/proveedores/proveedores-edit/proveedores-edit.component';
 
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
   ContainerInsideAdminComponent,
+
   DashboardAdminComponent,
+  PlatosListComponent,
+  PlatosEditComponent,
+  InsumosListComponent,
+  InsumosEditComponent,
+  ProveedoresListComponent,
+  ProveedoresEditComponent,
+
   Page404Component
 ];
 
@@ -30,7 +44,31 @@ const routes: Routes = [
       {
 				path: 'dashboard',
 				component: DashboardAdminComponent
-      }
+      },
+      {
+				path: 'platos',
+				component: PlatosListComponent
+      },
+      {
+				path: 'platos/:id',
+				component: PlatosEditComponent
+      },
+      {
+				path: 'insumos',
+				component: InsumosListComponent
+      },
+      {
+				path: 'insumos/:id',
+				component: InsumosEditComponent
+      },
+      {
+				path: 'proveedores',
+				component: ProveedoresListComponent
+      },
+      {
+				path: 'proveedores/:id',
+				component: ProveedoresEditComponent
+      },
     ]
   },
   { path: '**', component: Page404Component }
