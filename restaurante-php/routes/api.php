@@ -21,3 +21,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('usuario', 'Auth\LoginController@obtenerUsuario');
     Route::get('logout', 'Auth\LoginController@logout');
 });
+
+//Falta proteger las rutas, preguntar a Elvis sobre la creacion de un middleware que de 
+//acuerdo a roles restrinja el acceso
+Route::post('insumos/registrar', 'Insumos\InsumosController@registrarInsumo');
+Route::post('insumos/editar', 'Insumos\InsumosController@editarInsumo');
+Route::get('insumos', 'Insumos\InsumosController@verInsumos');
