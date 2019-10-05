@@ -23,21 +23,53 @@ class InsumosController extends Controller
      * @return json
      */
     public function verInsumos(){
-		//Llamo al procedimiento para obtener los insumos
-		$insumos = \DB::select('call ver_insumos()');
+		
+        try{
+            //Llamo al procedimiento para obtener los insumos
+            $insumos = \DB::select('call ver_insumos()');
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumos = null;
+            $ok = false;
+        }
 
-		//retorno los insumos en formato json y el HTTP status code 200
-		return response()->json($insumos, 200);
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumos
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+		return response()->json($rtn, 200);
 	}
 
 	/**
      * Edita un insumo
      *
      * @param  Request $request
-     * @return json con el resultado de la operacion
+     * @return json
      */
     public function editarInsumo(Request $request){
+        //Obtengo los parametros del request
+        $insumo = [];
+        $insumo[0] = $request->input('id_insumo');
+        $insumo[1] = $request->input('nombre_insumo');
+        $insumo[2] = $request->input('cantidad_minima');
 
+        try{
+            //Llamo al procedimiento
+            \DB::select('call editar_insumo(?, ?, ?)', $insumo);
+            $ok = true;
+            $result = "Insumo editado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al editar el insumo";
+        }
+        //retorno los insumos en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
 	}
 
 	/**
@@ -47,6 +79,26 @@ class InsumosController extends Controller
      * @return json
      */
     public function registrarInsumo(Request $request){
+        $insumo = [];
+        //Obtengo los parametros del request
+        $insumo[0] = $request->input('nombre_insumo');
+        $insumo[1] = $request->input('cantidad_minima');
 
+        try{
+            //Llamo al procedimiento
+            \DB::select('call registrar_insumo(?, ?)', $insumo);
+            $ok = true;
+            $result = "Insumo registrado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al registrar el insumo";
+        }
+        //retorno los insumos en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
     }
 }
