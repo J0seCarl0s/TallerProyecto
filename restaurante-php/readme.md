@@ -31,3 +31,21 @@ ejecutar el comando para instalar las librerias
 
 correr el proyecto 
 > php artisan serve 
+
+
+
+
+# Pasos para generar la API
+
+1.- Solo escribir codigo en el contrador asignado ejm PlatosController
+    - cada funcion dentro del controlador representa la logica de una url
+
+2.- Gerando la url
+    - para acceder mediante una url, el controlador y el metodo se deben registrar en el
+        archivo routes/api.php
+        el registro de la funcion sigue la siguiente sintaxis
+
+Route::metodo("parte de la url","nombre_carpeta\Nombre_Controlador@nombre_de_la_funcion")
+
+ejemplo
+Route::post('roles/insert','Roles\RolesController@insert');
