@@ -11,6 +11,7 @@ import { PlatosListComponent } from './admin/platos/platos-list/platos-list.comp
 import { PlatosEditComponent } from './admin/platos/platos-edit/platos-edit.component';
 import { InsumosListComponent } from './admin/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent } from './admin/insumos/insumos-edit/insumos-edit.component';
+import { InsumosAddComponent } from './admin/insumos/insumos-add/insumos-add.component';
 import { ProveedoresListComponent } from './admin/proveedores/proveedores-list/proveedores-list.component';
 import { ProveedoresEditComponent } from './admin/proveedores/proveedores-edit/proveedores-edit.component';
 
@@ -24,6 +25,7 @@ export const ROUTING_COMPONENTS=[
   PlatosEditComponent,
   InsumosListComponent,
   InsumosEditComponent,
+  InsumosAddComponent,
   ProveedoresListComponent,
   ProveedoresEditComponent,
 
@@ -58,8 +60,12 @@ const routes: Routes = [
 				component: InsumosListComponent
       },
       {
-				path: 'insumos/:id',
+				path: 'insumos/editar/:id',
 				component: InsumosEditComponent
+      },
+      {
+        path: 'insumos/agregar',
+        component: InsumosAddComponent
       },
       {
 				path: 'proveedores',
