@@ -12,19 +12,22 @@
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Nombre insumo</label>
-                          <input type="text" class="form-control" [(ngModel)]="nombreInsumo" name="nombreInsumo" required>
+                          <input type="text" class="form-control" [(ngModel)]="nombre_insumo" name="nombreInsumo" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Cantidad mínima del insumo</label>
-                          <input type="number" class="form-control" step="0.1" [(ngModel)]="cantidadInsumo" name="cantidadInsumo" required>
+                          <input type="number" class="form-control" step="0.1" [(ngModel)]="cantidad_minima" name="cantidadInsumo" required>
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">
-                      Agregar insumo
-                    </button>
+                    <div class="pull-right">
+                      <button class="btn btn-primary" (click)="btnCancelar()">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">
+                        Agregar insumo
+                      </button>
+                    </div>
                     <div class="clearfix"></div>
                   </form>
                 </div>

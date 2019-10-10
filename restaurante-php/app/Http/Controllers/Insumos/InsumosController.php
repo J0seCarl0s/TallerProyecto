@@ -41,6 +41,34 @@ class InsumosController extends Controller
 		return response()->json($rtn, 200);
 	}
 
+    /**
+     * Obtiene el insumo del id dado de la base de datos con sus respectivos detalles.
+     *
+     * @return json
+     */
+    public function obtenerInsumo($id_insumo){
+        
+        $parametros = [];
+        $parametros[0] = $id_insumo;
+        try{
+            //Llamo al procedimiento para obtener el insumo. La funcion select
+            //retorna un array así que tengo que solo tomo el primer elemento del array
+            $insumo = collect(\DB::select('call obtener_insumo(?)', $parametros))
+                            ->first();
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumo = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumo
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
+
 	/**
      * Edita un insumo
      *

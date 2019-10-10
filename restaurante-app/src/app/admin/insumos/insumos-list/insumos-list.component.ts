@@ -8,59 +8,43 @@ import { InsumosService } from '../insumos.service';
 @Component({
   selector: 'app-insumos-list',
   templateUrl: './insumos-list.component.html',
-  styleUrls: ['./insumos-list.component.css']
+  styleUrls: ['./insumos-list.component.css'],
+  providers:  [ InsumosService ]
+
 })
 export class InsumosListComponent implements OnInit {
 
   insumos: any[];
 
-  //constructor(private router:Router, private insumosService:InsumosService) {}
-  constructor(private router:Router) {}
+  constructor(private router:Router, private insumosService:InsumosService) {}
+  //constructor(private router:Router) {}
 
   ngOnInit() {
     console.log("fuck");
-      /*this.insumosService.listar()
+      this.insumosService.listar()
       .subscribe(
         (response)=>{
           console.log(response);
+          if(response.ok){
+            this.insumos = response.result;
+          }else{
+            console.log("No se pudo obtener la data");
+          }
         }
-      )*/
-    this.insumos = [
-      {
-        id: 1,
-        nombre: "Arroz",
-        cantidadMínima: 10.0
-      },
-      {
-        id: 2,
-        nombre: "Papa",
-        cantidadMínima: 5.0
-      }
-    ]
+      );
   }
 
   btnEditar(id: number)
-  {/*
-    this.insumosService.editar(1, "Insumo random", 10.0)
-      .subscribe(
-        (response)=>{
-          console.log(response);
-        }
-      )
-      */
-      console.log(id);
+  {
+      console.log("Navegando a editar el insumo: "+id);
+
       this.router.navigate(['/admin/insumos/editar/'+id]);
   }
 
   btnAgregar()
-  {/*
-    this.insumosService.registrar("Insumo random", 10.0)
-      .subscribe(
-        (response)=>{
-          console.log(response);
-        }
-      )
-      */
+  {
+      console.log("Navegando a agregar un nuevo insumo: ");
+
       this.router.navigate(['/admin/insumos/agregar']);
   }
 }

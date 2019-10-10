@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 Route::post('insumos/registrar', 'Insumos\InsumosController@registrarInsumo');
 Route::post('insumos/editar', 'Insumos\InsumosController@editarInsumo');
 Route::get('insumos', 'Insumos\InsumosController@verInsumos');
+Route::get('insumos/mostrar/{id}', 'Insumos\InsumosController@obtenerInsumo');
 
 Route::get('roles/getAll','Roles\RolesController@getAll');
 Route::post('roles/insert','Roles\RolesController@insert');
