@@ -6,7 +6,7 @@ USE `restaurante`$$
 CREATE PROCEDURE `usp_proveedores_i_proveedores` (
 	IN in_nombre_proveedor VARCHAR(50),
 	IN in_direccion_proveedor VARCHAR(50),
-	IN in_descripcion VARCHAR(50)
+	IN in_descripcion VARCHAR(120)
 )
 BEGIN
 	

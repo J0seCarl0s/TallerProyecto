@@ -10,13 +10,12 @@
     <div class="card-body">
     <div class="table-responsive">
       <table class="table">
-        <thead class="thead-dark">
+        <thead class="text-primary">
           <tr>
-            <th scope="col">#idPlato</th>
+            <th scope="col">#</th>
             <th scope="col">Nombre del plato</th>
             <th scope="col">Precio</th>
-            <th scope="col">Necesita prepación</th>
-            <th scope="col">Agregar insumos</th>
+            <th scope="col">Fecha</th>
             <th scope="col" colspan="2"></th>
           </tr>
         </thead>
@@ -26,21 +25,16 @@
             {{i+1}}
           </td>
           <td>
-            {{plato['nombre_plato']}}
+            {{plato.nombre_plato}}
           </td>
           <td>
-            {{plato['precio_plato']}}
+            {{plato.precio}}
           </td>
           <td>
-            {{plato['necesitapre_plato']}}
-          </td>    
-          <td> 
-            <button  class="btn btn-white btn-round btn-just-icon">
-            <i class="material-icons" >add</i>
-            </button>
-          </td>
+            {{plato.created_at}}
+          </td>   
           <td>
-              <button  class="btn btn-white btn-round btn-just-icon">
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar()">
               <i class="material-icons">create</i>
               </button>
             

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 import { SecurityService } from '../security.service';
 
+import { AlertService } from "../../shared/services/alert.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +18,11 @@ export class LoginComponent implements OnInit {
   username:string="";
   password:string="";
 
-  constructor(private router:Router, private securityService:SecurityService) { }
+  constructor(
+    private router:Router, 
+    private securityService:SecurityService,
+    private alertService:AlertService
+    ) { }
 
   ngOnInit() {
     localStorage.clear();
@@ -33,6 +39,9 @@ export class LoginComponent implements OnInit {
           console.log(response);
           localStorage.setItem("token", response.token);
           this.router.navigate(['/admin/dashboard']);
+        },
+        (err)=>{
+          this.alertService.error("Datos incorrectos",err)
         }
       )
   }

@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ContainerInsideAdminComponent implements OnInit {
 
+
+  titulo="Dashboard";
+
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -20,24 +23,28 @@ export class ContainerInsideAdminComponent implements OnInit {
   {
     this.efectos(1);
     this.router.navigate(['/admin/dashboard']);
+    this.titulo="Dashboard";
   }
 
   redirectPlatos()
   {
     this.efectos(3);
     this.router.navigate(['/admin/platos']);
+    this.titulo="Platos";
   }
 
   redirectInsumos()
   {
     this.efectos(4);
     this.router.navigate(['/admin/insumos']);
+    this.titulo="Insumos";
   }
 
   redirectProveedores()
   {
     this.efectos(2);
     this.router.navigate(['/admin/proveedores']);
+    this.titulo="Proveedores";
   }
 
 

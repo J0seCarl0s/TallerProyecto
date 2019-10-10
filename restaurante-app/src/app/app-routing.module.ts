@@ -45,8 +45,8 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    //canActivate:[TokenGuard],
-    //component:ContainerInsideAdminComponent,
+    canActivate:[TokenGuard],
+    component:ContainerInsideAdminComponent,
     children:[
       {
 				path: 'dashboard',

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { InsumosService } from '../insumos.service'
 
+import { AlertService } from "../../../shared/services/alert.service";
 
 @Component({
   selector: 'app-insumos-edit',
@@ -17,7 +18,10 @@ export class InsumosEditComponent implements OnInit {
   nombre_insumo:string="";
   cantidad_minima:number=0.0;
 
-  constructor(private router:Router, private route:ActivatedRoute, private insumosService:InsumosService) {}
+  constructor(private router:Router,
+     private route:ActivatedRoute, 
+     private alertService:AlertService,
+     private insumosService:InsumosService) {}
   
   ngOnInit() {
     //Obtengo el parametro de la url
@@ -47,10 +51,14 @@ export class InsumosEditComponent implements OnInit {
           console.log(response);
           if(response.ok){
             console.log("Elemento editado correctamente");
+            this.alertService.success("Datos Actualizados","Insumos");
           }else{
             console.log("Ha ocurrido un error");
           }
           this.router.navigate(['/admin/insumos']);        
+        },
+        (err)=>{
+          this.alertService.error("Error al actualizar",err);
         }
       )
   }

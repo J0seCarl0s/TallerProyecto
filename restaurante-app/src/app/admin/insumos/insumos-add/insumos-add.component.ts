@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { InsumosService } from '../insumos.service'
 
+import { AlertService } from "../../../shared/services/alert.service";
+
 @Component({
   selector: 'app-insumos-add',
   templateUrl: './insumos-add.component.html',
@@ -15,7 +17,11 @@ export class InsumosAddComponent implements OnInit {
   nombre_insumo:string="";
   cantidad_minima:number=0.0;
 
-  constructor(private router:Router, private insumosService:InsumosService) {}
+  constructor(
+    private router:Router, 
+    private insumosService:InsumosService,
+    private alertService:AlertService
+    ) {}
 
   ngOnInit() {
   }
@@ -28,10 +34,14 @@ export class InsumosAddComponent implements OnInit {
           console.log(response);
           if(response.ok){
             console.log("Elemento agregado correctamente");
+            this.alertService.success("Se guardo correctamente el insumo","Insumos");
           }else{
             console.log("Ha ocurrido un error");
           }
           this.router.navigate(['/admin/insumos']);
+        },
+        (err)=>{
+          this.alertService.error("Error al guardar insumo",err);
         }
       )
   }

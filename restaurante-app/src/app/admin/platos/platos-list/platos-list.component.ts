@@ -48,4 +48,6 @@ export class PlatosListComponent implements OnInit {
       this.router.navigate(['/admin/platos/agregar']);
   }
 
+  
+
 }
