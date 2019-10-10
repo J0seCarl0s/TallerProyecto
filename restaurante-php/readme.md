@@ -3,7 +3,7 @@
 >> php artisan migrate
 >> php artisan passport:install --force
 
-
+>>heroku run php artisan passport:install --force
 
 
 # Solo iver, jhonatan, jose
