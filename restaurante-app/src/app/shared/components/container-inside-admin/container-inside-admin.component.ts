@@ -18,22 +18,57 @@ export class ContainerInsideAdminComponent implements OnInit {
 
   redirectDashboard()
   {
+    this.efectos(1);
     this.router.navigate(['/admin/dashboard']);
   }
 
   redirectPlatos()
   {
+    this.efectos(3);
     this.router.navigate(['/admin/platos']);
   }
 
   redirectInsumos()
   {
+    this.efectos(4);
     this.router.navigate(['/admin/insumos']);
   }
 
   redirectProveedores()
   {
+    this.efectos(2);
     this.router.navigate(['/admin/proveedores']);
+  }
+
+
+  // EFECTOS NAV
+
+  efectos(id:number)
+  {
+    let linkDasboard = document.getElementById('link-dashboard');
+    let linkProveedores = document.getElementById('link-proveedores');
+    let linkPlatos = document.getElementById('link-platos');
+    let linkInsumos = document.getElementById('link-insumos');
+
+    linkDasboard.classList.remove('active');
+    linkProveedores.classList.remove('active');
+    linkPlatos.classList.remove('active');
+    linkInsumos.classList.remove('active');
+
+    switch(id){
+      case 1:{
+        linkDasboard.classList.add('active');
+      }break;
+      case 2:{
+        linkProveedores.classList.add('active');
+      }break;
+      case 3:{
+        linkPlatos.classList.add('active');
+      }break;
+      case 4:{
+        linkInsumos.classList.add('active');
+      }break;
+    }
   }
 
 }
