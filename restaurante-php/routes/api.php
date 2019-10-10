@@ -31,3 +31,11 @@ Route::get('insumos/mostrar/{id}', 'Insumos\InsumosController@obtenerInsumo');
 
 Route::get('roles/getAll','Roles\RolesController@getAll');
 Route::post('roles/insert','Roles\RolesController@insert');
+
+
+// PROVEEDORES
+Route::get('proveedores','Proveedores\ProveedoresController@verProveedores');
+Route::post('proveedores/registrar','Proveedores\ProveedoresController@registrarProveedor');
+Route::post('proveedores/editar','Proveedores\ProveedoresController@editarProveedor');
+Route::post('proveedores/eliminar','Proveedores\ProveedoresController@eliminarProveedor');
+Route::get('proveedores/mostrar/{id}','Proveedores\ProveedoresController@obtenerProveedor');

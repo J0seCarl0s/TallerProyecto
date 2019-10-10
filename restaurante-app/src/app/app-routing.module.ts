@@ -14,6 +14,7 @@ import { InsumosEditComponent } from './admin/insumos/insumos-edit/insumos-edit.
 import { InsumosAddComponent } from './admin/insumos/insumos-add/insumos-add.component';
 import { ProveedoresListComponent } from './admin/proveedores/proveedores-list/proveedores-list.component';
 import { ProveedoresEditComponent } from './admin/proveedores/proveedores-edit/proveedores-edit.component';
+import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/proveedores-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -28,6 +29,7 @@ export const ROUTING_COMPONENTS=[
   InsumosAddComponent,
   ProveedoresListComponent,
   ProveedoresEditComponent,
+  ProveedoresAddComponent,
 
   Page404Component
 ];
@@ -72,8 +74,12 @@ const routes: Routes = [
 				component: ProveedoresListComponent
       },
       {
-				path: 'proveedores/:id',
+				path: 'proveedores/editar/:id',
 				component: ProveedoresEditComponent
+      },
+      {
+				path: 'proveedores/agregar',
+				component: ProveedoresAddComponent
       },
     ]
   },

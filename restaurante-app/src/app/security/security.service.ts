@@ -27,7 +27,7 @@ import { HeaderService } from '../shared/services/header.service';
      login(email:string, password:string): Observable<any>
      {
         var url = this.apiUrl + "login";
-        var data = { email: email, password: password };
+        var data = { username: email, password: password };
         
 		return this.http.post<any>(url, data, this.httpOptions);
      }
