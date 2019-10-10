@@ -1,1 +1,65 @@
-<p>platos-list works!</p>
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <h4 class="card-title pull-left">Lista de platos</h4>
+        <button (click)="btnAgregar()" class="btn btn-white btn-round pull-right" style="padding:10px">
+          Agregar nuevo Plato
+          <i class="material-icons">add</i>
+        </button>
+    </div>
+    <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#idPlato</th>
+            <th scope="col">Nombre del plato</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Necesita prepación</th>
+            <th scope="col">Agregar insumos</th>
+            <th scope="col" colspan="2"></th>
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let plato of platos; index as i">          
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{plato['nombre_plato']}}
+          </td>
+          <td>
+            {{plato['precio_plato']}}
+          </td>
+          <td>
+            {{plato['necesitapre_plato']}}
+          </td>    
+          <td> 
+            <button  class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons" >add</i>
+            </button>
+          </td>
+          <td>
+              <button  class="btn btn-white btn-round btn-just-icon">
+              <i class="material-icons">create</i>
+              </button>
+            
+          </td>
+          <td>
+            <button  class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+    </table>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,52 @@
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Platos</h4>
+            <p class="card-category">Rellene el formulario para registrar un plato</p>
+          </div>
+
+          <br/>
+          <div class="card-body">
+            <form (ngSubmit)="btnAgregarPlato()" >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre del plato</label>
+                  <input type="text" class="form-control" [(ngModel)]="nombre_plato" name="nombrePlato" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Precio del plato</label>
+                <input type="number" step="0.1" [(ngModel)]="precio_plato" name="precioPlato" required>
+              </div>
+              <div class="form-group form-check">
+                <label class="bmd-label-floating">Necesita preparacion</label>                    
+                <select class="form-control" [(ngModel)]="necesitapre_plato" name="necesitaPrePlato" required>
+                <option>Si</option>
+                <option>No</option>        
+                </select>
+              </div>
+
+              <div class="pull-right">
+                <button class="btn btn-primary" (click)="btnCancelar()">
+                Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                Agregar plato
+                </button>
+              </div>
+
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

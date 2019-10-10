@@ -7,8 +7,10 @@ import { ContainerInsideAdminComponent } from './shared/components/container-ins
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 
 import { Page404Component } from './shared/components/page404/page404.component';
+
 import { PlatosListComponent } from './admin/platos/platos-list/platos-list.component';
 import { PlatosEditComponent } from './admin/platos/platos-edit/platos-edit.component';
+import { PlatosAddComponent } from './admin/platos/platos-add/platos-add.component';
 import { InsumosListComponent } from './admin/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent } from './admin/insumos/insumos-edit/insumos-edit.component';
 import { InsumosAddComponent } from './admin/insumos/insumos-add/insumos-add.component';
@@ -30,6 +32,7 @@ export const ROUTING_COMPONENTS=[
   ProveedoresListComponent,
   ProveedoresEditComponent,
   ProveedoresAddComponent,
+  PlatosAddComponent,
 
   Page404Component
 ];
@@ -42,20 +45,24 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    canActivate:[TokenGuard],
-    component:ContainerInsideAdminComponent,
+    //canActivate:[TokenGuard],
+    //component:ContainerInsideAdminComponent,
     children:[
       {
 				path: 'dashboard',
 				component: DashboardAdminComponent
       },
       {
-				path: 'platos',
-				component: PlatosListComponent
+        path: 'platos',
+        component: PlatosListComponent
       },
       {
-				path: 'platos/:id',
-				component: PlatosEditComponent
+        path: 'platos/agregar',
+        component: PlatosAddComponent
+      },
+      {
+        path: 'platos/editar/:id',
+        component: PlatosEditComponent
       },
       {
 				path: 'insumos',

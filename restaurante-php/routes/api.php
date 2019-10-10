@@ -39,3 +39,7 @@ Route::post('proveedores/registrar','Proveedores\ProveedoresController@registrar
 Route::post('proveedores/editar','Proveedores\ProveedoresController@editarProveedor');
 Route::post('proveedores/eliminar','Proveedores\ProveedoresController@eliminarProveedor');
 Route::get('proveedores/mostrar/{id}','Proveedores\ProveedoresController@obtenerProveedor');
+
+//PLATOS
+Route::post('platos/registrar', 'Platos\PlatosController@registrarPlato');
+Route::get('platos', 'Platos\PlatosController@listarPlatos');
