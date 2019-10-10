@@ -1,10 +1,10 @@
 USE `restaurante`;
-DROP procedure IF EXISTS `editar_proveedor`;
+DROP procedure IF EXISTS `usp_proveedores_u_proveedores`;
 
 DELIMITER $$
 USE `restaurante`$$
-CREATE PROCEDURE `editar_proveedor` (
-	IN in_idproveedor,
+CREATE PROCEDURE `usp_proveedores_u_proveedores` (
+	IN in_idproveedor INTEGER,
 	IN in_nombre_proveedor VARCHAR(50),
 	IN in_direccion_proveedor VARCHAR(50),
 	IN in_descripcion VARCHAR(50)
