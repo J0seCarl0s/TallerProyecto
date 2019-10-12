@@ -9,8 +9,7 @@ import { AlertService } from "../../../shared/services/alert.service";
 @Component({
   selector: 'app-insumos-edit',
   templateUrl: './insumos-edit.component.html',
-  styleUrls: ['./insumos-edit.component.css'],
-  providers:  [ InsumosService ]
+  styleUrls: ['./insumos-edit.component.css']
 })
 export class InsumosEditComponent implements OnInit {
 

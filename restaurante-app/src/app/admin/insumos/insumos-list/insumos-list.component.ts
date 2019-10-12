@@ -8,8 +8,7 @@ import { InsumosService } from '../insumos.service';
 @Component({
   selector: 'app-insumos-list',
   templateUrl: './insumos-list.component.html',
-  styleUrls: ['./insumos-list.component.css'],
-  providers:  [ InsumosService ]
+  styleUrls: ['./insumos-list.component.css']
 
 })
 export class InsumosListComponent implements OnInit {
@@ -20,7 +19,6 @@ export class InsumosListComponent implements OnInit {
   //constructor(private router:Router) {}
 
   ngOnInit() {
-    console.log("fuck");
       this.insumosService.listar()
       .subscribe(
         (response)=>{

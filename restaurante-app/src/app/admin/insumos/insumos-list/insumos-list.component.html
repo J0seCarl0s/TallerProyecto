@@ -1,5 +1,3 @@
-<!-- <p (click)="editar()">insumos-list works!</p> -->
-
 <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
@@ -35,13 +33,13 @@
                             {{i+1}}
                           </td>
                           <td>
-                            {{insumo['nombre_insumo']}}
+                            {{insumo.nombre_insumo}}
                           </td>
                           <td>
-                            {{insumo['cantidad_minima']}}
+                            {{insumo.cantidad_minima}}
                           </td>
                           <td>
-                            <button (click)="btnEditar(insumo['idinsumo'])" class="btn btn-white btn-round btn-just-icon">
+                            <button (click)="btnEditar(insumo.idinsumo)" class="btn btn-white btn-round btn-just-icon">
                               <i class="material-icons">create</i>
                             </button>
                           </td>
