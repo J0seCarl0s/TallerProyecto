@@ -28,6 +28,7 @@ Route::post('insumos/registrar', 'Insumos\InsumosController@registrarInsumo');
 Route::post('insumos/editar', 'Insumos\InsumosController@editarInsumo');
 Route::get('insumos', 'Insumos\InsumosController@verInsumos');
 Route::get('insumos/mostrar/{id}', 'Insumos\InsumosController@obtenerInsumo');
+Route::post('insumos/eliminar','Insumos\InsumosController@eliminarInsumo');
 
 Route::get('roles/getAll','Roles\RolesController@getAll');
 Route::post('roles/insert','Roles\RolesController@insert');
@@ -43,3 +44,5 @@ Route::get('proveedores/mostrar/{id}','Proveedores\ProveedoresController@obtener
 //PLATOS
 Route::post('platos/registrar', 'Platos\PlatosController@registrarPlato');
 Route::get('platos', 'Platos\PlatosController@listarPlatos');
+Route::get('platos/mostrar/insumos/{id}', 'Platos\PlatosController@listarPlatos_Insumos');
+Route::get('platos/insumos/agregar/{id}', 'Platos\PlatosController@listarInsumos');

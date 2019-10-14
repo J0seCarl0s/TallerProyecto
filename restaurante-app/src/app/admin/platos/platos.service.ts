@@ -40,7 +40,7 @@ export class PlatosService
     registrar(nombrePlato:string, precioPlato:number,necesitaPrePlato:string): Observable<any>
      {
         var url = this.apiUrl + "platos/registrar";
-        var data = { nombre_plato: nombrePlato, precio_plato: precioPlato,necesitapre_plato: necesitaPrePlato };
+        var data = { nombre_plato: nombrePlato, precio: precioPlato,necesita_preparacion: necesitaPrePlato };
         
         return this.http.post<any>(url, data, this.httpOptions);
      }
@@ -48,10 +48,26 @@ export class PlatosService
      editar(id:number, nombrePlato:string, precioPlato:number,necesitaPrePlato:string): Observable<any>
      {
         var url = this.apiUrl + "platos/editar";
-        var data = { id_plato: id, nombre_plato: nombrePlato, precio_plato: precioPlato,necesitapre_plato: necesitaPrePlato  };
+        var data = { id_plato: id, nombre_plato: nombrePlato, precio_plato: precioPlato,necesita_preparacion: necesitaPrePlato  };
         
         return this.http.post<any>(url, data, this.httpOptions);
      }
+
+      listarInsumosPlatos(id:number): Observable<any>
+    {
+        var url = this.apiUrl + "platos/mostrar/insumos/"+id;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    listarInsumos(id:number): Observable<any>
+    {
+        var url = this.apiUrl + "platos/insumos/agregar/"+id;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+
 
 
 }

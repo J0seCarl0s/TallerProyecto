@@ -78,5 +78,53 @@ class PlatosController extends Controller
         return response()->json($rtn, 200);
     }
 
+        /**
+     * Listar todos los insumos de un plato
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function listarPlatos_Insumos($id_plato){
+        $parametros = [];
+        $parametros[0] = $id_plato;
+         try{
+            //Llamo al procedimiento para obtener la lista de insumos necesarios por plato
+            $insumos = \DB::select('call listar_plato_insumos(?)', $parametros);              
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumos = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumos
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+
     	
+    }
+
+    public function listarInsumos($id_plato){
+        $parametros = [];
+        $parametros[0] = $id_plato;
+         try{
+            //Llamo al procedimiento para obtener la lista de insumos necesarios por plato
+            $insumos = \DB::select('call ver_insumos()');              
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumos = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumos
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+
+        
+    }
 }

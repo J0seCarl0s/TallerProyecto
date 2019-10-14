@@ -20,7 +20,6 @@ export class PlatosListComponent implements OnInit {
   }
 
  ngOnInit() {
-    console.log("fuck");
       this.platosService.listar()
       .subscribe(
         (response)=>{
@@ -48,6 +47,11 @@ export class PlatosListComponent implements OnInit {
       this.router.navigate(['/admin/platos/agregar']);
   }
 
-  
+   btnListarInsumos(id: number)
+  {
+    console.log("Navegando a agregar un nuevo plato: ");
+
+    this.router.navigate(['/admin/platos/mostrar/insumos/'+id]);
+  }
 
 }

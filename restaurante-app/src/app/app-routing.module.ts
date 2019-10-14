@@ -11,6 +11,9 @@ import { Page404Component } from './shared/components/page404/page404.component'
 import { PlatosListComponent } from './admin/platos/platos-list/platos-list.component';
 import { PlatosEditComponent } from './admin/platos/platos-edit/platos-edit.component';
 import { PlatosAddComponent } from './admin/platos/platos-add/platos-add.component';
+import { PlatosInsumosComponent} from './admin/platos/platos-insumos-list/platos-insumos-list.component';
+import { PlatosInsumosAddComponent} from './admin/platos/platos-insumos-add/platos-insumos-add.component';
+
 import { InsumosListComponent } from './admin/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent } from './admin/insumos/insumos-edit/insumos-edit.component';
 import { InsumosAddComponent } from './admin/insumos/insumos-add/insumos-add.component';
@@ -26,6 +29,8 @@ export const ROUTING_COMPONENTS=[
   DashboardAdminComponent,
   PlatosListComponent,
   PlatosEditComponent,
+  PlatosInsumosComponent,
+  PlatosInsumosAddComponent,
   InsumosListComponent,
   InsumosEditComponent,
   InsumosAddComponent,
@@ -63,6 +68,14 @@ const routes: Routes = [
       {
         path: 'platos/editar/:id',
         component: PlatosEditComponent
+      },
+      {
+        path: 'platos/mostrar/insumos/:id',
+        component: PlatosInsumosComponent 
+      },
+      {
+        path: 'platos/insumos/agregar/:id',
+        component: PlatosInsumosAddComponent
       },
       {
 				path: 'insumos',

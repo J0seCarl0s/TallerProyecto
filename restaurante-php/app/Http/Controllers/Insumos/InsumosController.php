@@ -129,4 +129,34 @@ class InsumosController extends Controller
 
         return response()->json($rtn, 200);
     }
+
+
+     /**
+     * Elimina insumo por su id
+     *
+     * @return json
+     */
+    public function eliminarInsumo(Request $request){
+        
+        $insumo = [];
+        //Obtengo los parametros del request
+        $insumo[0] = $request->input('id_insumo');
+
+        try{
+            //Llamo al procedimiento
+            \DB::select('call eliminar_insumo(?)', $insumo);
+            $ok = true;
+            $result = "Insumo eliminado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al eliminar el insumo";
+        }
+        //retorno  en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
 }
