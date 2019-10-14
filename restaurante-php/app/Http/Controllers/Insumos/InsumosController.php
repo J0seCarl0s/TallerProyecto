@@ -52,7 +52,7 @@ class InsumosController extends Controller
         $parametros[0] = $id_insumo;
         try{
             //Llamo al procedimiento para obtener el insumo. La funcion select
-            //retorna un array así que tengo que solo tomo el primer elemento del array
+            //retorna un array así que solo tomo el primer elemento del array
             $insumo = collect(\DB::select('call obtener_insumo(?)', $parametros))
                             ->first();
             $ok = true;
