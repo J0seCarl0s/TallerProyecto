@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { PlatosService } from '../platos.service'
 
+import { AlertService } from "../../../shared/services/alert.service";
+
 @Component({
   selector: 'app-platos-add',
   templateUrl: './platos-add.component.html',
@@ -11,28 +13,37 @@ import { PlatosService } from '../platos.service'
   providers:  [ PlatosService ]
 })
 export class PlatosAddComponent implements OnInit {
-  nombre_plato:string="";
-  precio_plato:number=0.0;
-  necesitapre_plato:string="";
 
-  constructor(private router:Router, private platosService:PlatosService) { }
+  nombre_plato:string="";
+  precio:number=0.0;
+  necesita_preparacion:string="";
+
+  constructor(
+    private router:Router, 
+    private platosService:PlatosService,
+    private alertService:AlertService
+    ) { }
 
   ngOnInit() {
   }
 
   btnAgregarPlato(){
 
-    this.platosService.registrar(this.nombre_plato, this.precio_plato,this.necesitapre_plato)
-      .subscribe(
+    this.platosService.registrar(this.nombre_plato,this.precio,this.necesita_preparacion)
+      .subscribe(       
+
         (response)=>{
           console.log(response);
           if(response.ok){
             console.log("Elemento agregado correctamente");
-          }else{
-            console.log("Ha ocurrido un error");
+            this.alertService.success("Guardado correctamente","Guardar Plato");
+            this.router.navigate(['/admin/platos']);
           }
-          this.router.navigate(['/admin/platos']);
-        }
+        },
+        (err) => {
+          this.alertService.error("Error al guardar Plator",err);
+          console.log("Ha ocurrido un error");
+        }        
       )
   }
 

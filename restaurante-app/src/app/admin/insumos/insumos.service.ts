@@ -53,5 +53,14 @@ export class InsumosService
         return this.http.post<any>(url, data, this.httpOptions);
      }
 
+     eliminar(id:number)
+     {
+        var url = this.apiUrl + "insumos/eliminar";
+        var data = {
+            id_insumo:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
 
 }
