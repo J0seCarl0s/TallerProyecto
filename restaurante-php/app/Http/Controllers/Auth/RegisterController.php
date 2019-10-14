@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Str;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -87,12 +88,16 @@ class RegisterController extends Controller
             'firstname' => $request['firstname'],
             'surname' => $request['surname'],
             'email' => $request['email'],
-            'state' => $request['state'], 
+            'state' => $request['state'],
+            'api_token' => Str::random(60), 
         ]);
+        
 
-        $this->guard()->login($user);
-        $success['token'] = $user->createToken('nfce_client')->accessToken;
-        $success['user'] = $user;        
-        return response()->json($success, 201);
+        $estadoRegistro=false;
+        if($user!=null)
+        {
+            $estadoRegistro=true;
+        }
+        return response()->json($estadoRegistro,200);
     }
 }

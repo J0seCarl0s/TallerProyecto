@@ -4,7 +4,7 @@
 >> php artisan passport:install --force
 
 >>heroku run php artisan passport:install --force
-
+>>heroku ps:exec -a your_app_name
 
 # Solo iver, jhonatan, jose
 clonar del repositorio

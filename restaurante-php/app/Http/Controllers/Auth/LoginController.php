@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -54,19 +55,30 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $user = Auth::user();
-            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user;
+            $token = Str::random(60);
+            $user->forceFill([
+                'api_token' => hash('sha256', $token),
+            ])->save();
+
+            $success['ok'] = true;
+            $success['result'] = $user;
             return response()->json($success, 200);
         }
 
-        return $this->sendFailedLoginResponse($request);
+        $rtn=[
+            "ok"=>false,
+            "msg"=>"Usuario no registrado"
+        ];
+        return response()->json($rtn,200);
     }
 
     public function logout()
     {
         $user = Auth::user();
-        $user->token()->revoke();
-        $user->token()->delete();
+        $token = Str::random(60);
+        $user->forceFill([
+            'api_token' => hash('sha256', $token),
+        ])->save();
 
         return response()->json([
             "status"=>true
