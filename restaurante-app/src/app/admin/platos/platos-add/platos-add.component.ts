@@ -16,7 +16,7 @@ export class PlatosAddComponent implements OnInit {
 
   nombre_plato:string="";
   precio:number=0.0;
-  necesita_preparacion:string="";
+ 
 
   constructor(
     private router:Router, 
@@ -29,7 +29,7 @@ export class PlatosAddComponent implements OnInit {
 
   btnAgregarPlato(){
 
-    this.platosService.registrar(this.nombre_plato,this.precio,this.necesita_preparacion)
+    this.platosService.registrar(this.nombre_plato,this.precio)
       .subscribe(       
 
         (response)=>{

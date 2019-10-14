@@ -37,10 +37,10 @@ export class PlatosService
         return this.http.get(url, this.httpOptions);
     }
 
-    registrar(nombrePlato:string, precioPlato:number,necesitaPrePlato:string): Observable<any>
+    registrar(nombrePlato:string, precioPlato:number): Observable<any>
      {
         var url = this.apiUrl + "platos/registrar";
-        var data = { nombre_plato: nombrePlato, precio: precioPlato,necesita_preparacion: necesitaPrePlato };
+        var data = { nombre_plato: nombrePlato, precio: precioPlato };
         
         return this.http.post<any>(url, data, this.httpOptions);
      }

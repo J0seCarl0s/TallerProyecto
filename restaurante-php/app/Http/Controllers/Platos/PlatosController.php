@@ -51,18 +51,11 @@ class PlatosController extends Controller
         $plato = [];
         //Obtengo los parametros del request
         $plato[0] = $request->input('nombre_plato');
-        $plato[1] = $request->input('precio');
-
-        if(strcmp (($request->input('necesita_preparacion')),'Si' ) == 0){
-			$plato[2] =1;
-        }else{
-        	$plato[2] =0;
-        }
-
+        $plato[1] = $request->input('precio');      
 
         try{
             //Llamo al procedimiento
-            \DB::select('call registrar_platos(?,?, ?)', $plato);
+            \DB::select('call registrar_platos(?,?)', $plato);
             $ok = true;
             $result = "Plato registrado correctamente";
         }catch(QueryException $ex){
