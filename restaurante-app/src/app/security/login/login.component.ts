@@ -36,12 +36,16 @@ export class LoginComponent implements OnInit {
     this.securityService.login(this.username,this.password)
       .subscribe(
         (response)=>{
-          console.log(response);
-          localStorage.setItem("token", response.token);
-          this.router.navigate(['/admin/dashboard']);
+          if(response.ok && response.result!=null)
+          {
+            localStorage.setItem("token", response.api_token);
+            this.router.navigate(['/admin/dashboard']);
+          }else{
+            this.alertService.error("Datos incorrectos",response)
+          }
         },
         (err)=>{
-          this.alertService.error("Datos incorrectos",err)
+          this.alertService.error("Error Servidor",err)
         }
       )
   }
