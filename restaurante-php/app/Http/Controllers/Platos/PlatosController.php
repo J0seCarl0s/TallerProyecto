@@ -120,4 +120,131 @@ class PlatosController extends Controller
 
         
     }
+
+    public function eliminarPlato(Request $request){
+        
+        $plato = [];
+        //Obtengo los parametros del request
+        $plato[0] = $request->input('id_plato');
+
+        try{
+            //Llamo al procedimiento
+            \DB::select('call eliminar_plato(?)', $plato);
+            $ok = true;
+            $result = "Plato eliminado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al eliminar el plato";
+        }
+        //retorno  en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
+
+
+    /**
+     * Edita un plato
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function editarPlato(Request $request){
+        //Obtengo los parametros del request
+        $plato= [];
+        $plato[0] = $request->input('id_plato');
+        $plato[1] = $request->input('nombre_plato');
+        $plato[2] = $request->input('precio');
+
+        try{
+            //Llamo al procedimiento
+            \DB::select('call editar_plato(?, ?, ?)', $plato);
+            $ok = true;
+            $result = "Plato editado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al editar el plato";
+        }
+        //retorno los insumos en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
+
+
+    public function obtenerPlato($id_plato){
+        
+        $parametros = [];
+        $parametros[0] = $id_plato;
+        try{
+            //Llamo al procedimiento para obtener el plato. La funcion select
+            //retorna un array así que solo tomo el primer elemento del array
+            $plato = collect(\DB::select('call obtener_plato(?)', $parametros))
+                            ->first();
+            $ok = true;
+        }catch(QueryException $ex){
+            $plato = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $plato
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
+
+    public function habilitarPlato(Request $request){
+        
+        $plato = [];
+        //Obtengo los parametros del request
+        $plato[0] = $request->input('id_plato');
+        try{
+            //Llamo al procedimiento
+            \DB::select('call habilitar_plato(?)', $plato);                           
+            $ok = true;
+            $result = "Plato habilitado correctamente";
+        }catch(QueryException $ex){
+            $plato = null;
+            $ok = false;
+            $result = "Error al habilitar el plato";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $plato
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
+
+    public function deshabilitarPlato(Request $request){
+        
+        $plato = [];
+        //Obtengo los parametros del request
+        $plato[0] = $request->input('id_plato');
+        try{
+            //Llamo al procedimiento
+            \DB::select('call deshabilitar_plato(?)', $plato);
+            $ok = true;
+            $result = "Plato deshabilitado correctamente";
+        }catch(QueryException $ex){            
+            $ok = false;
+            $result = "Error al deshabilitar el plato";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $plato
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
 }

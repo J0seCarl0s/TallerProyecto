@@ -39,17 +39,20 @@ export class PlatosService
 
     registrar(nombrePlato:string, precioPlato:number): Observable<any>
      {
+         
+         
+
         var url = this.apiUrl + "platos/registrar";
         var data = { nombre_plato: nombrePlato, precio: precioPlato };
         
         return this.http.post<any>(url, data, this.httpOptions);
      }
 
-     editar(id:number, nombrePlato:string, precioPlato:number,necesitaPrePlato:string): Observable<any>
+     editar(id:number, nombrePlato:string, precioPlato:number): Observable<any>
      {
         var url = this.apiUrl + "platos/editar";
-        var data = { id_plato: id, nombre_plato: nombrePlato, precio_plato: precioPlato,necesita_preparacion: necesitaPrePlato  };
-        
+        var data = { id_plato: id, nombre_plato: nombrePlato, precio: precioPlato };
+                
         return this.http.post<any>(url, data, this.httpOptions);
      }
 
@@ -66,6 +69,33 @@ export class PlatosService
         
         return this.http.get(url, this.httpOptions);
     }
+
+     eliminar(id:number)
+     {
+        var url = this.apiUrl + "platos/eliminar";
+        var data = {
+            id_plato:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
+       habilitar(id:number)
+     {
+        var url = this.apiUrl + "platos/habilitar";
+        var data = {
+            id_plato:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
+       deshabilitar(id:number)
+     {
+        var url = this.apiUrl + "platos/deshabilitar";
+        var data = {
+            id_plato:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
 
 
 

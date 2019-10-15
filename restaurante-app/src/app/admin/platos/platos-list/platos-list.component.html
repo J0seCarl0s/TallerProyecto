@@ -18,6 +18,9 @@
             <th scope="col">Fecha</th>
             <th scope="col" >Insumos</th>
             <th scope="col" ></th>
+            <th scope="col" ></th>
+            <th scope="col" ></th>
+            <th scope="col" ></th>
           </tr>
         </thead>
       <tbody>
@@ -33,20 +36,32 @@
           </td>
           <td >
             {{plato.created_at}}
-          </td> 
+          </td>           
           <td>
              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnListarInsumos(plato.idplato)">
               <i class="material-icons">view_list</i>
               </button>
           </td> 
           <td>
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar()">
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnHabilitar(plato.idplato)">
+              <i class="material-icons">visibility</i>
+              </button>
+            
+          </td>
+           <td>
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnDeshabilitar(plato.idplato)">
+              <i class="material-icons">visibility_off</i>
+              </button>
+            
+          </td>
+           <td>
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar(plato.idplato)">
               <i class="material-icons">create</i>
               </button>
             
           </td>
           <td>
-            <button  class="btn btn-white btn-round btn-just-icon">
+            <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminar(plato.idplato)">
             <i class="material-icons">delete</i>
           </button>
         </td>
