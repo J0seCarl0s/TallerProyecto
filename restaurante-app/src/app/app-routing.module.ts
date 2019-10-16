@@ -20,7 +20,8 @@ import { InsumosAddComponent } from './admin/insumos/insumos-add/insumos-add.com
 import { ProveedoresListComponent } from './admin/proveedores/proveedores-list/proveedores-list.component';
 import { ProveedoresEditComponent } from './admin/proveedores/proveedores-edit/proveedores-edit.component';
 import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/proveedores-add.component';
-
+import { UsuariosListComponent } from './admin/usuarios/usuarios-list/usuarios-list.component';
+import { UsuariosAddComponent } from './admin/usuarios/usuarios-add/usuarios-add.component';
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -38,6 +39,8 @@ export const ROUTING_COMPONENTS=[
   ProveedoresEditComponent,
   ProveedoresAddComponent,
   PlatosAddComponent,
+  UsuariosListComponent,
+  UsuariosAddComponent,
 
   Page404Component
 ];
@@ -100,6 +103,14 @@ const routes: Routes = [
       {
 				path: 'proveedores/agregar',
 				component: ProveedoresAddComponent
+      },
+      {
+        path: 'usuarios',
+        component: UsuariosListComponent
+      },
+      {
+        path: 'usuarios/agregar',
+        component: UsuariosAddComponent
       },
     ]
   },

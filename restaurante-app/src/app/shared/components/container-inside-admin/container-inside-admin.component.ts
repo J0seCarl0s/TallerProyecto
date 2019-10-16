@@ -47,6 +47,13 @@ export class ContainerInsideAdminComponent implements OnInit {
     this.titulo="Proveedores";
   }
 
+  redirectUsuarios()
+  {
+    this.efectos(5);
+    this.router.navigate(['/admin/usuarios']);
+    this.titulo="Usuarios";
+  }
+
 
   // EFECTOS NAV
 
@@ -56,11 +63,13 @@ export class ContainerInsideAdminComponent implements OnInit {
     let linkProveedores = document.getElementById('link-proveedores');
     let linkPlatos = document.getElementById('link-platos');
     let linkInsumos = document.getElementById('link-insumos');
+    let linkUsuarios = document.getElementById('link-usuarios');
 
     linkDasboard.classList.remove('active');
     linkProveedores.classList.remove('active');
     linkPlatos.classList.remove('active');
     linkInsumos.classList.remove('active');
+    linkUsuarios.classList.remove('active');
 
     switch(id){
       case 1:{
@@ -74,6 +83,9 @@ export class ContainerInsideAdminComponent implements OnInit {
       }break;
       case 4:{
         linkInsumos.classList.add('active');
+      }break;
+      case 5:{
+        linkUsuarios.classList.add('active');
       }break;
     }
   }
