@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Request;
 
-Route::get('elvis',function (){
-    return response()->json([
-        "nombre"=>"elvis"
-    ],200);
-});
+Route::post('usuarios/edit','User\UserController@editarUsuario');
+Route::post('usuarios/activar','User\UserController@activarUsuario');
+Route::get('usuarios/mostrar/{id}','User\UserController@obtenerDatosUsuario');

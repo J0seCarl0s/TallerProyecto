@@ -83,6 +83,40 @@ class UserController extends Controller
 		return response()->json($rtn, 200);
 	}
 
+
+	/**
+     * Editar un usuario 
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function editarUsuario(Request $request){
+    	$usuario = [];
+        //Obtengo los parametros del request
+        $usuario[0] = $request->input('id');
+        $usuario[1] = $request->input('rol_id');
+        $usuario[2] = $request->input('username');
+		$usuario[3] = $request->input('firstname');
+        $usuario[4] = $request->input('surname');
+
+        try{
+            //Llamo al procedimiento para editar el usuario
+            \DB::select('call usp_users_u_users(?, ?, ?, ?, ?)',$usuario);
+
+            $ok = true;
+            $result = $usuario[0];
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al editar al usuario";
+        }
+        //retorno el resultado en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+		return response()->json($rtn, 200);
+	}
 	
 	/**
      * Elimina un usuario
@@ -120,6 +154,37 @@ class UserController extends Controller
 	}	
 
 	/**
+     * Activar la cuenta de un usuario 
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function activarUsuario(Request $request){
+	    $parametros = [];
+    	$parametros[0] = $request['id'];
+
+    	try{
+            //Llamo al procedimiento para activar al usuario
+            \DB::select('call usp_users_activar_users(?)',$parametros);
+
+            $ok = true;
+            $result = $parametros[0];
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al activar al usuario";
+        }
+
+        //retorno el resultado en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+		return response()->json($rtn, 200);
+    }
+    
+
+	/**
      * Desactiva la cuenta de un usuario 
      *
      * @param  Request $request
@@ -138,8 +203,42 @@ class UserController extends Controller
             				$parametros)
             			)->first();
 
-            $ok = $select->ok;
-            $result = $select->result;
+            $ok = true;
+            $result = $parametros[0];
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al obtener datos del usuario";
+        }
+
+        //retorno el resultado en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+		return response()->json($rtn, 200);
+    }
+    
+
+	/**
+     * Obtener un usuario
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function obtenerDatosUsuario($id_usuario){
+    	$parametros = [];
+    	$parametros[0] = $id_usuario;
+
+    	try{
+            $select = collect(
+            			\DB::select(
+            				'call usp_users_s_users(?)',
+            				$parametros)
+            			)->first();
+
+            $ok = true;
+            $result = $select;
         }catch(QueryException $ex){
             $ok = false;
             $result = "Error al registrar al usuario";
@@ -152,5 +251,5 @@ class UserController extends Controller
         ];
 
 		return response()->json($rtn, 200);
-	}
+	}	
 }

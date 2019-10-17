@@ -22,6 +22,7 @@ import { ProveedoresEditComponent } from './admin/proveedores/proveedores-edit/p
 import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/proveedores-add.component';
 import { UsuariosListComponent } from './admin/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosAddComponent } from './admin/usuarios/usuarios-add/usuarios-add.component';
+import { UsuariosEditComponent } from './admin/usuarios/usuarios-edit/usuarios-edit.component';
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -41,6 +42,7 @@ export const ROUTING_COMPONENTS=[
   PlatosAddComponent,
   UsuariosListComponent,
   UsuariosAddComponent,
+  UsuariosEditComponent,
 
   Page404Component
 ];
@@ -111,6 +113,10 @@ const routes: Routes = [
       {
         path: 'usuarios/agregar',
         component: UsuariosAddComponent
+      },
+      {
+        path: 'usuarios/editar/:id',
+        component: UsuariosEditComponent
       },
     ]
   },

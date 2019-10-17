@@ -36,7 +36,7 @@
             {{usuario.email}}
           </td>           
           <td>
-             <button  class="btn btn-white btn-just-icon" (click)="btnCambiarEstado(usuario.id)">
+             <button  class="btn btn-white btn-just-icon" (click)="btnCambiarEstado(usuario,usuario.state == 1)">
               <i *ngIf="usuario.state == 1" class="material-icons">toggle_on</i>
               <i *ngIf="usuario.state == 0" class="material-icons">toggle_off</i>
               </button>

@@ -48,6 +48,14 @@ export class UsuariosService {
         };
         return this.http.post<any>(url, data, this.httpOptions);
     }
+    activar(id:number): Observable<any>
+    {
+        var url = this.apiUrl + "usuarios/activar";
+        var data = {
+            id:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
 
     desactivar(id:number): Observable<any>
     {
@@ -55,6 +63,28 @@ export class UsuariosService {
         var data = {
             id:id
         };
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
+
+
+    mostrar(idUsuario: number): Observable<any>
+    {
+        var url = this.apiUrl + "usuarios/mostrar/"+idUsuario;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    actualizar(idUsuario,rol_id,username,firstname,surname):Observable<any>
+    {
+        var url = this.apiUrl + "usuarios/edit";
+        var data = {
+            id:idUsuario,
+            rol_id:rol_id,
+            username:username,
+            firstname:firstname,
+            surname:surname
+        };
+
         return this.http.post<any>(url, data, this.httpOptions);
     }
 }

@@ -55,7 +55,7 @@ export class UsuariosListComponent implements OnInit {
   {
       console.log("Navegando a editar el usuario: "+id);
 
-      //this.router.navigate(['/admin/usuarios/editar/'+id]);
+      this.router.navigate(['/admin/usuarios/editar/'+id]);
   }
 
   btnAgregar()
@@ -65,11 +65,30 @@ export class UsuariosListComponent implements OnInit {
       this.router.navigate(['/admin/usuarios/agregar']);
   }
 
-  btnCambiarEstado(id: number)
+  btnCambiarEstado(usuario,activado:boolean)
   {
-      console.log("Cambiando el estado de un usuario: ");
-
-      this.usuariosService.desactivar(id);
+      if(activado)
+      {
+        console.log("desactiva cuenta ");
+        this.usuariosService.desactivar(usuario.id)
+          .subscribe(
+            (res)=>{
+              console.log("activa cuenta ");
+              console.log(res)
+              usuario.state=!usuario.state;
+            }
+          )
+      }else
+      {
+        this.usuariosService.activar(usuario.id)
+          .subscribe(
+            (res)=>{
+              console.log("activa cuenta ");
+              console.log(res)
+              usuario.state=!usuario.state;
+            }
+          )
+      }
   }
 
   btnEliminar(id:number)
