@@ -23,7 +23,8 @@ import { TokenService } from './shared/services/token.service';
 import { SecurityService } from "./security/security.service";
 import { ProveedoresService } from "./admin/proveedores/proveedores.service";
 import  { InsumosService } from "./admin/insumos/insumos.service";
-
+import { UsuariosService} from "./admin/usuarios/usuarios.service";
+import { RolesService} from "./admin/roles/roles.service";
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
@@ -61,7 +62,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     SecurityService,
     ProveedoresService,
-    InsumosService
+    InsumosService,
+    UsuariosService,
+    RolesService
   ],
   bootstrap: [AppComponent]
 })
