@@ -38,8 +38,19 @@ export class LoginComponent implements OnInit {
         (response)=>{
           if(response.ok && response.result!=null)
           {
-            localStorage.setItem("token", response.api_token);
-            this.router.navigate(['/admin/dashboard']);
+            let usuario = response.result;
+            localStorage.setItem("token", usuario.api_token);
+
+            if(usuario.rol_id==1)
+              this.router.navigate(['/admin/dashboard']);
+            if(usuario.rol_id==2)
+              this.router.navigate(['/mozo/dashboard']);
+            if(usuario.rol_id==3)
+              this.router.navigate(['/cocinero/dashboard']);
+            if(usuario.rol_id==4)
+              this.router.navigate(['/admincaja/dashboard']);
+            if(usuario.rol_id==5)
+              this.router.navigate(['/adminalmacen/dashboard']);
           }else{
             this.alertService.error("Datos incorrectos",response)
           }
