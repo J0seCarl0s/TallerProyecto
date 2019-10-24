@@ -23,6 +23,14 @@ import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/pro
 import { UsuariosListComponent } from './admin/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosAddComponent } from './admin/usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './admin/usuarios/usuarios-edit/usuarios-edit.component';
+import { DashboardAdminalmacenComponent } from './adminalmacen/dashboard-adminalmacen/dashboard-adminalmacen.component';
+import { DashboardAdmincajaComponent } from './admincaja/dashboard-admincaja/dashboard-admincaja.component';
+import { DashboardCocineroComponent } from './cocinero/dashboard-cocinero/dashboard-cocinero.component';
+import { DashboardMozoComponent } from './mozo/dashboard-mozo/dashboard-mozo.component';
+import { ContainerInsideAdminAlmacenComponent } from './shared/components/container-inside-admin-almacen/container-inside-admin-almacen.component';
+import { ContainerInsideAdminCajaComponent } from './shared/components/container-inside-admin-caja/container-inside-admin-caja.component';
+import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
+import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -43,6 +51,18 @@ export const ROUTING_COMPONENTS=[
   UsuariosListComponent,
   UsuariosAddComponent,
   UsuariosEditComponent,
+
+  ContainerInsideAdminAlmacenComponent, 
+  DashboardAdminalmacenComponent,
+
+  ContainerInsideAdminCajaComponent, 
+  DashboardAdmincajaComponent,
+
+  ContainerInsideCocineroComponent,
+  DashboardCocineroComponent,
+
+  ContainerInsideMozoComponent, 
+  DashboardMozoComponent,
 
   Page404Component
 ];
@@ -118,6 +138,50 @@ const routes: Routes = [
         path: 'usuarios/editar/:id',
         component: UsuariosEditComponent
       },
+    ]
+  },
+  {
+    path:'adminalmacen',
+    canActivate:[TokenGuard],
+    component:ContainerInsideAdminAlmacenComponent,
+    children:[
+      {
+        path:'dashboard',
+        component:DashboardAdminalmacenComponent
+      }
+    ]
+  },
+  {
+    path:'admincaja',
+    canActivate:[TokenGuard],
+    component:ContainerInsideAdminCajaComponent,
+    children:[
+      {
+        path:'dashboard',
+        component:DashboardAdmincajaComponent
+      }
+    ]
+  },
+  {
+    path:'cocinero',
+    canActivate:[TokenGuard],
+    component:ContainerInsideCocineroComponent,
+    children:[
+      {
+        path:'dashboard',
+        component:DashboardCocineroComponent
+      }
+    ]
+  },
+  {
+    path:'mozo',
+    canActivate:[TokenGuard],
+    component:ContainerInsideMozoComponent,
+    children:[
+      {
+        path:'dashboard',
+        component:DashboardMozoComponent
+      }
     ]
   },
   { path: '**', component: Page404Component }
