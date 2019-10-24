@@ -23,10 +23,10 @@ import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/pro
 import { UsuariosListComponent } from './admin/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosAddComponent } from './admin/usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './admin/usuarios/usuarios-edit/usuarios-edit.component';
-<<<<<<< HEAD
+
 import { ProveedoresInsumosAddComponent } from './admin/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
 import { ProveedoresInsumosListComponent } from './admin/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
-=======
+
 import { DashboardAdminalmacenComponent } from './adminalmacen/dashboard-adminalmacen/dashboard-adminalmacen.component';
 import { DashboardAdmincajaComponent } from './admincaja/dashboard-admincaja/dashboard-admincaja.component';
 import { DashboardCocineroComponent } from './cocinero/dashboard-cocinero/dashboard-cocinero.component';
@@ -35,7 +35,8 @@ import { ContainerInsideAdminAlmacenComponent } from './shared/components/contai
 import { ContainerInsideAdminCajaComponent } from './shared/components/container-inside-admin-caja/container-inside-admin-caja.component';
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
->>>>>>> a5bf213d934863e1932c8f2b81c67547c8d467a9
+
+
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
