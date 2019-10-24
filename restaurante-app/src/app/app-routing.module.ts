@@ -23,6 +23,8 @@ import { ProveedoresAddComponent } from './admin/proveedores/proveedores-add/pro
 import { UsuariosListComponent } from './admin/usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosAddComponent } from './admin/usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './admin/usuarios/usuarios-edit/usuarios-edit.component';
+import { ProveedoresInsumosAddComponent } from './admin/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
+import { ProveedoresInsumosListComponent } from './admin/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -39,6 +41,8 @@ export const ROUTING_COMPONENTS=[
   ProveedoresListComponent,
   ProveedoresEditComponent,
   ProveedoresAddComponent,
+  ProveedoresInsumosAddComponent,
+  ProveedoresInsumosListComponent,
   PlatosAddComponent,
   UsuariosListComponent,
   UsuariosAddComponent,
@@ -107,6 +111,14 @@ const routes: Routes = [
 				component: ProveedoresAddComponent
       },
       {
+        path: 'proveedores/agregar/insumos/:id',
+        component: ProveedoresInsumosAddComponent
+      },
+      {
+        path: 'proveedores/mostrar/insumos/:id',
+        component: ProveedoresInsumosListComponent
+      },
+      {
         path: 'usuarios',
         component: UsuariosListComponent
       },
@@ -127,6 +139,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  declarations: [],
 })
 export class AppRoutingModule { }

@@ -162,4 +162,46 @@ class ProveedoresController extends Controller
 
         return response()->json($rtn, 200);
     }
+
+    public function listarProveedor_Insumos($id_proveedor){
+        $parametros = [];
+        $parametros[0] = $id_proveedor;
+         try{
+            //Llamo al procedimiento para obtener la lista de insumos necesarios por plato
+            $insumos = \DB::select('call usp_insumos_proveedores_s_insumos_proveedoress(?)', $parametros);              
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumos = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumos
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
+
+    public function listarInsumos ($id_proveedor){
+        $parametros = [];
+        $parametros[0] = $id_proveedor;
+         try{
+            //Llamo al procedimiento para obtener la lista de insumos necesarios por plato
+            $insumos = \DB::select('call ver_insumos()');              
+            $ok = true;
+        }catch(QueryException $ex){
+            $insumos = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $insumos
+        ];
+        //retorno los insumos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+
+        
+    }
 }

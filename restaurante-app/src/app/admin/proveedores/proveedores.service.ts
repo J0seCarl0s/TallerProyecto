@@ -70,4 +70,26 @@ export class ProveedoresService
         };
         return this.http.post<any>(url, data, this.httpOptions);
      }
+
+      listarInsumosProveedor(id:number): Observable<any>
+    {
+        var url = this.apiUrl + "proveedores/mostrar/insumos/"+id;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    listarInsumos(id:number): Observable<any>
+    {
+        var url = this.apiUrl + "proveedores/insumos/agregar/"+id;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    registrarInsumo(nombreInsumo:string, cantidadMinima:number): Observable<any>
+     {
+        var url = this.apiUrl + "insumos/registrar";
+        var data = { nombre_insumo: nombreInsumo, cantidad_minima: cantidadMinima };
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
 }

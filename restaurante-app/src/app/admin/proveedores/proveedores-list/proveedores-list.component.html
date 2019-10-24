@@ -25,6 +25,9 @@
                     <!-- Editar -->
                 </th>
                 <th>
+                    Insumos
+                </th>
+                <th>
                     <!-- Eliminar -->
                 </th>
                 </tr>
@@ -44,6 +47,11 @@
                   <button (click)="btnEditar(proveedor.idproveedor)" class="btn btn-white btn-round btn-just-icon">
                     <i class="material-icons">create</i>
                   </button>
+                </td>
+                <td>
+                   <button  class="btn btn-white btn-round btn-just-icon" (click)="btnListarInsumos(proveedor.idproveedor)">
+                    <i class="material-icons">view_list</i>
+                    </button>
                 </td>
                 <td>
                   <button (click)="btnEliminar(proveedor.idproveedor)" class="btn btn-white btn-round btn-just-icon">

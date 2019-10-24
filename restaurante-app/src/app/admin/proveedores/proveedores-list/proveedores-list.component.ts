@@ -74,4 +74,10 @@ export class ProveedoresListComponent implements OnInit {
       }
     )
   }
+  btnListarInsumos(id: number)
+  {
+    console.log("Navegando a agregar un nuevo insumo del proveedor: ");
+
+    this.router.navigate(['/admin/proveedores/mostrar/insumos/'+id]);
+  }
 }
