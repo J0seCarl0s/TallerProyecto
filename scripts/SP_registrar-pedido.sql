@@ -23,13 +23,7 @@ BEGIN
         * 4 si el mozo no existe o está deshabilitado
     */
     
-    DECLARE idinsumo_actual INT DEFAULT 0;
-	DECLARE cantidad_actual INT DEFAULT 0;
-	DECLARE done INT DEFAULT FALSE;
-    DECLARE cur1 CURSOR FOR SELECT idinsumo, cantidad FROM platos_insumos WHERE idplato = in_idPlato;
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-			
-	SET AUTOCOMMIT = 0;
+    SET AUTOCOMMIT = 0;
     START TRANSACTION;
     
     SET @existe_plato = true;
@@ -71,19 +65,11 @@ BEGIN
 		INSERT INTO pedidos (idplato, num_mesa, idmozo, estado) 
         VALUES (in_idPlato, in_num_mesa, in_idMozo, 'PENDIENTE');
     
-		/* Resto en el almacen los insumo que se consumen al elaborar el pedido*/
-		OPEN cur1;
-		restar_almacen_loop: LOOP
-			FETCH cur1 INTO idinsumo_actual, cantidad_actual;
-            IF done THEN
-			  LEAVE restar_almacen_loop;
-			END IF;
-            
-            UPDATE almacen SET cantidad = cantidad - cantidad_actual
-            WHERE (idinsumo = idinsumo_actual);
-        END LOOP;
+		/* Resto los insumos del almacen */
+        UPDATE almacen AS a INNER JOIN platos_insumos AS p ON a.idinsumo = p.idinsumo
+        SET a.cantidad = a.cantidad - p.cantidad
+		WHERE (p.idplato = in_idPlato);
         
-        CLOSE cur1;
 		SELECT 1 AS resultado;
     END IF;
     
