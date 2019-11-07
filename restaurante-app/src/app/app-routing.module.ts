@@ -36,6 +36,7 @@ import { ContainerInsideAdminCajaComponent } from './shared/components/container
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
 
+
 import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
 import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
 
@@ -43,9 +44,9 @@ import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
 
 import { PedidosAddComponent } from './mozo/pedidos/pedidos-add/pedidos-add.component';
 import { PedidosListComponent } from './mozo/pedidos/pedidos-list/pedidos-list.component';
+import { PedidosEditComponent } from './mozo/pedidos/pedidos-edit/pedidos-edit.component';
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
-
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -87,6 +88,7 @@ export const ROUTING_COMPONENTS=[
   DashboardMozoComponent,
   PedidosAddComponent,
   PedidosListComponent,
+  PedidosEditComponent,
 
   Page404Component
 ];
@@ -208,7 +210,19 @@ const routes: Routes = [
       {
         path: 'entradas/agregar',
         component: EntradasAddComponent
-      }
+      },
+      {
+        path: 'salidas/',
+        component: EntradasAddComponent
+      },
+       {
+        path: 'proveedor/',
+        component: ProveedoresListComponent
+      },
+       {
+        path: 'proveedor/agregar',
+        component: ProveedoresAddComponent
+      },
     ]
   },
   {
@@ -245,6 +259,10 @@ const routes: Routes = [
       {
         path:'pedidos/agregar',
         component:PedidosAddComponent
+      },
+      {
+        path:'pedidos/editar/:id',
+        component:PedidosEditComponent
       },
       {
         path:'pedidos',
