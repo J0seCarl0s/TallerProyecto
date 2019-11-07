@@ -53,6 +53,12 @@ export class ContainerInsideAdminComponent implements OnInit {
     this.router.navigate(['/admin/usuarios']);
     this.titulo="Usuarios";
   }
+  redirectMesas()
+  {
+    this.efectos(6);
+    this.router.navigate(['/admin/mesas']);
+    this.titulo="Mesas";
+  }
 
 
   // EFECTOS NAV
@@ -64,12 +70,14 @@ export class ContainerInsideAdminComponent implements OnInit {
     let linkPlatos = document.getElementById('link-platos');
     let linkInsumos = document.getElementById('link-insumos');
     let linkUsuarios = document.getElementById('link-usuarios');
+    let linkMesas = document.getElementById('link-mesas');
 
     linkDasboard.classList.remove('active');
     linkProveedores.classList.remove('active');
     linkPlatos.classList.remove('active');
     linkInsumos.classList.remove('active');
     linkUsuarios.classList.remove('active');
+    //linkMesas.classList.remove('active');
 
     switch(id){
       case 1:{
@@ -87,6 +95,9 @@ export class ContainerInsideAdminComponent implements OnInit {
       case 5:{
         linkUsuarios.classList.add('active');
       }break;
+      /*case 6:{
+        linkMesas.classList.add('active');
+      }break;*/
     }
   }
 

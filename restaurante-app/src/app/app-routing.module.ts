@@ -35,6 +35,8 @@ import { ContainerInsideAdminAlmacenComponent } from './shared/components/contai
 import { ContainerInsideAdminCajaComponent } from './shared/components/container-inside-admin-caja/container-inside-admin-caja.component';
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
+import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
+import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
 
 
 
@@ -55,10 +57,13 @@ export const ROUTING_COMPONENTS=[
   ProveedoresAddComponent,
   ProveedoresInsumosAddComponent,
   ProveedoresInsumosListComponent,
+  ProveedoresInsumosEditComponent,
   PlatosAddComponent,
   UsuariosListComponent,
   UsuariosAddComponent,
   UsuariosEditComponent,
+  MesasAddComponent,
+  
 
   ContainerInsideAdminAlmacenComponent, 
   DashboardAdminalmacenComponent,
@@ -135,12 +140,16 @@ const routes: Routes = [
 				component: ProveedoresAddComponent
       },
       {
-        path: 'proveedores/agregar/insumos/:id',
+        path: 'proveedores/agregar/insumo/:id',
         component: ProveedoresInsumosAddComponent
       },
       {
         path: 'proveedores/mostrar/insumos/:id',
         component: ProveedoresInsumosListComponent
+      },
+      {
+        path: 'proveedores/insumo/editar/:id',
+        component: InsumosEditComponent
       },
       {
         path: 'usuarios',
@@ -153,6 +162,10 @@ const routes: Routes = [
       {
         path: 'usuarios/editar/:id',
         component: UsuariosEditComponent
+      },
+      {
+        path: 'mesas',
+        component: MesasAddComponent
       },
     ]
   },
@@ -207,5 +220,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  
 })
 export class AppRoutingModule { }

@@ -183,25 +183,54 @@ class ProveedoresController extends Controller
         return response()->json($rtn, 200);
     }
 
-    public function listarInsumos ($id_proveedor){
+    public function agregarInsumoProveedor (Request $request){
         $parametros = [];
-        $parametros[0] = $id_proveedor;
+        $parametros[0] = $request->input('id');
+        $parametros[1] = $request->input('nombre');
+        $parametros[2] = $request->input('cantidad');
          try{
             //Llamo al procedimiento para obtener la lista de insumos necesarios por plato
-            $insumos = \DB::select('call ver_insumos()');              
+            \DB::select('call registrar_insumo_proveedor(?, ?, ?)', $parametros);              
             $ok = true;
+            $result="Insumo agregado correctamente";
         }catch(QueryException $ex){
-            $insumos = null;
+            $result = "Insumo no agregado";
             $ok = false;
         }
 
         $rtn = [
             'ok' => $ok,
-            'result' => $insumos
+            'result' => $result
         ];
         //retorno los insumos en formato json y el HTTP status code 200
         return response()->json($rtn, 200);
 
         
+    }
+
+    public function editarInsumoProveedor(Request $request){
+        //Obtengo los parametros del request
+        $parametros = [];
+        
+        $parametros[0] = $request->input('idIn');
+        $parametros[1] = $request->input('nombre');
+        $parametros[2] = $request->input('cantidad');
+        
+        try{
+            //Llamo al procedimiento
+            \DB::select('call editar_insumo(?, ?, ?)', $parametros);
+            $ok = true;
+            $result = "Proveedor editado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al editar el Proveedor";
+        }
+        //retorno los proveedores en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
     }
 }

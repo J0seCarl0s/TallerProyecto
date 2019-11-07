@@ -34,7 +34,7 @@ export class ProveedoresInsumosAddComponent implements OnInit {
    llenarDatos()
   {
     this. idProveedor= parseInt( this.route.snapshot.paramMap.get("id")); 
-    this.proveedoresService.listarInsumos(this.idProveedor)
+    this.proveedoresService.listar()
       .subscribe(
         (response)=>{
           console.log(response);
@@ -52,17 +52,18 @@ export class ProveedoresInsumosAddComponent implements OnInit {
   }
 
   btnAgregarInsumo(){
-    this.proveedoresService.registrarInsumo(this.nombre_insumo, this.cantidad_minima)
+    this.proveedoresService.agregarInsumoProveedor(this.idProveedor,this.nombre_insumo, this.cantidad_minima)
       .subscribe(
         (response)=>{
           console.log(response);
           if(response.ok){
             console.log("Elemento agregado correctamente");
-            this.alertService.success("Se guardo correctamente el insumo","Insumos");
+            this.alertService.success("Se guardo correctamente el insumo","Insumo Guardado");
+            this.router.navigate(['/admin/proveedores/mostrar/insumos/'+this.idProveedor]);
           }else{
             console.log("Ha ocurrido un error");
           }
-          this.router.navigate(['/admin/insumos']);
+          
         },
         (err)=>{
           this.alertService.error("Error al guardar insumo",err);

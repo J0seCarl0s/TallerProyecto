@@ -25,6 +25,7 @@ import { ProveedoresService } from "./admin/proveedores/proveedores.service";
 import  { InsumosService } from "./admin/insumos/insumos.service";
 import { UsuariosService} from "./admin/usuarios/usuarios.service";
 import { RolesService} from "./admin/roles/roles.service";
+import  { MesasService } from "./admin/mesas/mesas.service";
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
@@ -64,7 +65,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProveedoresService,
     InsumosService,
     UsuariosService,
-    RolesService
+    RolesService,
+    MesasService
   ],
   bootstrap: [AppComponent]
 })
