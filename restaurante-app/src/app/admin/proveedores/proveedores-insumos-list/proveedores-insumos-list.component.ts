@@ -35,6 +35,7 @@ export class ProveedoresInsumosListComponent implements OnInit {
 
   llenarDatos() {
   	  this. idProveedor= parseInt( this.route.snapshot.paramMap.get("id")); 
+
       this.proveedoresService.listarInsumosProveedor(this.idProveedor)
       .subscribe(
         (response)=>{
@@ -52,16 +53,16 @@ export class ProveedoresInsumosListComponent implements OnInit {
   {
 
       console.log("Navegando a agregar un nuevo insumo del proveedor: ");
-      this.router.navigate(['/admin/proveedores/agregar/insumo/'+this.idInsumo]);
+      this.router.navigate(['/admin/proveedores/agregar/insumo/'+this.idProveedor]);
   }
 
   btnRetroceder(){
     this.router.navigate(['/admin/proveedores/']);
   }
 
-  btnEditarInsumo(){
+  btnEditarInsumo(id:number){
     
- /*    this.proveedoresService.registrarInsumoProveedor(this.idProveedor,this.idInsumo,this.nombre_insumo,this.cantidad_minima)
+    /*this.proveedoresService.registrarInsumoProveedor(this.idProveedor,this.idInsumo,this.nombre_insumo,this.cantidad_minima)
       .subscribe(
         (res)=>{
           if(res.ok)
@@ -73,9 +74,9 @@ export class ProveedoresInsumosListComponent implements OnInit {
         (err) => {
           this.alertService.error("Error al guardar proveedor",err);
         }
-      )
-   */ console.log("Navegando a editar el insumo del proveedor: "+this.idProveedor);
-    this.router.navigate(['/admin/proveedores/insumo/editar/'+this.idProveedor]);
+      )*/
+    /*console.log("Navegando a editar el insumo del proveedor: "+this.id);
+    this.router.navigate(['/admin/proveedores/insumo/editar/'+this.id]);*/
   }
 
   btnEliminarInsumo(id: number){

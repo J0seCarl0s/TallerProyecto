@@ -35,17 +35,17 @@ import { ContainerInsideAdminAlmacenComponent } from './shared/components/contai
 import { ContainerInsideAdminCajaComponent } from './shared/components/container-inside-admin-caja/container-inside-admin-caja.component';
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
-<<<<<<< HEAD
+
 import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
 import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
 
 
-=======
+
 import { PedidosAddComponent } from './mozo/pedidos/pedidos-add/pedidos-add.component';
 import { PedidosListComponent } from './mozo/pedidos/pedidos-list/pedidos-list.component';
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
->>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
+
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -259,10 +259,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-<<<<<<< HEAD
-  
-=======
+
   declarations: [],
->>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
 })
 export class AppRoutingModule { }

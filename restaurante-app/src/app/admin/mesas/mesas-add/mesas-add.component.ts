@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { MesasService } from '../mesas.service';
+import { MesasServiceAdmin } from '../mesas.service';
 
 import { AlertService } from "../../../shared/services/alert.service";
 
@@ -17,7 +17,7 @@ export class MesasAddComponent implements OnInit {
 
   constructor(
   		private router:Router, 
-    	private mesasService:MesasService,
+    	private mesasService:MesasServiceAdmin,
     	private alertService:AlertService
   	) { }
 

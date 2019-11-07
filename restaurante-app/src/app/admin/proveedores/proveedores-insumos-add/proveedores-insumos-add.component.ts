@@ -34,6 +34,7 @@ export class ProveedoresInsumosAddComponent implements OnInit {
    llenarDatos()
   {
     this. idProveedor= parseInt( this.route.snapshot.paramMap.get("id")); 
+    
     this.proveedoresService.listar()
       .subscribe(
         (response)=>{

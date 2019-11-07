@@ -25,14 +25,13 @@ import { ProveedoresService } from "./admin/proveedores/proveedores.service";
 import  { InsumosService } from "./admin/insumos/insumos.service";
 import { UsuariosService} from "./admin/usuarios/usuarios.service";
 import { RolesService} from "./admin/roles/roles.service";
-<<<<<<< HEAD
-import  { MesasService } from "./admin/mesas/mesas.service";
-=======
+
+import  { MesasServiceAdmin } from "./admin/mesas/mesas.service";
+
 import { MesasService } from "./mozo/mesas/mesas.service";
 import { PedidosService } from "./mozo/pedidos/pedidos.service";
 import { PlatosService } from "./mozo/platos/platos.service";
 import { EntradasService } from "./adminalmacen/entradas/entradas.service";
->>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
@@ -73,9 +72,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InsumosService,
     UsuariosService,
     RolesService,
-<<<<<<< HEAD
-    MesasService
-=======
+
+    MesasServiceAdmin,
+
 
     //SERVICIOS DEL MOZO
     MesasService,
@@ -84,7 +83,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     //SERVICIOS DEL ALMACENERO
     EntradasService    
->>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
+
   ],
   bootstrap: [AppComponent]
 })

@@ -6,7 +6,7 @@ import { HeaderService } from '../../shared/services/header.service';
 
 
 @Injectable()
-export class MesasService
+export class MesasServiceAdmin
 {
 
 	httpOptions:object;

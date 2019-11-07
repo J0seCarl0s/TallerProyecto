@@ -21,11 +21,12 @@
           </tr>
         </thead>
       <tbody>
-        <tr *ngFor="let insumo of insumos; index as i">          
+        <tr *ngFor="let insumo of insumos; index as i" >  
+                                                                     
           <td>
             {{i+1}}
           </td>
-           
+          
           <td>
             {{insumo.nombre_insumo}}
           </td>
@@ -34,11 +35,12 @@
           </td>          
         
           <td>
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditarInsumo()">
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditarInsumo(insumo.idinsumo)">
               <i class="material-icons">create</i>
               </button>
             
           </td>
+          
           <td>
             <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminarInsumo()">
             <i class="material-icons">delete</i>
