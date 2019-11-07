@@ -38,4 +38,28 @@ export class PedidosService {
         
         return this.http.get(url, this.httpOptions);
     }
+
+    editar(id: number, idPlato:number, numMesa:number): Observable<any>
+     {
+        var url = this.apiUrl + "pedidos/editar";
+        var data = { id_pedido: id,  "idPlato": idPlato,"numMesa": numMesa};
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
+     eliminar(id:number)
+     {
+        var url = this.apiUrl + "pedidos/eliminar";
+        var data = {
+            id_pedido:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
+    mostrar(idPedido: number): Observable<any>
+    {
+        var url = this.apiUrl + "pedidos/mostrar/"+idPedido;
+        
+        return this.http.get(url, this.httpOptions);
+    }
 }

@@ -13,6 +13,12 @@
                           <th>
                             Estado
                           </th>
+                          <th>
+                            <!-- Editar -->
+                          </th>
+                          <th>
+                            <!-- Eliminar -->
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -32,6 +38,20 @@
                             </div>
                             <div *ngIf="pedido.estado === 'ENTREGADO'" class="alert alert-success">
                                 <strong> {{pedido.estado}} </strong>
+                            </div>
+                          </td>
+                          <td>
+                            <div *ngIf="pedido.estado === 'PENDIENTE'" align="right">
+                              <button (click)="btnEditar(pedido.idpedido)" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">create</i>
+                              </button>
+                            </div>
+                          </td>
+                           <td>
+                            <div *ngIf="pedido.estado === 'PENDIENTE'" align="right">
+                              <button (click)="btnEliminar(pedido.idpedido)" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">delete</i>
+                            </button>
                             </div>
                           </td>
                         </tr>

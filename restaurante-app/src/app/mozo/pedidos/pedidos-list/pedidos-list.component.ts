@@ -48,4 +48,33 @@ export class PedidosListComponent implements OnInit {
 
      }
   }
+
+    btnEditar(id: number)
+  {
+      console.log("Navegando a editar el pedido: "+id);
+
+      this.router.navigate(['/mozo/pedidos/editar/'+id]);
+  }
+
+  btnEliminar(id:number)
+  {
+    this.pedidosService.eliminar(id)
+    .subscribe(
+      (response)=>{
+        if(response.ok)
+        {
+          this.alertService.success("Eliminado correctamente","Eliminar");
+          console.log("Se elimino correctamente");
+          this.llenarDatos();
+        }else{
+          console.log("Ocurrio un error");
+          this.alertService.error("Error al eliminar pedido",null);  
+        }
+      },
+      (err) => {
+        console.log("Ocurrio un error");
+        this.alertService.error("Error al eliminar pedido",err);
+      }
+    )
+  }
 }
