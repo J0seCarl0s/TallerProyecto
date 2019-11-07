@@ -3,11 +3,10 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Registrar un nuevo empleado</h4>
-                  <p class="card-category">Ingrese los datos del nuevo empleado</p>
+                  <h4 class="card-title">Registrar una entrada al almacen</h4>
                 </div>
                 <div class="card-body">
-                  <form (ngSubmit)="btnAgregarUsuario()">
+                  <form (ngSubmit)="btnAgregarEntrada()">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
@@ -44,7 +43,7 @@
                         <div class="form-group bmd-form-group">
                           <select [(ngModel)]="rol_id" name="rol_id" class="form-control" required>
                             <option selected="true" value="0" disabled>-- Escoja el rol del empleado --</option>
-                            <option *ngFor="let rol of roles" [ngValue]="rol.rol_id">
+                            <option *ngFor="let rol of roles" [value]="rol.rol_id">
                               {{rol.nombre_rol | lowercase}}
                             </option>           
                           </select>

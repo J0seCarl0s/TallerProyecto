@@ -1,0 +1,42 @@
+              <div *ngFor="let mesaPedidos of mesasPedidos" class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Mesa {{ mesaPedidos.numMesa }}</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <tr>
+                          <th>
+                            Plato
+                          </th>
+                          <th>
+                            Estado
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let pedido of mesaPedidos.pedidos">
+                          <td>
+                            {{ pedido.nombre_plato }}
+                          </td>
+                          <td>
+                            <div *ngIf="pedido.estado === 'PENDIENTE'" class="alert alert-primary">
+                              <strong> {{pedido.estado}} </strong>
+                            </div>
+                            <div *ngIf="pedido.estado === 'EN PREPARACION'" class="alert alert-warning">
+                              <strong> {{pedido.estado}} </strong>
+                            </div>
+                            <div *ngIf="pedido.estado === 'PREPARADO'" class="alert alert-danger">
+                              <strong> {{pedido.estado}} </strong>
+                            </div>
+                            <div *ngIf="pedido.estado === 'ENTREGADO'" class="alert alert-success">
+                                <strong> {{pedido.estado}} </strong>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>

@@ -35,10 +35,17 @@ import { ContainerInsideAdminAlmacenComponent } from './shared/components/contai
 import { ContainerInsideAdminCajaComponent } from './shared/components/container-inside-admin-caja/container-inside-admin-caja.component';
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
+<<<<<<< HEAD
 import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
 import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
 
 
+=======
+import { PedidosAddComponent } from './mozo/pedidos/pedidos-add/pedidos-add.component';
+import { PedidosListComponent } from './mozo/pedidos/pedidos-list/pedidos-list.component';
+import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
+import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
+>>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -67,6 +74,8 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideAdminAlmacenComponent, 
   DashboardAdminalmacenComponent,
+  EntradasAddComponent,
+  EntradasListComponent,
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
@@ -76,6 +85,8 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideMozoComponent, 
   DashboardMozoComponent,
+  PedidosAddComponent,
+  PedidosListComponent,
 
   Page404Component
 ];
@@ -177,6 +188,26 @@ const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardAdminalmacenComponent
+      },
+      {
+        path: 'insumos',
+        component: InsumosListComponent
+      },
+      {
+        path: 'insumos/editar/:id',
+        component: InsumosEditComponent
+      },
+      {
+        path: 'insumos/agregar',
+        component: InsumosAddComponent
+      },
+      {
+        path: 'entradas',
+        component: EntradasListComponent
+      },
+      {
+        path: 'entradas/agregar',
+        component: EntradasAddComponent
       }
     ]
   },
@@ -210,6 +241,14 @@ const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardMozoComponent
+      },
+      {
+        path:'pedidos/agregar',
+        component:PedidosAddComponent
+      },
+      {
+        path:'pedidos',
+        component:PedidosListComponent
       }
     ]
   },
@@ -220,6 +259,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+<<<<<<< HEAD
   
+=======
+  declarations: [],
+>>>>>>> 814c07416a5677ca3004e6f6639ad9c5b332c514
 })
 export class AppRoutingModule { }

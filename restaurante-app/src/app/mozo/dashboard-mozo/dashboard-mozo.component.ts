@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-mozo',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardMozoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  	
   }
 
+  redirectAgregarPedido() {
+  	this.router.navigate(['/mozo/pedidos/agregar']);
+  }
+
+  redirectListarPedidos() {
+    this.router.navigate(['/mozo/pedidos']);
+  }
 }
