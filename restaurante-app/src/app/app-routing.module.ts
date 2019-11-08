@@ -48,6 +48,11 @@ import { PedidosEditComponent } from './mozo/pedidos/pedidos-edit/pedidos-edit.c
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
 
+import { InsumosListComponent as InsumosAlmacenListComponent } from './adminalmacen/insumos/insumos-list/insumos-list.component';
+import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalmacen/insumos/insumos-edit/insumos-edit.component';
+import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
+
+
 export const ROUTING_COMPONENTS=[
   LoginComponent,
   ContainerInsideAdminComponent,
@@ -75,6 +80,9 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideAdminAlmacenComponent, 
   DashboardAdminalmacenComponent,
+  InsumosAlmacenListComponent,
+  InsumosAlmacenEditComponent,
+  InsumosAlmacenAddComponent,
   EntradasAddComponent,
   EntradasListComponent,
 
@@ -193,15 +201,15 @@ const routes: Routes = [
       },
       {
         path: 'insumos',
-        component: InsumosListComponent
+        component: InsumosAlmacenListComponent
       },
       {
         path: 'insumos/editar/:id',
-        component: InsumosEditComponent
+        component: InsumosAlmacenEditComponent
       },
       {
         path: 'insumos/agregar',
-        component: InsumosAddComponent
+        component: InsumosAlmacenAddComponent
       },
       {
         path: 'entradas',
