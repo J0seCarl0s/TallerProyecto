@@ -34,6 +34,8 @@ import { PlatosService } from "./mozo/platos/platos.service";
 import { EntradasService } from "./adminalmacen/entradas/entradas.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
 
+import { SalidasService} from "./adminalmacen/salidas/salidas.service";
+
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 import { AppComponent } from './app.component';
@@ -84,9 +86,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     //SERVICIOS DEL ALMACENERO
     EntradasService,  
+    SalidasService,
 
     //SERVICIOS DEL COCINERO
     DashboardService  
+
 
   ],
   bootstrap: [AppComponent]

@@ -48,6 +48,11 @@ import { PedidosEditComponent } from './mozo/pedidos/pedidos-edit/pedidos-edit.c
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
 
+import { SalidasAddComponent } from './adminalmacen/salidas/salidas-add/salidas-add.component';
+import { SalidasListComponent } from './adminalmacen/salidas/salidas-list/salidas-list.component';
+
+
+
 export const ROUTING_COMPONENTS=[
   LoginComponent,
   ContainerInsideAdminComponent,
@@ -77,6 +82,8 @@ export const ROUTING_COMPONENTS=[
   DashboardAdminalmacenComponent,
   EntradasAddComponent,
   EntradasListComponent,
+  SalidasAddComponent,
+  SalidasListComponent,
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,

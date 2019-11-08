@@ -39,6 +39,21 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
     this.titulo="Dashboard";
   }
 
+   redirectSalidas()
+  {
+    this.efectos(4);
+    this.router.navigate(['/adminalmacen/entrada']);
+    this.titulo="Dashboard";
+  }
+
+ redirectProveedores()
+  {
+    this.efectos(5);
+    this.router.navigate(['/adminalmacen/entrada']);
+    this.titulo="Dashboard";
+  }
+
+
     // EFECTOS NAV
 
     efectos(id:number)
@@ -46,10 +61,14 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
       let linkDasboard = document.getElementById('link-dashboard'); 
       let linkInsumos  = document.getElementById('link-insumos'); 
       let linkEntradas = document.getElementById('link-entradas'); 
+      let linkSalidas = document.getElementById('link-entradas'); 
+      let linkProveedores = document.getElementById('link-entradas'); 
   
       linkDasboard.classList.remove('active'); 
       linkInsumos.classList.remove('active'); 
       linkEntradas.classList.remove('active'); 
+      linkSalidas.classList.remove('active'); 
+      linkProveedores.classList.remove('active'); 
   
       switch(id){
         case 1:{
@@ -60,6 +79,12 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
         }break;
         case 3:{
           linkEntradas.classList.add('active');
+        }break;
+        case 4:{
+          linkSalidas.classList.add('active');
+        }break;
+        case 5:{
+          linkProveedores.classList.add('active');
         }break;
       }
     }  
