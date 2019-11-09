@@ -12,3 +12,7 @@ Route::post('/pedidos/registrar', 'Pedidos\PedidosController@registrarPedido');
 
 Route::get('/almacen/entradas', 'EntradasAlmacen\EntradasAlmacenController@verEntradas');
 Route::post('/almacen/entradas/registrar', 'EntradasAlmacen\EntradasAlmacenController@registrarEntrada');
+
+Route::post('/caja/abrir', 'Caja\CajaController@abrirCaja');
+Route::post('/caja/cerrar', 'Caja\CajaController@cerrarCaja');
+Route::get('/caja', 'Caja\CajaController@obtenerEstadoCaja');
