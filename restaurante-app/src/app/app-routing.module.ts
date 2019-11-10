@@ -51,6 +51,7 @@ import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/ent
 import { InsumosListComponent as InsumosAlmacenListComponent } from './adminalmacen/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalmacen/insumos/insumos-edit/insumos-edit.component';
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
+import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -88,6 +89,7 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
+  OperacionesAddComponent,  
 
   ContainerInsideCocineroComponent,
   DashboardCocineroComponent,
@@ -241,6 +243,10 @@ const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardAdmincajaComponent
+      },
+      {
+        path:'operaciones/agregar',
+        component:OperacionesAddComponent
       }
     ]
   },
