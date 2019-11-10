@@ -32,6 +32,7 @@ import { MesasService } from "./mozo/mesas/mesas.service";
 import { PedidosService } from "./mozo/pedidos/pedidos.service";
 import { PlatosService } from "./mozo/platos/platos.service";
 import { EntradasService } from "./adminalmacen/entradas/entradas.service";
+import  { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/insumos.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
 
 import { SalidasService} from "./adminalmacen/salidas/salidas.service";
@@ -85,6 +86,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PlatosService,
 
     //SERVICIOS DEL ALMACENERO
+    InsumosAlmacenService,
     EntradasService,  
     SalidasService,
 

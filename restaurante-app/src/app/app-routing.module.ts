@@ -48,9 +48,9 @@ import { PedidosEditComponent } from './mozo/pedidos/pedidos-edit/pedidos-edit.c
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
 
-import { SalidasAddComponent } from './adminalmacen/salidas/salidas-add/salidas-add.component';
-import { SalidasListComponent } from './adminalmacen/salidas/salidas-list/salidas-list.component';
-
+import { InsumosListComponent as InsumosAlmacenListComponent } from './adminalmacen/insumos/insumos-list/insumos-list.component';
+import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalmacen/insumos/insumos-edit/insumos-edit.component';
+import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -80,10 +80,11 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideAdminAlmacenComponent, 
   DashboardAdminalmacenComponent,
+  InsumosAlmacenListComponent,
+  InsumosAlmacenEditComponent,
+  InsumosAlmacenAddComponent,
   EntradasAddComponent,
   EntradasListComponent,
-  SalidasAddComponent,
-  SalidasListComponent,
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
@@ -112,8 +113,8 @@ const routes: Routes = [
     component:ContainerInsideAdminComponent,
     children:[
       {
-				path: 'dashboard',
-				component: DashboardAdminComponent
+        path: 'dashboard',
+        component: DashboardAdminComponent
       },
       {
         path: 'platos',
@@ -136,28 +137,28 @@ const routes: Routes = [
         component: PlatosInsumosAddComponent
       },
       {
-				path: 'insumos',
-				component: InsumosListComponent
+        path: 'insumos',
+        component: InsumosListComponent
       },
       {
-				path: 'insumos/editar/:id',
-				component: InsumosEditComponent
+        path: 'insumos/editar/:id',
+        component: InsumosEditComponent
       },
       {
         path: 'insumos/agregar',
         component: InsumosAddComponent
       },
       {
-				path: 'proveedores',
-				component: ProveedoresListComponent
+        path: 'proveedores',
+        component: ProveedoresListComponent
       },
       {
-				path: 'proveedores/editar/:id',
-				component: ProveedoresEditComponent
+        path: 'proveedores/editar/:id',
+        component: ProveedoresEditComponent
       },
       {
-				path: 'proveedores/agregar',
-				component: ProveedoresAddComponent
+        path: 'proveedores/agregar',
+        component: ProveedoresAddComponent
       },
       {
         path: 'proveedores/agregar/insumo/:id',
@@ -200,15 +201,15 @@ const routes: Routes = [
       },
       {
         path: 'insumos',
-        component: InsumosListComponent
+        component: InsumosAlmacenListComponent
       },
       {
         path: 'insumos/editar/:id',
-        component: InsumosEditComponent
+        component: InsumosAlmacenEditComponent
       },
       {
         path: 'insumos/agregar',
-        component: InsumosAddComponent
+        component: InsumosAlmacenAddComponent
       },
       {
         path: 'entradas',

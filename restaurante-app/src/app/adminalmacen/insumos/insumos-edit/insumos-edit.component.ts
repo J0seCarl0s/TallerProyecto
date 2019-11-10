@@ -36,7 +36,7 @@ export class InsumosEditComponent implements OnInit {
 
           }else{
             console.log("No se pudo obtener la data");
-            this.router.navigate(['/admin/insumos']);
+            this.router.navigate(['/adminalmacen/insumos']);
 
           }
         }
@@ -54,7 +54,7 @@ export class InsumosEditComponent implements OnInit {
           }else{
             console.log("Ha ocurrido un error");
           }
-          this.router.navigate(['/admin/insumos']);        
+          this.router.navigate(['/adminalmacen/insumos']);        
         },
         (err)=>{
           this.alertService.error("Error al actualizar",err);
@@ -63,6 +63,6 @@ export class InsumosEditComponent implements OnInit {
   }
 
   btnCancelar(){
-    this.router.navigate(['/admin/insumos']);
+    this.router.navigate(['/adminalmacen/insumos']);
   }
 }

@@ -43,14 +43,14 @@ export class InsumosListComponent implements OnInit {
   {
       console.log("Navegando a editar el insumo: "+id);
 
-      this.router.navigate(['/admin/insumos/editar/'+id]);
+      this.router.navigate(['/adminalmacen/insumos/editar/'+id]);
   }
 
   btnAgregar()
   {
       console.log("Navegando a agregar un nuevo insumo: ");
 
-      this.router.navigate(['/admin/insumos/agregar']);
+      this.router.navigate(['/adminalmacen/insumos/agregar']);
   }
 
   btnEliminar(id:number)

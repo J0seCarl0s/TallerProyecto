@@ -35,4 +35,11 @@ export class EntradasService {
         
         return this.http.post<any>(url, data, this.httpOptions);
     }
+
+    listarInsumos(): Observable<any>
+    {
+        var url = this.apiUrl + "insumos";
+        
+        return this.http.get(url, this.httpOptions);
+    }
 }
