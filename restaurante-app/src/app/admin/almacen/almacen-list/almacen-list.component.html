@@ -1,0 +1,43 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <h4 class="card-title">Existencias en Almacén</h4>
+        <p class="card-category">Lista de insumos y su respectiva cantidad disponible en el almacén</p>
+    </div>
+    <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="text-primary">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad Total</th>
+            <th scope="col" ></th>
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let existencia of existencias; index as i">          
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{existencia.Insumo}}
+          </td>
+          <td>
+            {{existencia.Total}}
+          </td>
+                  
+          
+          <td>
+            <button type="button" class="btn btn-outline-dark" (click)="btnEditar(existencia.Id)">Ajustar Cantidad</button>
+          </td>
+          
+      </tr>
+
+    </tbody>
+    </table>
+
+    </div>
+    </div>
+  </div>
+</div>

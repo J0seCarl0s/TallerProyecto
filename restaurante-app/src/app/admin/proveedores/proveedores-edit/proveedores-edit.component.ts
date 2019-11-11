@@ -53,6 +53,7 @@ export class ProveedoresEditComponent implements OnInit {
           this.alertService.success("Se actualizo correctamente","Actualizacion")
         }
       )
+    this.router.navigate(['/admin/proveedores']);
   }
 
   btnCancelar(){

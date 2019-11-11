@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { InsumosService } from '../insumos.service'
+import { InsumosService } from '../insumos.service';
 
 import { AlertService } from "../../../shared/services/alert.service";
 

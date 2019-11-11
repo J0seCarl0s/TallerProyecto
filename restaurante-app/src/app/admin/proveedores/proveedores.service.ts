@@ -104,5 +104,14 @@ export class ProveedoresService
         };
         return this.http.post<any>(url, data, this.httpOptions);
      }
+
+     eliminarInsumo(id:number)
+     {
+        var url = this.apiUrl + "insumos/eliminar";
+        var data = {
+            id_insumo:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
      
 }
