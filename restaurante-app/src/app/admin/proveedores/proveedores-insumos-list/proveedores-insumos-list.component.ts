@@ -17,7 +17,7 @@ export class ProveedoresInsumosListComponent implements OnInit {
 	
   idProveedor:number=0;
   insumos: any[];
-  idInsumo:number=0;
+  idinsumo:number=0;
   nombre_insumo:string="";
   cantidad_minima:number=0.0;
 
@@ -62,37 +62,30 @@ export class ProveedoresInsumosListComponent implements OnInit {
 
   btnEditarInsumo(id:number){
     
-    /*this.proveedoresService.registrarInsumoProveedor(this.idProveedor,this.idInsumo,this.nombre_insumo,this.cantidad_minima)
-      .subscribe(
-        (res)=>{
-          if(res.ok)
-          {
-            this.alertService.success("Guardado correctamente","Guardar Proveedor");
-            this.router.navigate(['/admin/proveedores']);
-          }
-        },
-        (err) => {
-          this.alertService.error("Error al guardar proveedor",err);
-        }
-      )*/
-    /*console.log("Navegando a editar el insumo del proveedor: "+this.id);
-    this.router.navigate(['/admin/proveedores/insumo/editar/'+this.id]);*/
+    console.log("Navegando a editar el insumo: "+id);
+
+    this.router.navigate(['/admin/insumos/editar/'+id]);
+    
   }
 
   btnEliminarInsumo(id: number){
-    this.proveedoresService.eliminarProveedor(id)
+    
+    this.proveedoresService.eliminarInsumo(id)
     .subscribe(
-      (res)=>{
-        if(res.ok)
+      (response)=>{
+        if(response.ok)
         {
           this.alertService.success("Eliminado correctamente","Eliminar");
+          console.log("Se elimino correctamente");
           this.llenarDatos();
         }else{
-          this.alertService.error("Error al eliminar proveedor",null);  
+          console.log("Ocurrio un error");
+          this.alertService.error("Error al eliminar insumo",null);  
         }
       },
       (err) => {
-        this.alertService.error("Error al eliminar proveedor",err);
+        console.log("Ocurrio un error");
+        this.alertService.error("Error al eliminar insumo",err);
       }
     )
   }

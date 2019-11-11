@@ -60,6 +60,12 @@ export class ContainerInsideAdminComponent implements OnInit {
     this.titulo="Mesas";
   }
 
+  redirectAlmacenControl()
+  {
+    this.efectos(7);
+    this.router.navigate(['/admin/almacenControl']);
+    this.titulo="almacenControl";
+  }
 
   // EFECTOS NAV
 
@@ -71,6 +77,7 @@ export class ContainerInsideAdminComponent implements OnInit {
     let linkInsumos = document.getElementById('link-insumos');
     let linkUsuarios = document.getElementById('link-usuarios');
     let linkMesas = document.getElementById('link-mesas');
+    let linkAlmacenControl = document.getElementById('link-almacenControl');
 
     linkDasboard.classList.remove('active');
     linkProveedores.classList.remove('active');

@@ -16,3 +16,5 @@ Route::post('/almacen/entradas/registrar', 'EntradasAlmacen\EntradasAlmacenContr
 Route::post('/caja/abrir', 'Caja\CajaController@abrirCaja');
 Route::post('/caja/cerrar', 'Caja\CajaController@cerrarCaja');
 Route::get('/caja', 'Caja\CajaController@obtenerEstadoCaja');
+
+Route::post('/caja/operaciones/registrar', 'Caja\CajaController@registrarOperacion');

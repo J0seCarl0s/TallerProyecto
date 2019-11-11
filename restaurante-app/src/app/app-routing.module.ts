@@ -51,6 +51,8 @@ import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/ent
 import { InsumosListComponent as InsumosAlmacenListComponent } from './adminalmacen/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalmacen/insumos/insumos-edit/insumos-edit.component';
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
+import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.component';
+import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -76,6 +78,7 @@ export const ROUTING_COMPONENTS=[
   UsuariosAddComponent,
   UsuariosEditComponent,
   MesasAddComponent,
+  AlmacenListComponent,
   
 
   ContainerInsideAdminAlmacenComponent, 
@@ -88,6 +91,7 @@ export const ROUTING_COMPONENTS=[
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
+  OperacionesAddComponent,  
 
   ContainerInsideCocineroComponent,
   DashboardCocineroComponent,
@@ -188,6 +192,10 @@ const routes: Routes = [
         path: 'mesas',
         component: MesasAddComponent
       },
+      {
+        path: 'almacenControl',
+        component: AlmacenListComponent
+      },
     ]
   },
   {
@@ -241,6 +249,10 @@ const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardAdmincajaComponent
+      },
+      {
+        path:'operaciones/agregar',
+        component:OperacionesAddComponent
       }
     ]
   },
@@ -285,7 +297,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-
-  declarations: [],
+  
 })
 export class AppRoutingModule { }
