@@ -47,4 +47,15 @@ export class CajaService {
         
        return this.http.post<any>(url, data, this.httpOptions);
     }
+
+    registrarOperacion(monto: number, descripcion: string): Observable<any>
+    {
+        var url = this.apiUrl + "caja/operaciones/registrar";
+        var data = {
+            "monto": monto,
+            "descripcion": descripcion
+        }        
+        
+       return this.http.post<any>(url, data, this.httpOptions);
+    }    
 }

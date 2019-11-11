@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Caja;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CajaController extends Controller
 {
@@ -15,6 +16,13 @@ class CajaController extends Controller
 	const CODIGOS_RESULTADO_CERRARCAJA = [
     	'1' => 'Caja cerrada correctamente',
     	'2' => 'No hay una caja abierta'
+    ];
+
+    const CODIGOS_RESULTADO_REGISTRAROPERACION = [
+        '1' => 'Operacion registrada correctamente',
+        '2' => 'Monto no valido',
+        '3' => 'Cajero no existe o esta deshabilitado',
+        '4' => 'La caja todavía no está abierta'
     ];
 
     /**
@@ -73,7 +81,7 @@ class CajaController extends Controller
 	}
 
 	/**
-     * Abre la caja del restaurante con un monto inicial dado
+     * Cierra la caja del restaurante con un monto final dado
      * 
      * @param Request $request
      * 
@@ -103,4 +111,38 @@ class CajaController extends Controller
 
         return response()->json($rtn, 200);
 	}
+
+    /**
+     * Registra una operacion de la caja
+     * 
+     * @param Request $request
+     * 
+     * @return json
+     */
+    public function registrarOperacion(Request $request){
+        $operacion = [];
+        $operacion[0] = $request->input('monto');
+        $operacion[1] = $request->input('descripcion');
+        $operacion[2] = Auth::user() != null ? Auth::user()->id : 18;
+
+        try{
+            $select = collect(\DB::select(
+                'call registrar_operacion_caja(?, ?, ?)', $operacion))->first();
+
+            $codigo_resultado = $select->resultado;
+            $ok = $codigo_resultado == 1;
+            $result = self::CODIGOS_RESULTADO_REGISTRAROPERACION[$codigo_resultado];
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "No se pudo cerrar la caja";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }    
 }

@@ -1,1 +1,65 @@
-<p>operaciones-add works!</p>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Registrar operacion</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Monto S/</label>
+                          <input type="number" name="monto" [(ngModel)]="monto" 
+                                class="form-control" step="0.01" required>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="form-group bmd-form-group">
+                          <select class="form-control" name="esEntrada" [(ngModel)]="esEntrada" >
+                            <option class="text-secondary" selected disabled>
+                              -- Escoja el tipo de operacion --
+                            </option>
+                            <option value="true" class="text-success">
+                              ENTRADA
+                            </option>
+                            <option value="false" class="text-danger">
+                              SALIDA
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Descripcion</label>
+                          <input type="text" class="form-control" name="descripcion" [(ngModel)]="descripcion">
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Registrar operacion</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    asas
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                  <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                </div>
+              </div>
+            </div>
+          </div>
