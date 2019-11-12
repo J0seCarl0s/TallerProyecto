@@ -44,7 +44,15 @@ export class MesasService {
         		{
         			"numMesa": 4,
         			"activo" : true
-        		}
+        		},
+                {
+                    "numMesa": 5,
+                    "activo" : true
+                },
+                {
+                    "numMesa": 6,
+                    "activo" : true
+                }
         	]
         }
 

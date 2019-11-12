@@ -12,8 +12,10 @@ import { AlertService } from "../../../shared/services/alert.service";
 })
 export class PedidosListComponent implements OnInit {
 
-  mesasPedidos: any[];
-  
+  mesaEscogida:number = 1;
+  mesas: any[];
+  pedidos: any[];
+
   constructor(private router:Router,
               private mesasService:MesasService, 
               private platosService:PlatosService, 
@@ -26,27 +28,22 @@ export class PedidosListComponent implements OnInit {
 
   llenarDatos()
   {
-  	this.mesasPedidos = [];
+  	 this.mesas = this.mesasService.listar().result;
+     this.cargarPedidos();
+  }
 
-     let mesas = this.mesasService.listar().result;
-
-     for(let mesa of mesas){
-       
-       this.pedidosService.listarDeMesa(mesa.numMesa).subscribe(
+  cargarPedidos()
+  {
+      this.pedidosService.listarDeMesa(this.mesaEscogida).subscribe(
         (response)=>{
           console.log(response);
           if(response.ok){
-            this.mesasPedidos.push({
-              numMesa: mesa.numMesa,
-              pedidos: response.result
-            });
+            this.pedidos = response.result;
           }else{
             console.log("No se pudo obtener la data");
           }
         }
       );
-
-     }
   }
 
     btnEditar(id: number)
@@ -76,5 +73,12 @@ export class PedidosListComponent implements OnInit {
         this.alertService.error("Error al eliminar pedido",err);
       }
     )
+  }
+
+  btnCambioNumeroMesa(numMesa:number)
+  {
+    console.log("Mesa escogida: " + numMesa);
+    this.mesaEscogida = numMesa;
+    this.cargarPedidos();
   }
 }
