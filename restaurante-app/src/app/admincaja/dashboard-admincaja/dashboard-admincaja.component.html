@@ -16,7 +16,7 @@
                     <div *ngIf="!estaCajaAbierta">
                       <p>¿La caja no está abierta, desea abrirla?</p>
                       <input type="number" [(ngModel)]="montoActual" class="form-control validate" name="montoActual" step="0.01" placeholder="Monto inicial de la caja">
-                      <button type="button" (click)="btnAbrirCaja()" class="btn btn-info" data-toggle="modal" data-target="#modal-abrir-caja">Abrir caja
+                      <button type="button" (click)="btnAbrirCaja()" class="btn btn-info btn-round" data-toggle="modal" data-target="#modal-abrir-caja">Abrir caja
                       </button>            
                     </div>
 
@@ -51,7 +51,7 @@
                     
 
                       <div>
-                        <h3>Monto actual en la caja: <strong>S/ {{ montoActual }}</strong> </h3>
+                        <h3>Monto actual en la caja: <strong>S/. {{ montoActual }}</strong> </h3>
                       </div>
                 </div>
 
@@ -59,7 +59,7 @@
                       <p class="text-danger">¿Desea cerrar la caja?</p>
                       <label class="bmd-label-floating">Monto final de la caja</label>
                       <input type="number" [(ngModel)]="montoFinal" class="form-control validate" name="montoFinal" step="0.01" placeholder="Monto final de la caja">
-                      <button type="button" (click)="btnCerrarCaja()" class="btn btn-danger" data-toggle="modal" data-target="#modal-abrir-caja">Cerrar caja
+                      <button type="button" (click)="btnCerrarCaja()" class="btn btn-danger btn-round" data-toggle="modal" data-target="#modal-abrir-caja">Cerrar caja
                       </button>
                 </div>
               </div>

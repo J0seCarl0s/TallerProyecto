@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MesasService } from "../../mesas/mesas.service";
 import { PedidosService } from "../pedidos.service";
@@ -12,11 +12,10 @@ import { AlertService } from "../../../shared/services/alert.service";
 })
 export class PedidosAddComponent implements OnInit {
 
-  mesas: any[];
   platos: any[];
 
   idPlato:number = 0;
-  numMesa:number = 0;
+  @Input() numMesa:number; //El numero de mesa viene del componente padre
 
   constructor(private router:Router,
               private mesasService:MesasService, 
@@ -42,7 +41,6 @@ export class PedidosAddComponent implements OnInit {
         }
       );
 
-    this.mesas = this.mesasService.listar().result;
   }
 
   btnAgregarPedido(){
@@ -61,9 +59,5 @@ export class PedidosAddComponent implements OnInit {
           this.alertService.error("Error al guardar pedido",err);
         }
       );
-  }
-
-  btnCancelar(){
-    this.router.navigate(['/mozo/dashboard']); 
   }
 }

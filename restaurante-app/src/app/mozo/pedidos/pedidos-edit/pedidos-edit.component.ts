@@ -74,7 +74,7 @@ export class PedidosEditComponent implements OnInit {
           }else{
             console.log("Ha ocurrido un error");
           }
-          this.router.navigate(['/mozo/pedidos']);        
+          this.router.navigate(['/mozo/dashboard']);        
         },
         (err)=>{
           this.alertService.error("Error al actualizar",err);
@@ -83,6 +83,6 @@ export class PedidosEditComponent implements OnInit {
   }
 
   btnCancelar(){
-    this.router.navigate(['/mozo/pedidos']);
+    this.router.navigate(['/mozo/dashboard']);
   }
 }

@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="col-md-7">
-              <div class="card" id="tabla-pedidos">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Pedidos de la mesa {{ mesaEscogida }}</h4>
-                </div>
-                <div class="card-body">
                   <div class="table-responsive">
+                    <h4 class="card-title ">Pedidos de la mesa {{ numMesa }}</h4>
                     <table class="table">
                       <thead class=" text-primary">
                         <tr>
@@ -31,7 +25,7 @@
                           <td>
                             <span *ngIf="pedido.estado === 'PENDIENTE'" class="badge badge-primary text-center" style="padding: 8px">
                               <strong> {{pedido.estado}} </strong>
-                            </span>
+                            </span> 
                             <span *ngIf="pedido.estado === 'EN PREPARACION'" class="badge badge-info text-center" style="padding: 8px">
                               <strong> {{pedido.estado}} </strong>
                             </span>
@@ -42,13 +36,13 @@
                                 <strong> {{pedido.estado}} </strong>
                             </span>
                             </td>
-                            <td class="td-actions text-right">
-                              <button (click)="btnEditar(pedido.idpedido)" class="btn  btn-round btn-just-icon btn-primary" [disabled]="pedido.estado !== 'PENDIENTE'" rel="tooltip" data-original-title="Editar pedido">
+                            <td>
+                              <button (click)="btnEditar(pedido.idpedido)" class="btn  btn-round btn-just-icon" [ngClass]="{'btn-primary': pedido.estado === 'PENDIENTE', 'btn-secondary': pedido.estado !== 'PENDIENTE'}" [disabled]="pedido.estado !== 'PENDIENTE'"  data-toggle="tooltip" title="Editar pedido">
                                 <i class="material-icons">create</i>
                               </button>
                             </td>
-                            <td class="td-actions text-right">
-                              <button (click)="btnEliminar(pedido.idpedido)" class="btn btn-round btn-just-icon btn-danger" [disabled]="pedido.estado !== 'PENDIENTE'" rel="tooltip" data-original-title="Eliminar pedido">
+                            <td>
+                              <button (click)="btnEliminar(pedido.idpedido)" class="btn btn-round btn-just-icon" [ngClass]="{'btn-danger': pedido.estado === 'PENDIENTE', 'btn-secondary': pedido.estado !== 'PENDIENTE'}" [disabled]="pedido.estado !== 'PENDIENTE'" data-toggle="tooltip" title="Eliminar pedido">
                                 <i class="material-icons">delete</i>
                               </button>
                             </td>
@@ -56,26 +50,3 @@
                       </tbody>
                     </table>
                   </div>
-                </div>
-              </div>
-  </div>
-
-  <div class="col-md-5">
-    <div class="card">
-      <div class="card-header card-header-primary">
-        <h4 class="card-title">Mesas</h4>
-        <p class="card-category">Escoja una mesa para ver sus pedidos</p>
-      </div>              
-      <div class="card-body">
-        <div class="row">
-          <div *ngFor="let mesa of mesas" class="col-xs-12 col-md-4">
-            <button (click)="btnCambioNumeroMesa(mesa.numMesa)" class="btn btn-light btn-round">
-              M{{mesa.numMesa}}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>                
-              

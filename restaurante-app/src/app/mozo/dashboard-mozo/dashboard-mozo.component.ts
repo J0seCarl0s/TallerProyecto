@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MesasService } from "../mesas/mesas.service";
 
 @Component({
   selector: 'app-dashboard-mozo',
@@ -8,17 +9,30 @@ import { Router } from '@angular/router';
 })
 export class DashboardMozoComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  mesaEscogida:number = 1;
+  mesas: any[];
+
+  constructor(private router:Router, 
+              private mesasService:MesasService, 
+              ) { }
 
   ngOnInit() {
-  	
+  	this.cargarMesas();
   }
 
-  redirectAgregarPedido() {
-  	this.router.navigate(['/mozo/pedidos/agregar']);
+  cargarMesas() {
+    this.mesas = this.mesasService.listar().result;
   }
 
-  redirectListarPedidos() {
-    this.router.navigate(['/mozo/pedidos']);
+  btnCambioNumeroMesa(numMesa:number)
+  {
+    console.log("Mesa escogida: " + numMesa);
+    this.mesaEscogida = numMesa;
+  }
+
+  recargarPedidos(){ //NECESITA MEJORARSE
+    let temp = this.mesaEscogida;
+    this.mesaEscogida = 0;
+    this.mesaEscogida = temp;
   }
 }

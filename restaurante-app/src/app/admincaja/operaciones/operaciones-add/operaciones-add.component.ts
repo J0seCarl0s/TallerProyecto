@@ -16,10 +16,53 @@ export class OperacionesAddComponent implements OnInit {
               ) { }
 
   esEntrada:boolean = true;
-  monto:number = 0.0;
+  montoOperacion:number = 0.0;
+  montoCaja:number = 0.0;
+  nuevoMontoCaja:number = 0.0;
   descripcion:string = "";
 
   ngOnInit() {
+    this.cajaService.obtenerEstadoCaja().subscribe(
+      (response)=>{
+        console.log(response);
+        if(response.ok){
+          this.montoCaja = response.result.monto_actual;
+          this.nuevoMontoCaja = this.montoCaja;
+        }else{
+          console.log("No se pudo obtener la data");
+        }
+      }
+    );
   }
 
+  cambiarMonto() {
+    this.nuevoMontoCaja = (+this.montoCaja);
+    if(this.esEntrada){
+      this.nuevoMontoCaja += (+this.montoOperacion);
+    }else{
+      this.nuevoMontoCaja -= (+this.montoOperacion);
+    }
+  }
+
+  btnAgregarOperacion() {
+    this.cajaService.registrarOperacion(this.montoOperacion, this.descripcion)
+      .subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            this.alertService.success(response.result, "Operaciones caja");
+            this.router.navigate(['/admincaja/dashboard']); 
+          }else{
+            this.alertService.error(response.result, "Operaciones caja");
+          }
+        },
+        (error)=>{
+          this.alertService.error("No se pudo registrar la operación", "Operaciones caja");
+        }
+     );
+  }
+
+  btnCancelar() {
+    this.router.navigate(['/admincaja/dashboard']);
+  }
 }
