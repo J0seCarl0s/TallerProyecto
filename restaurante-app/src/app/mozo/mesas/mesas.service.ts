@@ -21,45 +21,10 @@ export class MesasService {
         this.httpOptions = { headers: headers };
     }
 
-    //listar(): Observable<any>
-    listar(): any
+    listar(): Observable<any>
     {
         var url = this.apiUrl + "mesas";
-        
-        var result = {
-        	"ok": true,
-        	"result": [
-        		{
-        			"numMesa": 1,
-        			"activo" : true
-        		},
-        		{
-        			"numMesa": 2,
-        			"activo" : true
-        		},
-        		{
-        			"numMesa": 3,
-        			"activo" : true
-        		},
-        		{
-        			"numMesa": 4,
-        			"activo" : false
-        		},
-                {
-                    "numMesa": 5,
-                    "activo" : true
-                },
-                {
-                    "numMesa": 6,
-                    "activo" : true
-                }
-        	]
-        }
-
-        return result;
-
-        //Descomentar cuando se haya implementado
-        //return this.http.get(url, this.httpOptions);
+        return this.http.get(url, this.httpOptions);
     }
 
 }

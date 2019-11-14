@@ -13,8 +13,8 @@
                         <div class="form-group bmd-form-group">
                           <select [(ngModel)]="numMesa" class="form-control" name="numMesa" required>
                             <option selected="true" value="0" disabled>-- Escoja la mesa --</option>
-                            <option *ngFor="let mesa of mesas" [ngValue]="mesa.numMesa">
-                              Mesa {{ mesa.numMesa }}
+                            <option *ngFor="let mesa of mesas" [ngValue]="mesa.num_mesa">
+                              Mesa {{ mesa.num_mesa }}
                             </option>           
                           </select>                        
                         </div>

@@ -12,6 +12,10 @@ export class DashboardMozoComponent implements OnInit {
   mesaEscogida:number = 1;
   mesas: any[];
 
+  //Variable que el modulo pedidos-add revisará para 
+  //actualizar la lista de pedidos de la mesa
+  actualizacionPedidos:boolean = false; 
+
   constructor(private router:Router, 
               private mesasService:MesasService, 
               ) { }
@@ -21,7 +25,16 @@ export class DashboardMozoComponent implements OnInit {
   }
 
   cargarMesas() {
-    this.mesas = this.mesasService.listar().result;
+    this.mesasService.listar().subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            this.mesas = response.result;
+          }else{
+            console.log("No se pudo obtener la data");
+          }
+        }
+      );
   }
 
   btnCambioNumeroMesa(numMesa:number)
@@ -31,8 +44,6 @@ export class DashboardMozoComponent implements OnInit {
   }
 
   recargarPedidos(){ //NECESITA MEJORARSE
-    let temp = this.mesaEscogida;
-    this.mesaEscogida = 0;
-    this.mesaEscogida = temp;
+    this.actualizacionPedidos = !this.actualizacionPedidos;
   }
 }

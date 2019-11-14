@@ -25,9 +25,9 @@ class MesasController extends Controller
 
     public function verMesas(){
 		
-        /*try{
+        try{
             //Llamo al procedimiento para obtener los proveedores
-            $proveedores = \DB::select('call usp_proveedores_s_proveedoress()');
+            $proveedores = \DB::select('call listar_mesas()');
             $ok = true;
         }catch(QueryException $ex){
             $proveedores = null;
@@ -39,7 +39,7 @@ class MesasController extends Controller
             'result' => $proveedores
         ];
         //retorno los proveedores en formato json y el HTTP status code 200
-		return response()->json($rtn, 200);*/
+		return response()->json($rtn, 200);
 	}
 
 	public function registrarMesa(Request $request){
