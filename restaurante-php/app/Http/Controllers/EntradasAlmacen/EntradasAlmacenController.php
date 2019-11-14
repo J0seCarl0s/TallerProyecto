@@ -81,4 +81,32 @@ class EntradasAlmacenController extends Controller
         return response()->json($rtn, 200);
     }
 
+    public function verEntrada($idinsumo){
+
+        //Obtengo los parametros del request
+        $entrada = [];
+        $entrada[0] = $idinsumo;
+        //OBTIENE EL USUARIO ACTUAL, SI NO HAY ENTONCES RETORNA 18. SE DEBE ELIMINAR
+        //EL VALOR POR DEFECTO CUANDO TODAS LAS RUTAS ESTEN PROTEGIDAS
+               
+        try{
+            //Llamo al procedimiento para registrar el usuario. La funcion select
+            //retorna un array así que solo tomo el primer elemento del array
+            $select = collect(\DB::select(
+                'call ver_entrada_almacen(?)', $entrada))->first();
+
+            $ok = true;
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al obtener datos";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $select
+        ];
+
+        return response()->json($rtn, 200);
+    }
 }

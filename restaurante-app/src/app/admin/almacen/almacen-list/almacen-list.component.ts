@@ -27,8 +27,8 @@ export class AlmacenListComponent implements OnInit {
   	this.llenarDatos();
   }
 
-  llenarDatos()
-  {
+  llenarDatos(){
+  	
     this.almacenControlService.listar()
       .subscribe(
         (response)=>{
@@ -39,10 +39,14 @@ export class AlmacenListComponent implements OnInit {
             console.log("No se pudo obtener la data");
           }
         }
-      );
+    );
   }
 
   btnEditar(id:number){
-  	
+
+  	console.log("Navegando a ajustar el almacen: "+id);
+
+    this.router.navigate(['/admin/almacen/ajustar/'+id]);
   }
+
 }

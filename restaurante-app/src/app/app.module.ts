@@ -27,6 +27,7 @@ import { UsuariosService} from "./admin/usuarios/usuarios.service";
 import { RolesService} from "./admin/roles/roles.service";
 
 import  { MesasServiceAdmin } from "./admin/mesas/mesas.service";
+import  { AlmacenControlService } from "./admin/almacen/almacenControl.service";
 
 import { MesasService } from "./mozo/mesas/mesas.service";
 import { PedidosService } from "./mozo/pedidos/pedidos.service";
@@ -44,6 +45,7 @@ import { AppComponent } from './app.component';
 
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -80,6 +82,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     MesasServiceAdmin,
 
+    AlmacenControlService,
 
     //SERVICIOS DEL MOZO
     MesasService,
