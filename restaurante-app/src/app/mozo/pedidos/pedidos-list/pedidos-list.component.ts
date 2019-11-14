@@ -11,8 +11,9 @@ import { AlertService } from "../../../shared/services/alert.service";
 export class PedidosListComponent implements OnInit, OnChanges {
 
   @Input() numMesa:number;
+  @Input() hayQueRecargar:boolean;
   pedidos: any[];
-
+  
   constructor(private router:Router,
               private pedidosService:PedidosService, 
               private alertService:AlertService) { }

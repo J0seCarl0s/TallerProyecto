@@ -53,6 +53,7 @@ import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalma
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
 import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.component';
 import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
+import { PagosAddComponent } from './admincaja/pagos/pagos-add/pagos-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -92,6 +93,7 @@ export const ROUTING_COMPONENTS=[
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
   OperacionesAddComponent,  
+  PagosAddComponent,
 
   ContainerInsideCocineroComponent,
   DashboardCocineroComponent,
@@ -253,6 +255,10 @@ const routes: Routes = [
       {
         path:'operaciones/agregar',
         component:OperacionesAddComponent
+      },
+      {
+        path:'pagos/agregar',
+        component:PagosAddComponent
       }
     ]
   },

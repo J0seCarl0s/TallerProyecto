@@ -60,7 +60,16 @@ export class PedidosEditComponent implements OnInit {
         }
       );
 
-    this.mesas = this.mesasService.listar().result;
+    this.mesasService.listar().subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            this.mesas = response.result;
+          }else{
+            console.log("No se pudo obtener la data");
+          }
+        }
+      );
   }
 
   btnActualizarPedido(){
