@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MesasService } from "../mesas/mesas.service";
 
 @Component({
   selector: 'app-dashboard-mozo',
@@ -8,17 +9,41 @@ import { Router } from '@angular/router';
 })
 export class DashboardMozoComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  mesaEscogida:number = 1;
+  mesas: any[];
+
+  //Variable que el modulo pedidos-add revisará para 
+  //actualizar la lista de pedidos de la mesa
+  actualizacionPedidos:boolean = false; 
+
+  constructor(private router:Router, 
+              private mesasService:MesasService, 
+              ) { }
 
   ngOnInit() {
-  	
+  	this.cargarMesas();
   }
 
-  redirectAgregarPedido() {
-  	this.router.navigate(['/mozo/pedidos/agregar']);
+  cargarMesas() {
+    this.mesasService.listar().subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            this.mesas = response.result;
+          }else{
+            console.log("No se pudo obtener la data");
+          }
+        }
+      );
   }
 
-  redirectListarPedidos() {
-    this.router.navigate(['/mozo/pedidos']);
+  btnCambioNumeroMesa(numMesa:number)
+  {
+    console.log("Mesa escogida: " + numMesa);
+    this.mesaEscogida = numMesa;
+  }
+
+  recargarPedidos(){ //NECESITA MEJORARSE
+    this.actualizacionPedidos = !this.actualizacionPedidos;
   }
 }

@@ -6,25 +6,24 @@
                   <p class="card-category"></p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form (ngSubmit)="btnAgregarOperacion()">
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Monto S/</label>
-                          <input type="number" name="monto" [(ngModel)]="monto" 
-                                class="form-control" step="0.01" required>
+                          <input type="number" name="montoOperacion" [(ngModel)]="montoOperacion" class="form-control" step="0.01" (ngModelChange)="cambiarMonto()" required>
                         </div>
                       </div>
                       <div class="col-md-8">
                         <div class="form-group bmd-form-group">
-                          <select class="form-control" name="esEntrada" [(ngModel)]="esEntrada" >
+                          <select class="form-control" name="esEntrada" [(ngModel)]="esEntrada" (ngModelChange)="cambiarMonto()">
                             <option class="text-secondary" selected disabled>
                               -- Escoja el tipo de operacion --
                             </option>
-                            <option value="true" class="text-success">
+                            <option [ngValue]="true" class="text-success">
                               ENTRADA
                             </option>
-                            <option value="false" class="text-danger">
+                            <option [ngValue]="false" class="text-danger">
                               SALIDA
                             </option>
                           </select>
@@ -39,26 +38,29 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">Registrar operacion</button>
-                    <div class="clearfix"></div>
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-primary btn-round pull-right">Registrar operacion</button>
+                      <button type="button" class="btn btn-secondary btn-round pull-right" (click)="btnCancelar()">Cancelar operacion</button>
+                    </div>
                   </form>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    asas
-                  </a>
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Situación de la caja</h4>
+                  <p class="card-category"></p>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                  <h4 class="card-title">Alec Thompson</h4>
-                  <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                  </p>
-                  <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                  <h3 class="card-title">Monto acual en la caja</h3>
+                  <h4 [ngClass]="{'text-danger': montoCaja < 0, 'text-success': montoCaja > 0}">
+                    S/.{{ montoCaja | number:'.2'}}
+                  </h4>
+                  <h3 class="card-title" >Monto después de la operación</h3>
+                  <h4 [ngClass]="{'text-danger': nuevoMontoCaja < 0, 'text-success': nuevoMontoCaja > 0}">
+                    S/.{{ nuevoMontoCaja | number:'.2'}}
+                  </h4>
                 </div>
               </div>
             </div>

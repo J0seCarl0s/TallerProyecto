@@ -60,7 +60,16 @@ export class PedidosEditComponent implements OnInit {
         }
       );
 
-    this.mesas = this.mesasService.listar().result;
+    this.mesasService.listar().subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            this.mesas = response.result;
+          }else{
+            console.log("No se pudo obtener la data");
+          }
+        }
+      );
   }
 
   btnActualizarPedido(){
@@ -74,7 +83,7 @@ export class PedidosEditComponent implements OnInit {
           }else{
             console.log("Ha ocurrido un error");
           }
-          this.router.navigate(['/mozo/pedidos']);        
+          this.router.navigate(['/mozo/dashboard']);        
         },
         (err)=>{
           this.alertService.error("Error al actualizar",err);
@@ -83,6 +92,6 @@ export class PedidosEditComponent implements OnInit {
   }
 
   btnCancelar(){
-    this.router.navigate(['/mozo/pedidos']);
+    this.router.navigate(['/mozo/dashboard']);
   }
 }

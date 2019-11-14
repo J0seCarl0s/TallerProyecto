@@ -18,6 +18,7 @@ export class ContainerInsideAdminCajaComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   redirectDashboard()
   {
     this.efectos(1);
@@ -25,17 +26,41 @@ export class ContainerInsideAdminCajaComponent implements OnInit {
     this.titulo="Dashboard";
   }
 
+  redirectRegistrarOperacion()
+  {
+    this.efectos(2);
+    this.router.navigate(['/admincaja/operaciones/agregar']);
+    this.titulo="Operación";
+  }
+
+  redirectRegistrarPago()
+  {
+    this.efectos(3);
+    this.router.navigate(['/admincaja/pagos/agregar']);
+    this.titulo="Pago";
+  }
+
     // EFECTOS NAV
 
     efectos(id:number)
     {
       let linkDasboard = document.getElementById('link-dashboard'); 
+      let linkRegistrarOperacion = document.getElementById('link-registrar-operacion'); 
+      let linkRegistrarPago = document.getElementById('link-registrar-pago'); 
   
       linkDasboard.classList.remove('active'); 
+      linkRegistrarOperacion.classList.remove('active'); 
+      linkRegistrarPago.classList.remove('active'); 
   
       switch(id){
         case 1:{
           linkDasboard.classList.add('active');
+        }break;
+        case 2:{
+          linkRegistrarOperacion.classList.add('active');
+        }break;
+        case 3:{
+          linkRegistrarPago.classList.add('active');
         }break;
       }
     }  

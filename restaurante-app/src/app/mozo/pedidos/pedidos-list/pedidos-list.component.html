@@ -1,9 +1,5 @@
-              <div *ngFor="let mesaPedidos of mesasPedidos" class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Mesa {{ mesaPedidos.numMesa }}</h4>
-                </div>
-                <div class="card-body">
                   <div class="table-responsive">
+                    <h4 class="card-title ">Pedidos de la mesa {{ numMesa }}</h4>
                     <table class="table">
                       <thead class=" text-primary">
                         <tr>
@@ -22,41 +18,35 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let pedido of mesaPedidos.pedidos">
+                        <tr *ngFor="let pedido of pedidos">
                           <td>
                             {{ pedido.nombre_plato }}
                           </td>
                           <td>
-                            <div *ngIf="pedido.estado === 'PENDIENTE'" class="alert alert-primary">
+                            <span *ngIf="pedido.estado === 'PENDIENTE'" class="badge badge-primary text-center" style="padding: 8px">
                               <strong> {{pedido.estado}} </strong>
-                            </div>
-                            <div *ngIf="pedido.estado === 'EN PREPARACION'" class="alert alert-warning">
+                            </span> 
+                            <span *ngIf="pedido.estado === 'EN PREPARACION'" class="badge badge-info text-center" style="padding: 8px">
                               <strong> {{pedido.estado}} </strong>
-                            </div>
-                            <div *ngIf="pedido.estado === 'PREPARADO'" class="alert alert-danger">
+                            </span>
+                            <span *ngIf="pedido.estado === 'PREPARADO'" class="badge badge-danger text-center" style="padding: 8px">
                               <strong> {{pedido.estado}} </strong>
-                            </div>
-                            <div *ngIf="pedido.estado === 'ENTREGADO'" class="alert alert-success">
+                            </span>
+                            <span *ngIf="pedido.estado === 'ENTREGADO'" class="badge badge-success text-center" style="padding: 8px">
                                 <strong> {{pedido.estado}} </strong>
-                            </div>
-                          </td>
-                          <td>
-                            <div *ngIf="pedido.estado === 'PENDIENTE'" align="right">
-                              <button (click)="btnEditar(pedido.idpedido)" class="btn btn-white btn-round btn-just-icon">
+                            </span>
+                            </td>
+                            <td>
+                              <button (click)="btnEditar(pedido.idpedido)" class="btn  btn-round btn-just-icon" [ngClass]="{'btn-primary': pedido.estado === 'PENDIENTE', 'btn-secondary': pedido.estado !== 'PENDIENTE'}" [disabled]="pedido.estado !== 'PENDIENTE'"  data-toggle="tooltip" title="Editar pedido">
                                 <i class="material-icons">create</i>
                               </button>
-                            </div>
-                          </td>
-                           <td>
-                            <div *ngIf="pedido.estado === 'PENDIENTE'" align="right">
-                              <button (click)="btnEliminar(pedido.idpedido)" class="btn btn-white btn-round btn-just-icon">
+                            </td>
+                            <td>
+                              <button (click)="btnEliminar(pedido.idpedido)" class="btn btn-round btn-just-icon" [ngClass]="{'btn-danger': pedido.estado === 'PENDIENTE', 'btn-secondary': pedido.estado !== 'PENDIENTE'}" [disabled]="pedido.estado !== 'PENDIENTE'" data-toggle="tooltip" title="Eliminar pedido">
                                 <i class="material-icons">delete</i>
-                            </button>
-                            </div>
-                          </td>
+                              </button>
+                            </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                </div>
-              </div>
