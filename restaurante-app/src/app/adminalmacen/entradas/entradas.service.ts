@@ -43,7 +43,8 @@ export class EntradasService {
         return this.http.get(url, this.httpOptions);
     }
 
-    mostrar(idInsumo:number){
+    mostrar(idInsumo:number): Observable<any>
+    {
         var url = this.apiUrl + "entrada/mostrar/"+idInsumo;
         
         return this.http.get(url, this.httpOptions);
