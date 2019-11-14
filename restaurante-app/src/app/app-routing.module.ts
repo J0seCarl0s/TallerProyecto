@@ -53,12 +53,10 @@ import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalma
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
 import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.component';
 import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
-<<<<<<< HEAD
 import { AlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
 import { EntradasEditComponent } from './adminalmacen/entradas/entradas-edit/entradas-edit.component';
-=======
+
 import { PagosAddComponent } from './admincaja/pagos/pagos-add/pagos-add.component';
->>>>>>> efaa511f4641ebdd0053ef587a66d30e6d37f984
 
 
 export const ROUTING_COMPONENTS=[
