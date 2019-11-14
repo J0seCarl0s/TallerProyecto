@@ -32,10 +32,16 @@ export class EntradasListComponent implements OnInit {
             console.log("No se pudo obtener la data");
           }
         }
-      );
+    );
   }
 
   btnAgregar(){
     this.router.navigate(['/adminalmacen/entradas/agregar']);
+  }
+
+  btnEditar(id:number){
+    console.log("Navegando a editar entrada: "+id);
+
+    this.router.navigate(['/adminalmacen/entrada/editar/'+id]);
   }
 }

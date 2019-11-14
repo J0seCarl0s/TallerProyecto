@@ -42,4 +42,17 @@ export class EntradasService {
         
         return this.http.get(url, this.httpOptions);
     }
+
+    mostrar(idInsumo:number){
+        var url = this.apiUrl + "entrada/mostrar/"+idInsumo;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    editar(id:number, cantidad:number){
+        var url = this.apiUrl + "entrada/editar/"+id;
+        var data = { idhistorial_almacen: id,  cantidad: cantidad };
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
 }

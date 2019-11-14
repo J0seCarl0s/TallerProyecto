@@ -53,6 +53,8 @@ import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalma
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
 import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.component';
 import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
+import { AlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
+import { EntradasEditComponent } from './adminalmacen/entradas/entradas-edit/entradas-edit.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -79,6 +81,7 @@ export const ROUTING_COMPONENTS=[
   UsuariosEditComponent,
   MesasAddComponent,
   AlmacenListComponent,
+  AlmacenEditComponent,
   
 
   ContainerInsideAdminAlmacenComponent, 
@@ -88,6 +91,7 @@ export const ROUTING_COMPONENTS=[
   InsumosAlmacenAddComponent,
   EntradasAddComponent,
   EntradasListComponent,
+  EntradasEditComponent,
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
@@ -196,6 +200,10 @@ const routes: Routes = [
         path: 'almacenControl',
         component: AlmacenListComponent
       },
+      {
+        path: 'almacen/ajustar/:id',
+        component: AlmacenEditComponent
+      },
     ]
   },
   {
@@ -238,6 +246,10 @@ const routes: Routes = [
        {
         path: 'proveedor/agregar',
         component: ProveedoresAddComponent
+      },
+      {
+        path: 'entrada/editar/:id',
+        component: EntradasEditComponent
       },
     ]
   },
@@ -297,6 +309,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  
+     
 })
 export class AppRoutingModule { }

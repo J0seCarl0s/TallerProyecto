@@ -31,6 +31,21 @@ export class AlmacenControlService
         return this.http.get(url, this.httpOptions);
     }
 
+    mostrar(idInsumo: number): Observable<any>
+    {
+        var url = this.apiUrl + "almacen/ajuste/mostrar/"+idInsumo;
+        
+        return this.http.get(url, this.httpOptions);
+    }
+
+    editar(id: number, Total:number, ajuste:number): Observable<any>
+     {
+        var url = this.apiUrl + "almacen/ajustar/"+id;
+        var data = { idinsumo: id, total: Total, cantidad_ajustada: ajuste };
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
     /*mostrar(idInsumo: number): Observable<any>
     {
         var url = this.apiUrl + "insumos/mostrar/"+idInsumo;
