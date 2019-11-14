@@ -42,14 +42,14 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
    redirectSalidas()
   {
     this.efectos(4);
-    this.router.navigate(['/adminalmacen/entrada']);
+    this.router.navigate(['/adminalmacen/salidas']);
     this.titulo="Dashboard";
   }
 
  redirectProveedores()
   {
     this.efectos(5);
-    this.router.navigate(['/adminalmacen/entrada']);
+    this.router.navigate(['/adminalmacen/proveedores']);
     this.titulo="Dashboard";
   }
 
@@ -61,8 +61,8 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
       let linkDasboard = document.getElementById('link-dashboard'); 
       let linkInsumos  = document.getElementById('link-insumos'); 
       let linkEntradas = document.getElementById('link-entradas'); 
-      let linkSalidas = document.getElementById('link-entradas'); 
-      let linkProveedores = document.getElementById('link-entradas'); 
+      let linkSalidas = document.getElementById('link-salidas'); 
+      let linkProveedores = document.getElementById('link-proveedores'); 
   
       linkDasboard.classList.remove('active'); 
       linkInsumos.classList.remove('active'); 

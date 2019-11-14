@@ -48,7 +48,7 @@ export class ProveedoresInsumosAddComponent implements OnInit {
   }
 
   btnCancelar(){
-    this.router.navigate(['/admin/proveedores/mostrar/insumos/'+this.idProveedor]);
+    this.router.navigate(['/adminalmacen/proveedores/mostrar/insumos/'+this.idProveedor]);
   }
 
   btnAgregarInsumo(){
@@ -62,7 +62,7 @@ export class ProveedoresInsumosAddComponent implements OnInit {
           }else{
             console.log("Ha ocurrido un error");
           }
-          this.router.navigate(['/admin/insumos']);
+          this.router.navigate(['/adminalmacen/insumos']);
         },
         (err)=>{
           this.alertService.error("Error al guardar insumo",err);

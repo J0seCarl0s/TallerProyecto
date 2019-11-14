@@ -56,7 +56,7 @@ export class ProveedoresEditComponent implements OnInit {
   }
 
   btnCancelar(){
-    this.router.navigate(['/admin/proveedores']);
+    this.router.navigate(['/adminalmacen/proveedores']);
   }
 
 }

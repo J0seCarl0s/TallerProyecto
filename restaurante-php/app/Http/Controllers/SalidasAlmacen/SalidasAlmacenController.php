@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class SalidasAlmacenController extends Controller
 {
     const CODIGOS_REGISTRO = [
-    	'1' => 'Entrada registrada correctamente',
+    	'1' => 'Salida registrada correctamente',
     	'2' => 'El insumo no existe',
     	'3' => 'El almacenero no existe o está deshabilitado',
-    	'4' => 'La cantidad ingresada es inválida'
+    	'4' => 'La cantidad ingresada es inválida',
+        '5' => 'La cantidad excede a la cantidad del insumo existente'
     ];
 
     /**
@@ -47,7 +48,7 @@ class SalidasAlmacenController extends Controller
      * @param  Request $request
      * @return json
      */
-    public function registrarEntrada(Request $request){
+    public function registrarSalida(Request $request){
 
         //Obtengo los parametros del request
         $salida = [];
@@ -62,7 +63,7 @@ class SalidasAlmacenController extends Controller
             //Llamo al procedimiento para registrar el usuario. La funcion select
             //retorna un array así que solo tomo el primer elemento del array
             $select = collect(\DB::select(
-            	'call registrar_entrada_almacen(?, ?, ?, ?)', $salida))->first();
+            	'call registrar_salida_almacen(?, ?, ?, ?)', $salida))->first();
 
             $codigo_resultado = $select->resultado;
             $ok = $codigo_resultado == 1;
@@ -70,7 +71,7 @@ class SalidasAlmacenController extends Controller
 
         }catch(QueryException $ex){
             $ok = false;
-            $result = "Error al registrar el plato";
+            $result = "Error al registrar salida";
         }
 
         $rtn = [

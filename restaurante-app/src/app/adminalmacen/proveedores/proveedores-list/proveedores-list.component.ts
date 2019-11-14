@@ -45,14 +45,14 @@ export class ProveedoresListComponent implements OnInit {
   btnEditar(id: number)
   {
       console.log("Navegando a editar el insumo: "+id);
-      this.router.navigate(['/admin/proveedores/editar/'+id]);
+      this.router.navigate(['/adminalmacen/proveedores/editar/'+id]);
   }
 
   btnAgregar()
   {
       console.log("Navegando a agregar un nuevo insumo: ");
 
-      this.router.navigate(['/admin/proveedores/agregar']);
+      this.router.navigate(['/adminalmacen/proveedores/agregar']);
   }
 
 
@@ -78,6 +78,6 @@ export class ProveedoresListComponent implements OnInit {
   {
     console.log("Navegando a agregar un nuevo insumo del proveedor: ");
 
-    this.router.navigate(['/admin/proveedores/mostrar/insumos/'+id]);
+    this.router.navigate(['/adminalmacen/proveedores/mostrar/insumos/'+id]);
   }
 }

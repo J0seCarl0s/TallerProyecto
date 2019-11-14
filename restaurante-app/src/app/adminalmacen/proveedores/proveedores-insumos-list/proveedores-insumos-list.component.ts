@@ -38,13 +38,12 @@ export class ProveedoresInsumosListComponent implements OnInit {
 
   btnAgregar()
   {
-
       console.log("Navegando a agregar un nuevo plato: ");
-      this.router.navigate(['/admin/proveedores/agregar/insumos/'+this.idProveedor]);
+      this.router.navigate(['/adminalmacen/proveedores/agregar/insumos/'+this.idProveedor]);
   }
 
   btnRetroceder(){
-    this.router.navigate(['/admin/proveedores/']);
+    this.router.navigate(['/adminalmacen/proveedores/']);
   }
 
   btnEditar(){

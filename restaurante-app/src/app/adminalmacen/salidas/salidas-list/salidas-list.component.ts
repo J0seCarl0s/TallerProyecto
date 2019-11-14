@@ -37,5 +37,5 @@ export class SalidasListComponent implements OnInit {
 
   btnAgregar(){
     this.router.navigate(['/adminalmacen/salidas/agregar']);
-  }
+  }  
 }

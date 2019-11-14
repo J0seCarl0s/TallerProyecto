@@ -47,6 +47,8 @@ import { PedidosListComponent } from './mozo/pedidos/pedidos-list/pedidos-list.c
 import { PedidosEditComponent } from './mozo/pedidos/pedidos-edit/pedidos-edit.component';
 import { EntradasAddComponent } from './adminalmacen/entradas/entradas-add/entradas-add.component';
 import { EntradasListComponent } from './adminalmacen/entradas/entradas-list/entradas-list.component';
+import { SalidasAddComponent } from './adminalmacen/salidas/salidas-add/salidas-add.component';
+import { SalidasListComponent } from './adminalmacen/salidas/salidas-list/salidas-list.component';
 
 import { InsumosListComponent as InsumosAlmacenListComponent } from './adminalmacen/insumos/insumos-list/insumos-list.component';
 import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalmacen/insumos/insumos-edit/insumos-edit.component';
@@ -55,6 +57,12 @@ import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.
 import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
 import { AlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
 import { EntradasEditComponent } from './adminalmacen/entradas/entradas-edit/entradas-edit.component';
+
+import { ProveedoresAddComponent as ProveedoresAlmacenAddComponent} from './adminalmacen/proveedores/proveedores-add/proveedores-add.component';
+import { ProveedoresListComponent as ProveedoresAlmacenListComponent} from './adminalmacen/proveedores/proveedores-list/proveedores-list.component';
+import { ProveedoresEditComponent as ProveedoresAlmacenEditComponent} from './adminalmacen/proveedores/proveedores-edit/proveedores-edit.component';
+import { ProveedoresInsumosAddComponent as ProveedoresInsumosAlmacenAddComponent } from './adminalmacen/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
+import { ProveedoresInsumosListComponent as ProveedoresInsumosAlmacenListComponent} from './adminalmacen/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
 
 import { PagosAddComponent } from './admincaja/pagos/pagos-add/pagos-add.component';
 
@@ -94,6 +102,13 @@ export const ROUTING_COMPONENTS=[
   EntradasAddComponent,
   EntradasListComponent,
   EntradasEditComponent,
+  SalidasAddComponent,
+  SalidasListComponent,
+  ProveedoresAlmacenAddComponent,
+  ProveedoresAlmacenListComponent,
+  ProveedoresAlmacenEditComponent,
+  ProveedoresInsumosAlmacenAddComponent,
+  ProveedoresInsumosAlmacenListComponent,
 
   ContainerInsideAdminCajaComponent, 
   DashboardAdmincajaComponent,
@@ -239,20 +254,32 @@ const routes: Routes = [
         component: EntradasAddComponent
       },
       {
-        path: 'salidas/',
-        component: EntradasAddComponent
-      },
-       {
-        path: 'proveedor/',
-        component: ProveedoresListComponent
-      },
-       {
-        path: 'proveedor/agregar',
-        component: ProveedoresAddComponent
+        path: 'salidas',
+        component: SalidasListComponent
       },
       {
-        path: 'entrada/editar/:id',
-        component: EntradasEditComponent
+        path: 'salidas/agregar',
+        component: SalidasAddComponent
+      },
+       {
+        path: 'proveedores',
+        component: ProveedoresAlmacenListComponent
+      },
+       {
+        path: 'proveedores/agregar',
+        component: ProveedoresAlmacenAddComponent
+      },
+      {
+        path: 'proveedores/editar/:id',
+        component: ProveedoresAlmacenEditComponent
+      },
+      {
+        path: 'proveedores/mostrar/insumos/:id',         
+        component: ProveedoresInsumosAlmacenListComponent
+      },
+      {
+        path: 'proveedores/agregar/insumo/:id',
+        component: ProveedoresInsumosAlmacenAddComponent
       },
     ]
   },
