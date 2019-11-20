@@ -25,11 +25,11 @@ export class PedidosListComponent implements OnInit, OnChanges {
   cargarPedidos()
   {
       this.pedidosService.listarDeMesa(this.numMesa).subscribe(
-        (response)=>{
+        (response) => {
           console.log(response);
-          if(response.ok){
+          if(response.ok) {
             this.pedidos = response.result;
-          }else{
+          } else {
             console.log("No se pudo obtener la data");
           }
         }

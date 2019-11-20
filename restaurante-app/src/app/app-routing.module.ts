@@ -65,6 +65,7 @@ import { ProveedoresInsumosAddComponent as ProveedoresInsumosAlmacenAddComponent
 import { ProveedoresInsumosListComponent as ProveedoresInsumosAlmacenListComponent} from './adminalmacen/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
 
 import { PagosAddComponent } from './admincaja/pagos/pagos-add/pagos-add.component';
+import { PedidosReadyComponent } from './mozo/pedidos/pedidos-ready/pedidos-ready.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -123,6 +124,7 @@ export const ROUTING_COMPONENTS=[
   PedidosAddComponent,
   PedidosListComponent,
   PedidosEditComponent,
+  PedidosReadyComponent,
 
   Page404Component
 ];

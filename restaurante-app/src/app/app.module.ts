@@ -35,6 +35,7 @@ import { PlatosService } from "./mozo/platos/platos.service";
 import { EntradasService } from "./adminalmacen/entradas/entradas.service";
 import { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/insumos.service";
 import { CajaService } from "./admincaja/caja.service";
+import { MesasService as MesasCajaService } from "./admincaja/mesas/mesas.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
 
 import { SalidasService} from "./adminalmacen/salidas/salidas.service";
@@ -100,8 +101,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardService,
 
     //SERVICIOS DEL CAJERO
-    CajaService
-
+    CajaService,
+    MesasCajaService
 
   ],
   bootstrap: [AppComponent]

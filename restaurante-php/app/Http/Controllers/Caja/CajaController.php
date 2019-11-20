@@ -25,6 +25,13 @@ class CajaController extends Controller
         '4' => 'La caja todavía no está abierta'
     ];
 
+    const CODIGOS_RESULTADO_REGISTRARPAGO = [
+        '1' => 'Pago registrada correctamente',
+        '2' => 'La mesa no tiene ningún pedido',
+        '3' => 'Cajero no existe o esta deshabilitado',
+        '4' => 'La caja todavía no está abierta'
+    ];
+
     /**
      * Obtiene el estado actual de la caja. (El monto y si está abierta o no)
      *
@@ -87,7 +94,7 @@ class CajaController extends Controller
      * 
      * @return json
      */
-    public function cerrarCaja(Request $request){
+    public function cerrarCaja(Request $request) {
 		$parametros = [];
 		$parametros[0] = $request->input('monto_final_ingresado');
 
@@ -119,7 +126,7 @@ class CajaController extends Controller
      * 
      * @return json
      */
-    public function registrarOperacion(Request $request){
+    public function registrarOperacion(Request $request) {
         $operacion = [];
         $operacion[0] = $request->input('monto');
         $operacion[1] = $request->input('descripcion');
@@ -135,7 +142,7 @@ class CajaController extends Controller
 
         }catch(QueryException $ex){
             $ok = false;
-            $result = "No se pudo cerrar la caja";
+            $result = "No se pudo registrar la operación";
         }
 
         $rtn = [
@@ -144,5 +151,65 @@ class CajaController extends Controller
         ];
 
         return response()->json($rtn, 200);
-    }    
+    }
+
+    /**
+     * Registra el pago del consumo de una mesa
+     * 
+     * @param Request $request
+     * 
+     * @return json
+     */
+    public function registrarPagoDeMesa(Request $request) {
+        $operacion = [];
+        $operacion[0] = $request->input('numMesa');
+        $operacion[1] = Auth::user() != null ? Auth::user()->id : 18;
+
+        try{
+            $select = collect(\DB::select(
+                'call registrar_pago_de_mesa(?, ?)', $operacion))->first();
+
+            $codigo_resultado = $select->resultado;
+            $ok = $codigo_resultado == 1;
+            $result = self::CODIGOS_RESULTADO_REGISTRARPAGO[$codigo_resultado];
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "No se pudo registrar el pago";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
+
+
+    /**
+     * Devuelve todas las operaciones registradas en la caja actual
+     * 
+     * @return json
+     */
+    public function verOperacionesCajaActual() {
+
+        try{
+            $select = \DB::select('call listar_operaciones_de_caja_actual()');
+
+            $ok = true;
+            $result = $select;
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "No se pudo obtener las operaciones";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
 }
