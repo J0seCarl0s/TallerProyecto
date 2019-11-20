@@ -1,9 +1,8 @@
-
 <div class="row">
     <div class="col-lg-7 col-md-7">
         <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
-                <div class="nav-tabs-navigation">
+                <div class="nav-tabs-navigation pull-left">
                     <div class="nav-tabs-wrapper">
                         <span class="nav-tabs-title">Pedidos:</span>
                         <ul class="nav nav-tabs" data-tabs="tabs">
@@ -21,13 +20,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#servidos" data-toggle="tab">
-                            <i class="material-icons">cloud</i> SERVIDOS
+                            <i class="material-icons">cloud</i> PARA SERVIR
                             <div class="ripple-container"></div>
                             </a>
                         </li>
                         </ul>
                     </div>
                 </div>
+                <div class="preloader pull-right align-middle" [style.display]="cargando ? 'block' : 'none'"></div>
             </div>
             <div class="card-body">
                 <div class="tab-content">
@@ -38,7 +38,7 @@
                         <app-pedidos-list [numMesa]="mesaEscogida" [hayQueRecargar]="actualizacionPedidos"></app-pedidos-list>
                     </div>
                     <div class="tab-pane" id="servidos">
-                        Pedidos ya servidos
+                        <app-pedidos-ready></app-pedidos-ready>
                     </div>
                 </div>
             </div>

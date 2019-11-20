@@ -12,6 +12,7 @@ export class DashboardMozoComponent implements OnInit {
   mesaEscogida:number = 1;
   mesas: any[];
 
+  cargando: boolean = false;
   //Variable que el modulo pedidos-add revisará para 
   //actualizar la lista de pedidos de la mesa
   actualizacionPedidos:boolean = false; 
@@ -21,6 +22,7 @@ export class DashboardMozoComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+    this.cargando = true;
   	this.cargarMesas();
   }
 
@@ -33,6 +35,8 @@ export class DashboardMozoComponent implements OnInit {
           }else{
             console.log("No se pudo obtener la data");
           }
+
+          this.cargando = false;
         }
       );
   }

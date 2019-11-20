@@ -19,6 +19,9 @@ Route::get('pedidos/mostrar/{id}', 'Pedidos\PedidosController@obtenerPedido');
 Route::post('pedidos/editar', 'Pedidos\PedidosController@editarPedido');
 Route::post('pedidos/eliminar','pedidos\PedidosController@eliminarPedido');
 
+Route::get('/almacen/salidas', 'SalidasAlmacen\SalidasAlmacenController@verSalidas');
+Route::post('/almacen/salidas/registrar', 'SalidasAlmacen\SalidasAlmacenController@registrarSalida');
+
 Route::get('iver',function (){
     return response()->json([
         "nombre"=>"iver"

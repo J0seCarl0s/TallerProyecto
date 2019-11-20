@@ -53,7 +53,10 @@ export class ProveedoresEditComponent implements OnInit {
           this.alertService.success("Se actualizo correctamente","Actualizacion")
         }
       )
+<<<<<<< HEAD
     this.router.navigate(['/adminalmacen/proveedores']);
+=======
+>>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
   }
 
   btnCancelar(){

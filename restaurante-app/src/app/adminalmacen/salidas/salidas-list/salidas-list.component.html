@@ -1,9 +1,9 @@
 <div class="col-md-12">
   <div class="card">
     <div class="card-header card-header-primary">
-      <h4 class="card-title pull-left">Lista de empleados</h4>
+      <h4 class="card-title pull-left">Lista de Salidas</h4>
         <button (click)="btnAgregar()" class="btn btn-white btn-round pull-right" style="padding:10px">
-          Agregar nuevo empleado
+          Agregar nueva entrada
           <i class="material-icons">add</i>
         </button>
     </div>
@@ -13,42 +13,35 @@
         <thead class="text-primary">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Nombre completo</th>
-            <th scope="col">Rol</th>
-            <th scope="col">Email</th>
-            <th scope="col">Estado</th>
+            <th scope="col">Insumo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Fecha</th>
             <th scope="col" ></th>
             <th scope="col" ></th>
           </tr>
         </thead>
       <tbody>
-        <tr *ngFor="let usuario of usuarios; index as i">          
+        <tr *ngFor="let salida of salidas; index as i">          
           <td>
             {{i+1}}
           </td>
           <td>
-            {{usuario.firstname + " " + usuario.surname}}
+            {{salida.nombre_insumo}}
           </td>
           <td>
-            {{usuario.nombre_rol | lowercase}}
+            {{salida.cantidad}}
           </td>
           <td >
-            {{usuario.email}}
+            {{salida.fecha}}
           </td>           
           <td>
-             <button  class="btn btn-white btn-just-icon" (click)="btnCambiarEstado(usuario,usuario.state == 1)">
-              <i *ngIf="usuario.state == 1" class="material-icons">toggle_on</i>
-              <i *ngIf="usuario.state == 0" class="material-icons">toggle_off</i>
-              </button>
-          </td> 
-          <td>
-              <button  class="btn btn-white btn-success btn-just-icon" (click)="btnEditar(usuario.id)">
+              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar(entrada.idhistorial_almacen)">
               	<i class="material-icons">create</i>
               </button>
             
           </td>
           <td>
-            <button  class="btn btn-white btn-danger btn-just-icon" (click)="btnEliminar(usuario.id)">
+            <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminar(entrada.idhistorial_almacen)">
             	<i class="material-icons">delete</i>
           	</button>
           </td>

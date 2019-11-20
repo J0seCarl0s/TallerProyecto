@@ -18,6 +18,7 @@ export class DashboardAdmincajaComponent implements OnInit {
   montoActual:number = 0.0;
   estaCajaAbierta:boolean = true;
   montoFinal:number = 0.0;
+  operacionesDeLaCaja: any[];
 
   ngOnInit() {
   	this.cargarEstadoInicial();
@@ -32,6 +33,17 @@ export class DashboardAdmincajaComponent implements OnInit {
             this.montoActual = response.result.monto_actual;
             this.estaCajaAbierta = response.result.esta_abierta;
           }else{
+            console.log("No se pudo obtener la data");
+          }
+        }
+      );
+
+    this.cajaService.obtenerOperacionesCaja().subscribe(
+        (response)=>{
+          console.log(response);
+          if(response.ok) {
+            this.operacionesDeLaCaja = response.result;
+          } else {
             console.log("No se pudo obtener la data");
           }
         }

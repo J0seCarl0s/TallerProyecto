@@ -35,10 +35,16 @@ import { PlatosService } from "./mozo/platos/platos.service";
 import { EntradasService } from "./adminalmacen/entradas/entradas.service";
 import { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/insumos.service";
 import { CajaService } from "./admincaja/caja.service";
+import { MesasService as MesasCajaService } from "./admincaja/mesas/mesas.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
 
+<<<<<<< HEAD
 import { ProveedoresService as ProveedoresAlmacenService} from "./adminalmacen/proveedores/proveedores.service";
 
+=======
+import { SalidasService} from "./adminalmacen/salidas/salidas.service";
+import { ProveedoresService as ProveedoresAlmacenService } from "./adminalmacen/proveedores/proveedores.service";
+>>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
@@ -92,14 +98,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     //SERVICIOS DEL ALMACENERO
     InsumosAlmacenService,
+<<<<<<< HEAD
     EntradasService, 
     ProveedoresAlmacenService, 
+=======
+    EntradasService,  
+    SalidasService,
+    ProveedoresAlmacenService,
+>>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
 
     //SERVICIOS DEL COCINERO
     DashboardService,
 
     //SERVICIOS DEL CAJERO
-    CajaService
+    CajaService,
+    MesasCajaService
 
   ],
   bootstrap: [AppComponent]

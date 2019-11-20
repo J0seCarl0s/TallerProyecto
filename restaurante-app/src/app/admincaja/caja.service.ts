@@ -28,6 +28,14 @@ export class CajaService {
        return this.http.get(url, this.httpOptions);
     }
 
+    obtenerOperacionesCaja(): Observable<any>
+    {
+        var url = this.apiUrl + "caja/operaciones";
+        
+       return this.http.get(url, this.httpOptions);
+    }
+
+
     abrirCaja(monto_inicial:number): Observable<any>
     {
         var url = this.apiUrl + "caja/abrir";
@@ -58,4 +66,14 @@ export class CajaService {
         
        return this.http.post<any>(url, data, this.httpOptions);
     }    
+
+    registrarPago(numMesa: number): Observable<any>
+    {
+        var url = this.apiUrl + "caja/pagos/registrar";
+        var data = {
+            "numMesa": numMesa
+        }        
+        
+       return this.http.post<any>(url, data, this.httpOptions);
+    }
 }

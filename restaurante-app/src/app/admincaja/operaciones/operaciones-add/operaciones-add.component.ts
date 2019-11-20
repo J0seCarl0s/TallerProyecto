@@ -37,15 +37,22 @@ export class OperacionesAddComponent implements OnInit {
 
   cambiarMonto() {
     this.nuevoMontoCaja = (+this.montoCaja);
-    if(this.esEntrada){
-      this.nuevoMontoCaja += (+this.montoOperacion);
-    }else{
-      this.nuevoMontoCaja -= (+this.montoOperacion);
+    
+    if(this.esEntrada) {
+      this.nuevoMontoCaja += this.montoOperacion;
+    } else {
+      this.nuevoMontoCaja -= this.montoOperacion;
     }
+
   }
 
   btnAgregarOperacion() {
-    this.cajaService.registrarOperacion(this.montoOperacion, this.descripcion)
+    var monto = this.montoOperacion;
+    if(!this.esEntrada){
+      monto = -monto;
+    }
+
+    this.cajaService.registrarOperacion(monto, this.descripcion)
       .subscribe(
         (response)=>{
           console.log(response);

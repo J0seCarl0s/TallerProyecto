@@ -284,5 +284,26 @@ class PedidosController extends Controller
         return response()->json($rtn, 200);
     }
 
+    public function pasarPedidoAEntregado(Request $request){
+        
+        $pedido = [];
+        //Obtengo los parametros del request
+        $pedido[0] = $request->input('id_pedido');
+        try{
+            //Llamo al procedimiento
+            \DB::select('call pasar_pedido_a_entregado(?)', $pedido);
+            $ok = true;
+            $result = "Cambio de estado pedido cambiado correctamente";
+        }catch(QueryException $ex){            
+            $ok = false;
+            $result = "No se pudo cambiar el estado del pedido";
+        }
 
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+        //retorno los pedidos en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
 }

@@ -62,4 +62,19 @@ export class PedidosService {
         
         return this.http.get(url, this.httpOptions);
     }
+
+    listarListos(): Observable<any>
+    {
+        var url = this.apiUrl + "pedidos/obtenerpedidoslistos";
+
+        return this.http.get(url, this.httpOptions);
+    }
+
+    pasarPedidoAEntregado(id: number): Observable<any>
+    {
+        var url = this.apiUrl + "pedidos/pasarpedidoaentregado";
+        var data = { id_pedido: id };
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
 }
