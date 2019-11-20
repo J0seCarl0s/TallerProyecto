@@ -44,4 +44,26 @@ export class EntradasListComponent implements OnInit {
 
     this.router.navigate(['/adminalmacen/entrada/editar/'+id]);
   }
+
+  btnEliminar(id:number)
+  {
+    this.entradasService.eliminar(id)
+    .subscribe(
+      (response)=>{
+        if(response.ok)
+        {
+          this.alertService.success("Eliminado correctamente","Eliminar");
+          console.log("Se elimino correctamente");
+          this.llenarDatos();
+        }else{
+          console.log("Ocurrio un error");
+          this.alertService.error("Error al eliminar entrada",null);  
+        }
+      },
+      (err) => {
+        console.log("Ocurrio un error");
+        this.alertService.error("Error al eliminar entrada",err);
+      }
+    )
+  }
 }

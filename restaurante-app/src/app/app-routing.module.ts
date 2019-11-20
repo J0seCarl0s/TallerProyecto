@@ -26,6 +26,7 @@ import { UsuariosEditComponent } from './admin/usuarios/usuarios-edit/usuarios-e
 
 import { ProveedoresInsumosAddComponent } from './admin/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
 import { ProveedoresInsumosListComponent } from './admin/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
+import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
 
 import { DashboardAdminalmacenComponent } from './adminalmacen/dashboard-adminalmacen/dashboard-adminalmacen.component';
 import { DashboardAdmincajaComponent } from './admincaja/dashboard-admincaja/dashboard-admincaja.component';
@@ -36,11 +37,7 @@ import { ContainerInsideAdminCajaComponent } from './shared/components/container
 import { ContainerInsideMozoComponent } from './shared/components/container-inside-mozo/container-inside-mozo.component';
 import { ContainerInsideCocineroComponent } from './shared/components/container-inside-cocinero/container-inside-cocinero.component';
 
-
-import { ProveedoresInsumosEditComponent } from './admin/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
 import { MesasAddComponent } from './admin/mesas/mesas-add/mesas-add.component';
-
-
 
 import { PedidosAddComponent } from './mozo/pedidos/pedidos-add/pedidos-add.component';
 import { PedidosListComponent } from './mozo/pedidos/pedidos-list/pedidos-list.component';
@@ -56,7 +53,15 @@ import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add
 import { AlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
 import { EntradasEditComponent } from './adminalmacen/entradas/entradas-edit/entradas-edit.component';
 
+import { ProveedoresListComponent as AlmaceneroProveedoresListComponent} from './adminalmacen/proveedores/proveedores-list/proveedores-list.component';
+import { ProveedoresEditComponent as AlmaceneroProveedoresEditComponent} from './adminalmacen/proveedores/proveedores-edit/proveedores-edit.component';
+import { ProveedoresAddComponent as AlmaceneroProveedoresAddComponent} from './adminalmacen/proveedores/proveedores-add/proveedores-add.component';
+import { AlmacenListComponent as AlmaceneroAlmacenListComponent } from './adminalmacen/almacen/almacen-list/almacen-list.component';
+
 import { PagosAddComponent } from './admincaja/pagos/pagos-add/pagos-add.component';
+import { ProveedoresInsumosListComponent as AlmaceneroProveedoresInsumosListComponent} from './adminalmacen/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
+import { ProveedoresInsumosEditComponent as AlmaceneroProveedoresInsumosEditComponent } from './adminalmacen/proveedores/proveedores-insumos-edit/proveedores-insumos-edit.component';
+import { ProveedoresInsumosAddComponent as AlmaceneroProveedoresInsumosAddComponent} from './adminalmacen/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
 
 
 export const ROUTING_COMPONENTS=[
@@ -108,6 +113,15 @@ export const ROUTING_COMPONENTS=[
   PedidosAddComponent,
   PedidosListComponent,
   PedidosEditComponent,
+
+  AlmaceneroProveedoresListComponent,
+  AlmaceneroProveedoresEditComponent,
+  AlmaceneroProveedoresAddComponent,
+
+  AlmaceneroProveedoresInsumosListComponent,
+  AlmaceneroProveedoresInsumosEditComponent,
+  AlmaceneroProveedoresInsumosAddComponent,
+  AlmaceneroAlmacenListComponent,
 
   Page404Component
 ];
@@ -242,17 +256,33 @@ const routes: Routes = [
         path: 'salidas/',
         component: EntradasAddComponent
       },
-       {
-        path: 'proveedor/',
-        component: ProveedoresListComponent
-      },
-       {
-        path: 'proveedor/agregar',
-        component: ProveedoresAddComponent
-      },
       {
         path: 'entrada/editar/:id',
         component: EntradasEditComponent
+      },
+      {
+        path: 'proveedores',
+        component: AlmaceneroProveedoresListComponent
+      },
+       {
+        path: 'proveedores/agregar',
+        component: AlmaceneroProveedoresAddComponent
+      },
+      {
+        path: 'proveedores/editar/:id',
+        component: AlmaceneroProveedoresEditComponent
+      },
+      {
+        path: 'proveedores/mostrar/insumos/:id',
+        component: AlmaceneroProveedoresInsumosListComponent
+      },
+      {
+        path: 'proveedores/agregar/insumo/:id',
+        component: AlmaceneroProveedoresInsumosAddComponent
+      },
+      {
+        path: 'almacenControl',
+        component: AlmaceneroAlmacenListComponent
       },
     ]
   },
@@ -316,6 +346,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-     
+  
 })
 export class AppRoutingModule { }

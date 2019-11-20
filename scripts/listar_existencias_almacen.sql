@@ -12,6 +12,7 @@ SET AUTOCOMMIT = 0;
     SELECT 
 	insumos.idinsumo as Id,
 
+	insumos.cantidad_minima as minimo,
 	insumos.nombre_insumo as Insumo, 
 	SUM(cantidad) as Total 
 
@@ -20,7 +21,7 @@ SET AUTOCOMMIT = 0;
     INNER JOIN insumos on 	historial_almacen.idinsumo=insumos.idinsumo
 
     GROUP BY historial_almacen.idinsumo;
-    
+    HAVING Total >= 0;
     
     SET AUTOCOMMIT = 1;
 END$$

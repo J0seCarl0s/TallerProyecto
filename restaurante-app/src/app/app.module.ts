@@ -37,6 +37,9 @@ import { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/
 import { CajaService } from "./admincaja/caja.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
 
+import { ProveedoresService as ProveedoresAlmacenService} from "./adminalmacen/proveedores/proveedores.service";
+
+
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 import { AppComponent } from './app.component';
@@ -89,7 +92,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     //SERVICIOS DEL ALMACENERO
     InsumosAlmacenService,
-    EntradasService,  
+    EntradasService, 
+    ProveedoresAlmacenService, 
 
     //SERVICIOS DEL COCINERO
     DashboardService,

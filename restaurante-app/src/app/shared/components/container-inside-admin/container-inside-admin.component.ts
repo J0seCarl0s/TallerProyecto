@@ -84,7 +84,8 @@ export class ContainerInsideAdminComponent implements OnInit {
     linkPlatos.classList.remove('active');
     linkInsumos.classList.remove('active');
     linkUsuarios.classList.remove('active');
-    //linkMesas.classList.remove('active');
+    linkMesas.classList.remove('active');
+    linkAlmacenControl.classList.remove('active');
 
     switch(id){
       case 1:{
@@ -102,9 +103,12 @@ export class ContainerInsideAdminComponent implements OnInit {
       case 5:{
         linkUsuarios.classList.add('active');
       }break;
-      /*case 6:{
+      case 6:{
         linkMesas.classList.add('active');
-      }break;*/
+      }break;
+      case 7:{
+        linkAlmacenControl.classList.add('active');
+      }break;
     }
   }
 

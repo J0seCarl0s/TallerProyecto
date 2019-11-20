@@ -56,4 +56,13 @@ export class EntradasService {
         
         return this.http.post<any>(url, data, this.httpOptions);
     }
+
+    eliminar(id:number)
+    {
+        var url = this.apiUrl + "entradas/eliminar";
+        var data = {
+            id_entrada:id
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+    }
 }

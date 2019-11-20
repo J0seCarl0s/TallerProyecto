@@ -9,7 +9,7 @@ Route::get('almacen/ajuste/mostrar/{id}', 'Almacen\AlmacenController@verExistenc
 Route::post('almacen/ajustar/{id}', 'Almacen\AlmacenController@ajustarCantidad');
 Route::get('entrada/mostrar/{id}', 'EntradasAlmacen\EntradasAlmacenController@verEntrada');
 Route::post('/entrada/editar/{id}', 'Almacen\AlmacenController@editarEntrada');
-
+Route::post('/entradas/eliminar', 'Almacen\AlmacenController@eliminarEntrada');
 
 Route::get('jhon',function (){
     return response()->json([

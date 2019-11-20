@@ -100,4 +100,28 @@ class AlmacenController extends Controller
 
         return response()->json($rtn, 200);
     }
+
+    public function eliminarEntrada(Request $request){
+        
+        $entrada = [];
+        //Obtengo los parametros del request
+        $entrada[0] = $request->input('id_entrada');
+
+        try{
+            //Llamo al procedimiento
+            \DB::select('call eliminar_entrada(?)', $entrada);
+            $ok = true;
+            $result = "entrada eliminada correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al eliminar la entrada";
+        }
+        //retorno  en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
 }
