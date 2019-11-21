@@ -212,4 +212,37 @@ class CajaController extends Controller
 
         return response()->json($rtn, 200);
     }
+
+
+
+    /**
+     * Devuelve el consumo de una mesa
+     * 
+     * @return json
+     */
+    public function verConsumoPorMesa(Request $request) {
+
+        $parametros = [];
+        //Obtengo los parametros del request
+        $parametros[0] = $request->input('numero_mesa');
+
+        try{
+            $select = \DB::select('call usp_ver_consumo_de_mesas(?)',$parametros);
+
+            $ok = true;
+            $result = $select;
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "No se pudo obtener el consumo de la mesa";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
+
 }

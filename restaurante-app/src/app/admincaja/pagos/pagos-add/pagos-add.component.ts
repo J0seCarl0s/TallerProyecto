@@ -13,6 +13,7 @@ export class PagosAddComponent implements OnInit {
 
   numMesa: number = 1;
   mesas: any[];
+  pedidos: any[];
 
   constructor(private router:Router, 
               private mesasService:MesasService, 
@@ -41,6 +42,7 @@ export class PagosAddComponent implements OnInit {
   {
     console.log("Mesa escogida: " + numMesa);
     this.numMesa = numMesa;
+    this.obtenerConsumosPorMesa()
   }
 
   btnRegistrarPago()
@@ -55,6 +57,18 @@ export class PagosAddComponent implements OnInit {
           }
         }
       );
+  }
+
+
+  obtenerConsumosPorMesa()
+  {
+    this.cajaService.obtenerConsumosPorMesa(this.numMesa)
+      .subscribe(
+        (res)=>{
+          console.log(res);
+          this.pedidos=res.result;
+        }
+      )
   }
 
 }

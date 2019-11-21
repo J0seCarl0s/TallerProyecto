@@ -76,4 +76,14 @@ export class CajaService {
         
        return this.http.post<any>(url, data, this.httpOptions);
     }
+
+    obtenerConsumosPorMesa(numMesa:number):Observable<any>
+    {
+        var url = this.apiUrl + "caja/verconsumopormeda";
+        const data = {
+            "numero_mesa":numMesa
+        };
+       return this.http.post(url,data ,this.httpOptions);
+
+    }
 }

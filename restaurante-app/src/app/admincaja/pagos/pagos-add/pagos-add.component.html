@@ -21,7 +21,6 @@
                           </th>
                         </tr>
                       </thead>
-                      <!--
                       <tbody>
                         <tr *ngFor="let pedido of pedidos">
                           <td>
@@ -40,10 +39,12 @@
                             <span *ngIf="pedido.estado === 'ENTREGADO'" class="badge badge-success text-center" style="padding: 8px">
                                 <strong> {{pedido.estado}} </strong>
                             </span>
-                            </td>
+                          </td>
+                          <td>
+                            {{pedido.precio}}
+                          </td>
                         </tr>
                       </tbody>
-                    -->
                     </table>
                   </div>
             </div>

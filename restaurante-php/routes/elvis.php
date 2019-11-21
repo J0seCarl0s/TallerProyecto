@@ -1,6 +1,13 @@
 <?php
 
+
 use Illuminate\Http\Request;
+
+Route::get('elvis',function (){
+    return response()->json([
+        "nombre"=>"elvis"
+    ],200);
+});
 
 Route::post('usuarios/edit','User\UserController@editarUsuario');
 Route::post('usuarios/activar','User\UserController@activarUsuario');
@@ -15,6 +22,7 @@ Route::get('usuarios/mostrar/{id}','User\UserController@obtenerDatosUsuario');
  * 5: Almacenero
  */
 
+
 Route::group(['middleware' => 'auth:api'], function()
 {
 
@@ -28,3 +36,6 @@ Route::group(['middleware' => 'auth:api'], function()
 Route::get('deniedAccess',function(){
     return "No tienes los permisos necesarios";
 })->name("deniedAccess");
+
+
+Route::post('caja/verconsumopormeda','Caja\CajaController@verConsumoPorMesa');
