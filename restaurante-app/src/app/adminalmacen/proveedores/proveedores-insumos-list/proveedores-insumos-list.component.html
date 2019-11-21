@@ -21,20 +21,11 @@
           </tr>
         </thead>
       <tbody>
-<<<<<<< HEAD
         <tr *ngFor="let insumo of insumos; index as i" >  
                                                                      
           <td>
             {{i+1}}
           </td>
-          
-=======
-        <tr *ngFor="let insumo of insumos; index as i">          
-          <td>
-            {{i+1}}
-          </td>
-           
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
           <td>
             {{insumo.nombre_insumo}}
           </td>
@@ -43,31 +34,17 @@
           </td>          
         
           <td>
-<<<<<<< HEAD
               <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditarInsumo(insumo.idinsumo)">
-=======
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar()">
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
               <i class="material-icons">create</i>
               </button>
             
-          </td>
-<<<<<<< HEAD
-          
+          </td>          
           <td>
             <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminarInsumo(insumo.idinsumo)">
             <i class="material-icons">delete</i>
             </button>
           </td>
         </tr>
-=======
-          <td>
-            <button  class="btn btn-white btn-round btn-just-icon">
-            <i class="material-icons">delete</i>
-          </button>
-        </td>
-      </tr>
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
       <div class="pull-left">                  
           <button type="submit" class="btn btn-primary " (click)="btnRetroceder()">
                       Retroceder

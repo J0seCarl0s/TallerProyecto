@@ -78,20 +78,19 @@ export class ProveedoresService
         return this.http.get(url, this.httpOptions);
     }
 
-<<<<<<< HEAD
     agregarInsumoProveedor(id:number, nombreInsumo:string, cantidadMinima:number): Observable<any>
     {
         var url = this.apiUrl + "proveedores/agregar/insumo/"+id;
         var data = { id:id , nombre: nombreInsumo, cantidad: cantidadMinima };
         
         return this.http.post<any>(url, data, this.httpOptions);
-=======
+    }
+
     listarInsumos(id:number): Observable<any>
     {
         var url = this.apiUrl + "proveedores/insumos/agregar/"+id;
         
         return this.http.get(url, this.httpOptions);
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
     }
 
     registrarInsumo(nombreInsumo:string, cantidadMinima:number): Observable<any>
@@ -101,7 +100,6 @@ export class ProveedoresService
         
         return this.http.post<any>(url, data, this.httpOptions);
      }
-<<<<<<< HEAD
 
      registrarInsumoProveedor(id:number, idIn:number, nombre:string, cantidad:number){
         var url = this.apiUrl + "proveedores/insumo/editar"+id;
@@ -123,6 +121,4 @@ export class ProveedoresService
         return this.http.post<any>(url, data, this.httpOptions);
      }
      
-=======
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
 }

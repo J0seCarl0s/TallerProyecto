@@ -39,7 +39,6 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
     this.titulo="Dashboard";
   }
 
-<<<<<<< HEAD
    redirectProveedores()
   {
     this.efectos(4);
@@ -52,22 +51,14 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
     this.efectos(5);
     this.router.navigate(['/adminalmacen/almacenControl']);
     this.titulo="almacenControl";
-=======
-   redirectSalidas()
+  }
+
+  redirectSalidas()
   {
-    this.efectos(4);
+    this.efectos(6);
     this.router.navigate(['/adminalmacen/salidas']);
     this.titulo="Dashboard";
   }
-
- redirectProveedores()
-  {
-    this.efectos(5);
-    this.router.navigate(['/adminalmacen/proveedores']);
-    this.titulo="Dashboard";
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
-  }
-
 
     // EFECTOS NAV
 
@@ -76,24 +67,16 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
       let linkDasboard = document.getElementById('link-dashboard'); 
       let linkInsumos  = document.getElementById('link-insumos'); 
       let linkEntradas = document.getElementById('link-entradas'); 
-<<<<<<< HEAD
       let linkProveedores = document.getElementById('link-proveedores');
       let linkAlmacenControl = document.getElementById('link-almacenControl');
-=======
       let linkSalidas = document.getElementById('link-salidas'); 
-      let linkProveedores = document.getElementById('link-proveedores'); 
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
   
       linkDasboard.classList.remove('active'); 
       linkInsumos.classList.remove('active'); 
       linkEntradas.classList.remove('active'); 
-<<<<<<< HEAD
       linkProveedores.classList.remove('active');
       linkAlmacenControl.classList.remove('active');
-=======
       linkSalidas.classList.remove('active'); 
-      linkProveedores.classList.remove('active'); 
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
   
       switch(id){
         case 1:{
@@ -106,17 +89,13 @@ export class ContainerInsideAdminAlmacenComponent implements OnInit {
           linkEntradas.classList.add('active');
         }break;
         case 4:{
-<<<<<<< HEAD
           linkProveedores.classList.add('active');
         }break;
         case 5:{
-        linkAlmacenControl.classList.add('active');
-=======
+          linkAlmacenControl.classList.add('active');
+        }break;
+        case 6:{
           linkSalidas.classList.add('active');
-        }break;
-        case 5:{
-          linkProveedores.classList.add('active');
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
         }break;
       }
     }  

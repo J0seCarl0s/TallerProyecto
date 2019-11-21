@@ -34,12 +34,7 @@ export class ProveedoresInsumosAddComponent implements OnInit {
    llenarDatos()
   {
     this. idProveedor= parseInt( this.route.snapshot.paramMap.get("id")); 
-<<<<<<< HEAD
-    
-    this.proveedoresService.listar()
-=======
     this.proveedoresService.listarInsumos(this.idProveedor)
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
       .subscribe(
         (response)=>{
           console.log(response);
@@ -57,30 +52,17 @@ export class ProveedoresInsumosAddComponent implements OnInit {
   }
 
   btnAgregarInsumo(){
-<<<<<<< HEAD
     this.proveedoresService.agregarInsumoProveedor(this.idProveedor,this.nombre_insumo, this.cantidad_minima)
-=======
-    this.proveedoresService.registrarInsumo(this.nombre_insumo, this.cantidad_minima)
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
       .subscribe(
         (response)=>{
           console.log(response);
           if(response.ok){
             console.log("Elemento agregado correctamente");
-<<<<<<< HEAD
             this.alertService.success("Se guardo correctamente el insumo","Insumo Guardado");
             this.router.navigate(['/adminalmacen/proveedores/mostrar/insumos/'+this.idProveedor]);
           }else{
             console.log("Ha ocurrido un error");
-          }
-          
-=======
-            this.alertService.success("Se guardo correctamente el insumo","Insumos");
-          }else{
-            console.log("Ha ocurrido un error");
-          }
-          this.router.navigate(['/adminalmacen/insumos']);
->>>>>>> abad1b02654a00bc3dc840f0714c7c5a373c1b82
+          }          
         },
         (err)=>{
           this.alertService.error("Error al guardar insumo",err);
