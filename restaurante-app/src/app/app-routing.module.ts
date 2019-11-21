@@ -52,7 +52,7 @@ import { InsumosEditComponent as InsumosAlmacenEditComponent } from './adminalma
 import { InsumosAddComponent as InsumosAlmacenAddComponent } from './adminalmacen/insumos/insumos-add/insumos-add.component';
 import { AlmacenListComponent } from './admin/almacen/almacen-list/almacen-list.component';
 import { OperacionesAddComponent } from './admincaja/operaciones/operaciones-add/operaciones-add.component';
-import { AlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
+import { AlmacenEditComponent as AdminAlmacenEditComponent } from './admin/almacen/almacen-edit/almacen-edit.component';
 import { EntradasEditComponent } from './adminalmacen/entradas/entradas-edit/entradas-edit.component';
 
 import { ProveedoresListComponent as AlmaceneroProveedoresListComponent} from './adminalmacen/proveedores/proveedores-list/proveedores-list.component';
@@ -70,6 +70,8 @@ import { ProveedoresListComponent as ProveedoresAlmacenListComponent} from './ad
 import { ProveedoresEditComponent as ProveedoresAlmacenEditComponent} from './adminalmacen/proveedores/proveedores-edit/proveedores-edit.component';
 import { ProveedoresInsumosAddComponent as ProveedoresInsumosAlmacenAddComponent } from './adminalmacen/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
 import { ProveedoresInsumosListComponent as ProveedoresInsumosAlmacenListComponent} from './adminalmacen/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
+
+import { AlmacenEditComponent as AdminAlmacenAlmacenEditComponent } from "./adminalmacen/almacen/almacen-edit/almacen-edit.component";
 
 import { PedidosReadyComponent } from './mozo/pedidos/pedidos-ready/pedidos-ready.component';
 
@@ -98,7 +100,7 @@ export const ROUTING_COMPONENTS=[
   UsuariosEditComponent,
   MesasAddComponent,
   AlmacenListComponent,
-  AlmacenEditComponent,
+  AdminAlmacenEditComponent,
   
 
   ContainerInsideAdminAlmacenComponent, 
@@ -140,6 +142,7 @@ export const ROUTING_COMPONENTS=[
   AlmaceneroProveedoresInsumosEditComponent,
   AlmaceneroProveedoresInsumosAddComponent,
   AlmaceneroAlmacenListComponent,
+  AdminAlmacenAlmacenEditComponent,
 
   Page404Component
 ];
@@ -237,7 +240,7 @@ const routes: Routes = [
       },
       {
         path: 'almacen/ajustar/:id',
-        component: AlmacenEditComponent
+        component: AdminAlmacenEditComponent
       },
     ]
   },

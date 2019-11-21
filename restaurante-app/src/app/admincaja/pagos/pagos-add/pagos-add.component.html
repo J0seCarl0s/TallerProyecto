@@ -63,7 +63,7 @@
           <div class="card-body">
             <div class="row">
               <div *ngFor="let mesa of mesas" class="col-xs-12 col-md-4">
-                <button (click)="btnCambioNumeroMesa(mesa.num_mesa)" class="btn btn-light btn-success" class="btn btn-round" [ngClass]="{'btn-success': mesa.esta_activa, 'btn-secondary': !mesa.esta_activa, 'active': mesa.num_mesa === mesaEscogida}" [disabled]="!mesa.esta_activa">
+                <button (click)="btnCambioNumeroMesa(mesa.num_mesa)" class="btn btn-light btn-success" class="btn btn-round" [ngClass]="{'btn-success': mesa.esta_activa, 'btn-secondary': !mesa.esta_activa}" [disabled]="!mesa.esta_activa">
                   M{{mesa.num_mesa}}
                 </button>
               </div>

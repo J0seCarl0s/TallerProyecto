@@ -7,16 +7,16 @@
                   <p class="card-category">Edite el nombre y/o la cantidad mínima del insumo</p>
                 </div>
                 <div class="card-body">
-                  <form (ngSubmit)="btnActualizarInsumo()">
+                  <form>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
-                          <input type="text" class="form-control" [(ngModel)]="nombre_insumo" name="in_nombre_insumo" required placeholder="Nombre del insumo">
+                          <input type="text" class="form-control" name="in_nombre_insumo" required placeholder="Nombre del insumo">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
-                          <input type="number" class="form-control" step="0.1" [(ngModel)]="cantidad_minima" name="in_cantidad_insumo" required placeholder="Cantidad mínima del insumo">
+                          <input type="number" class="form-control" step="0.1" name="in_cantidad_insumo" required placeholder="Cantidad mínima del insumo">
                         </div>
                       </div>
                     </div>
@@ -24,7 +24,7 @@
                       <button type="submit" class="btn btn-primary ">
                         Actualizar insumo
                       </button>
-                       <button class="btn btn-primary" (click)="btnCancelar()">Cancelar</button>
+                       <button class="btn btn-primary">Cancelar</button>
                     </div>
                     <div class="clearfix"></div>
                   </form>

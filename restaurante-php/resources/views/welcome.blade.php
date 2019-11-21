@@ -15,7 +15,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <base href="/">
-<link rel="stylesheet" href="styles.23186c684e984fa438dc.css"></head>
+<link rel="stylesheet" href="styles.b0c8a8d232445721e368.css"></head>
 
 <body class="">
     <app-root></app-root>
@@ -238,6 +238,6 @@
 
     });
   </script>
-<script src="runtime-es2015.e8a2810b3b08d6a1b6aa.js" type="module"></script><script src="runtime-es5.e8a2810b3b08d6a1b6aa.js" nomodule defer></script><script src="polyfills-es5.f8e56c44acec13826399.js" nomodule defer></script><script src="polyfills-es2015.0ef207fb7b4761464817.js" type="module"></script><script src="styles-es2015.93e49e20c6bbcf797fdc.js" type="module"></script><script src="styles-es5.93e49e20c6bbcf797fdc.js" nomodule defer></script><script src="main-es2015.074a7d559a8816cbc3d7.js" type="module"></script><script src="main-es5.074a7d559a8816cbc3d7.js" nomodule defer></script></body>
+<script src="runtime-es2015.e8a2810b3b08d6a1b6aa.js" type="module"></script><script src="runtime-es5.e8a2810b3b08d6a1b6aa.js" nomodule defer></script><script src="polyfills-es5.f8e56c44acec13826399.js" nomodule defer></script><script src="polyfills-es2015.0ef207fb7b4761464817.js" type="module"></script><script src="styles-es2015.3039ce5530d141380bc3.js" type="module"></script><script src="styles-es5.3039ce5530d141380bc3.js" nomodule defer></script><script src="main-es2015.b68e6a21ae763b6f4b65.js" type="module"></script><script src="main-es5.b68e6a21ae763b6f4b65.js" nomodule defer></script></body>
 
 </html>

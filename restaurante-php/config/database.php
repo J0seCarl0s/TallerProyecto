@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'database-restaurante.ckwzr2rc1kqj.sa-east-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST', 'ls-be265ec2f0719adc02470befd7b14c67e60eddc1.csov3oowpvgv.us-east-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'restaurante'),
-            'username' => env('DB_USERNAME', 'admin'),
-            'password' => env('DB_PASSWORD', 'fF6bLyftRdwIYdl86lRB'),
+            'username' => env('DB_USERNAME', 'dbmasteruser'),
+            'password' => env('DB_PASSWORD', '^!.Ko.y3wrV`-n?mPGHi1jJ_aEpwx5}|'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
