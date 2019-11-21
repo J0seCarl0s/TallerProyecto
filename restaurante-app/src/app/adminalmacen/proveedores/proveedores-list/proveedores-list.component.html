@@ -2,7 +2,7 @@
 
 <div class="col-md-12">
     <div class="card">
-      <div class="card-header card-header-warning">
+      <div class="card-header card-header-primary">
         <h4 class="card-title pull-left">Lista de proveedores</h4>
           <button (click)="btnAgregar()" class="btn btn-white btn-round pull-right" style="padding:10px">
             Agregar nuevo proveedor
@@ -44,17 +44,17 @@
                   {{proveedor.direccion_proveedor}}
                 </td>
                 <td>
-                  <button (click)="btnEditar(proveedor.idproveedor)" class="btn btn-white btn-round btn-just-icon">
+                  <button (click)="btnEditar(proveedor.idproveedor)" class="btn btn-success btn-round btn-just-icon"  >
                     <i class="material-icons">create</i>
                   </button>
                 </td>
                 <td>
-                   <button  class="btn btn-white btn-round btn-just-icon" (click)="btnListarInsumos(proveedor.idproveedor)">
+                   <button  class="btn btn-warning btn-round btn-just-icon"  (click)="btnListarInsumos(proveedor.idproveedor)">
                     <i class="material-icons">view_list</i>
                     </button>
                 </td>
                 <td>
-                  <button (click)="btnEliminar(proveedor.idproveedor)" class="btn btn-white btn-round btn-just-icon">
+                  <button (click)="btnEliminar(proveedor.idproveedor)" class="btn btn-danger btn-round btn-just-icon" >
                     <i class="material-icons">delete</i>
                   </button>
                 </td>

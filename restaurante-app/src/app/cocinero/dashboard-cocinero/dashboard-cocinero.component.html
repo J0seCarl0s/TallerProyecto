@@ -167,10 +167,13 @@
                             {{pedido.estado}}
                           </td>
                           <td>
-                            {{pedido.num_mesa}}                     
-                          </td>
-                           
-                         
+                            <div *ngIf="pedido.num_mesa !=NULL " class="alert alert-warning">
+                              {{pedido.num_mesa}} 
+                            </div>
+                            <div *ngIf="pedido.num_mesa ==NULL " class="alert alert-success">
+                              Para llevar
+                            </div>                                            
+                          </td>                         
                         </tr>
                       </tbody>
                 </table>   

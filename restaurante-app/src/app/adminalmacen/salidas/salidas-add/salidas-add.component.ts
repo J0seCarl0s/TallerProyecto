@@ -43,7 +43,7 @@ export class SalidasAddComponent implements OnInit {
   }
 
    btnAgregarSalida(){
-  	this.salidasService.registrar(this.idInsumo, this.cantidad, this.descripcion)
+  	this.salidasService.registrar(this.idInsumo, -this.cantidad, this.descripcion)
       .subscribe(
         (response)=>{
           if(response.ok){
