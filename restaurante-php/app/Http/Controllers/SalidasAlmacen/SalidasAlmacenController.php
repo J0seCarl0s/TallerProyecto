@@ -82,4 +82,36 @@ class SalidasAlmacenController extends Controller
         return response()->json($rtn, 200);
     }
 
+    /**
+     * Elimina una salida del almacen
+     *
+     * @param  Request $request
+     * @return json
+     */
+    public function eliminarSalida(Request $request){
+        $salida = [];
+        $salida[0] = $request->input('idSalida');
+
+        try{
+           //Llamo al procedimiento para registrar el usuario. La funcion select
+            //retorna un array así que solo tomo el primer elemento del array
+            $select = collect(\DB::select(
+                'call eliminar_historial_almacen(?)', $salida))->first();
+
+            $ok = true;
+            $result = "Salida eliminada correctamente";
+
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al registrar salida";
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);   
+    }
+
 }

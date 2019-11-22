@@ -13,6 +13,8 @@ Route::post('/pedidos/pasarpedidoaentregado', 'Pedidos\PedidosController@pasarPe
 
 Route::get('/almacen/entradas', 'EntradasAlmacen\EntradasAlmacenController@verEntradas');
 Route::post('/almacen/entradas/registrar', 'EntradasAlmacen\EntradasAlmacenController@registrarEntrada');
+Route::post('/almacen/salidas/eliminar', 'SalidasAlmacen\SalidasAlmacenController@eliminarSalida');
+
 
 Route::post('/caja/abrir', 'Caja\CajaController@abrirCaja');
 Route::post('/caja/cerrar', 'Caja\CajaController@cerrarCaja');

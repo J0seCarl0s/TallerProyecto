@@ -38,4 +38,22 @@ export class SalidasListComponent implements OnInit {
   btnAgregar(){
     this.router.navigate(['/adminalmacen/salidas/agregar']);
   }  
+
+  btnEliminar(idSalida:number) {
+    this.salidasService.eliminar(idSalida)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          if(response.ok){
+            this.alertService.success(response.result,"Salidas");
+            this.llenarDatos();
+          }else{
+            this.alertService.error(response.result,"Salidas");
+          }
+        },
+        (error) => {
+          this.alertService.error("No se pudo eliminar la salida","Salidas");
+        }
+      );
+  }
 }

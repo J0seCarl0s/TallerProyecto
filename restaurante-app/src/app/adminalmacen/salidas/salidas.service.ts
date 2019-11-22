@@ -42,4 +42,12 @@ export class SalidasService {
         
         return this.http.get(url, this.httpOptions);
     }
+
+    eliminar(idSalida:number): Observable<any>
+    {
+        var url = this.apiUrl + "almacen/salidas/eliminar";
+        var data = { idSalida: idSalida };
+        
+        return this.http.post<any>(url, data, this.httpOptions);
+    }    
 }

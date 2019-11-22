@@ -36,19 +36,19 @@
             {{usuario.email}}
           </td>           
           <td>
-             <button  class="btn btn-white btn-just-icon" (click)="btnCambiarEstado(usuario,usuario.state == 1)">
+             <button  class="btn btn-round btn-just-icon" (click)="btnCambiarEstado(usuario,usuario.state == 1)" [ngClass]="{'btn-success': usuario.state == 1, 'btn-danger': usuario.state != 1}">
               <i *ngIf="usuario.state == 1" class="material-icons">toggle_on</i>
               <i *ngIf="usuario.state == 0" class="material-icons">toggle_off</i>
               </button>
           </td> 
           <td>
-              <button  class="btn btn-white btn-success btn-just-icon" (click)="btnEditar(usuario.id)">
+              <button  class="btn btn-round btn-success btn-just-icon" (click)="btnEditar(usuario.id)">
               	<i class="material-icons">create</i>
               </button>
             
           </td>
           <td>
-            <button  class="btn btn-white btn-danger btn-just-icon" (click)="btnEliminar(usuario.id)">
+            <button  class="btn btn-round btn-danger btn-just-icon" (click)="btnEliminar(usuario.id)">
             	<i class="material-icons">delete</i>
           	</button>
           </td>
