@@ -179,7 +179,7 @@ const routes: Routes = [
         component: PlatosInsumosComponent 
       },
       {
-        path: 'platos/insumos/agregar/:id',
+        path: 'platos/agregar/insumos/:id',
         component: PlatosInsumosAddComponent
       },
       {

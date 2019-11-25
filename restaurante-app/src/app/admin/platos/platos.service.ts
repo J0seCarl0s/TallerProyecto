@@ -38,8 +38,7 @@ export class PlatosService
     }
 
     registrar(nombrePlato:string, precioPlato:number): Observable<any>
-     {
-         
+     {        
          
 
         var url = this.apiUrl + "platos/registrar";
@@ -70,6 +69,16 @@ export class PlatosService
         return this.http.get(url, this.httpOptions);
     }
 
+      eliminarInsumo(id_plato:number,id_insumo:number)
+     {
+        var url = this.apiUrl + "platos/insumos/eliminar/"+id_plato;
+        var data = {
+            idplato:id_plato,
+            idinsumo:id_insumo
+        };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
      eliminar(id:number)
      {
         var url = this.apiUrl + "platos/eliminar";
@@ -94,6 +103,16 @@ export class PlatosService
         var data = {
             id_plato:id
         };
+        return this.http.post<any>(url, data, this.httpOptions);
+     }
+
+     registrarInsumoPlato(idplato:number, idinsumo:number,cantidad:number): Observable<any>
+     {       
+         
+
+        var url = this.apiUrl + "platos/insumos/registrar/+idplato";
+        var data = { id_plato: idplato, id_insumo: idinsumo,cantidad: cantidad };
+        
         return this.http.post<any>(url, data, this.httpOptions);
      }
 

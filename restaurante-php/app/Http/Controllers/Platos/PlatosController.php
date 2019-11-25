@@ -99,6 +99,31 @@ class PlatosController extends Controller
     	
     }
 
+    public function registrarPlato_Insumo(Request $request){
+        $insumo = [];
+        //Obtengo los parametros del request
+        $insumo [0] = $request->input('id_plato');
+        $insumo [1] = $request->input('id_insumo'); 
+        $insumo [2] = $request->input('cantidad');   
+
+        try{
+            //Llamo al procedimiento
+            \DB::select('call registrar_plato_insumo(?,?,?)', $insumo);
+            $ok = true;
+            $result = "Insumo registrado al plato correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al registrar el plato";
+        }
+        //retorno los platos en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
+
     public function listarInsumos($id_plato){
         $parametros = [];
         $parametros[0] = $id_plato;
@@ -119,6 +144,30 @@ class PlatosController extends Controller
         return response()->json($rtn, 200);
 
         
+    }
+
+        public function eliminarPlatoInsumo(Request $request){
+        
+        $parametros  = [];
+        //Obtengo los parametros del request
+        $parametros [0] = $request->input('idplato');
+        $parametros [1] = $request->input('idinsumo');
+        try{
+            //Llamo al procedimiento
+            \DB::select('call eliminar_plato_insumo(?,?)', $parametros);
+            $ok = true;
+            $result = "Insumo del Plato eliminado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al eliminar el Insumo del plato";
+        }
+        //retorno  en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
     }
 
     public function eliminarPlato(Request $request){

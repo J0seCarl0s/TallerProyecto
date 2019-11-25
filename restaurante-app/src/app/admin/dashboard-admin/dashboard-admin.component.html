@@ -112,3 +112,142 @@
    
 </div>
 
+<!--   IVER-------------------------------------------
+-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+	        <div class="card-header card-header-primary">
+	            <h4 class="card-title ">Reporte de Ventas</h4>
+	        </div>
+	        <div class="card-body">
+            <form (ngSubmit)="btnGenerarReporteVentas()" >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Fecha Inicio : </label>
+                  	<input type="date" id="exampleInput1" name="input1"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd" [(ngModel)]="FECHA_INICIO1"  required/>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group"> 
+                  <label for="exampleInputEmail1">Fecha Fin : </label>
+                   <input type="date" id="exampleInput2" name="input2"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd"  [(ngModel)]="FECHA_FIN1" required/>
+
+                  </div>
+                </div>
+              </div>               
+                <div class="pull-right">                     
+                    <button type="submit"  class="btn btn-primary" >
+                      Generar Reporte
+                    </button>                    
+              </div>                  
+            </form>
+          </div>
+
+                <table class="table">
+        <thead class="text-primary">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Día</th>
+            <th scope="col">MontoTotal</th>            
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let reporte of reportesv; index as i">          
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{reporte.fecha}}
+          </td>
+          <td>
+            {{reporte.monto_total}}
+          </td>         
+       
+      </tr>
+
+    </tbody>
+    </table>
+
+
+         	
+    	</div>
+    
+    </div>
+   
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title ">Reporte de Utilidades por plato</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="btnGenerarReportePlatos()" >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Fecha Inicio : </label>
+                    <input type="date" id="exampleInput3" name="input3"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd" [(ngModel)]="FECHA_INICIO2"  required/>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group"> 
+                  <label for="exampleInputEmail1">Fecha Fin : </label>
+                   <input type="date" id="exampleInput4" name="input4"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd"  [(ngModel)]="FECHA_FIN2" required/>
+
+                  </div>
+                </div>
+              </div>               
+                <div class="pull-right">                     
+                    <button type="submit"  class="btn btn-primary" >
+                      Generar Reporte
+                    </button>                    
+              </div>                  
+            </form>
+          </div>
+
+                <table class="table">
+        <thead class="text-primary">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Plato</th>
+            <th scope="col">MontoTotal</th>            
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let reporte of reportesp; index as i">          
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{reporte.nombre_plato}}
+          </td>
+          <td>
+            {{reporte.total}}
+          </td>         
+       
+      </tr>
+
+    </tbody>
+    </table>
+
+
+          
+      </div>
+    
+    </div>
+   
+</div>
+
+         

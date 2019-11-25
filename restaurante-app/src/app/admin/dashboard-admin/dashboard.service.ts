@@ -76,4 +76,20 @@ export class DashboardService
      }*/
 
 
+     reporteventas(FECHA_INICIO: Date,FECHA_FIN: Date): Observable<any>
+    {
+        
+        var url = this.apiUrl + "reporte/ventas?FECHA_INICIO="+FECHA_INICIO+"&FECHA_FIN="+FECHA_FIN;
+        console.log(url); 
+        return this.http.get(url, this.httpOptions);
+    }
+
+     reporteplatos(FECHA_INICIO: Date,FECHA_FIN: Date): Observable<any>
+    {
+        
+        var url = this.apiUrl + "reporte/platos?FECHA_INICIO="+FECHA_INICIO+"&FECHA_FIN="+FECHA_FIN;
+        console.log(url); 
+        return this.http.get(url, this.httpOptions);
+    }
+
 }

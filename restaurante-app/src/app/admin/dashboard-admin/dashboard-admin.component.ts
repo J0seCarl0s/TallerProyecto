@@ -5,6 +5,7 @@ import { AlertService } from "../../shared/services/alert.service";
 import { DashboardService } from "../dashboard-admin/dashboard.service";
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import {FormControl} from '@angular/forms';
 //import 'rxjs/operators';
 //import { Map } from 'rxjs/operators';
 //import * as pluginAnnotations from 'chartjs-plugin-annotation';
@@ -17,6 +18,16 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class DashboardAdminComponent implements OnInit {
 
+  FECHA_INICIO1:Date=null;
+  FECHA_FIN1:Date=null;
+  FECHA_INICIO2:Date=null;
+  FECHA_FIN2:Date=null;
+  reportesv: any[];
+  reportesp: any[];
+
+
+
+  serializedDate = new FormControl((new Date()).toISOString());
   existencias:any[];
 	selectedDate:String;
 	datos:any[][];
@@ -231,5 +242,41 @@ export class DashboardAdminComponent implements OnInit {
 
   }
 
+
+btnGenerarReporteVentas(){
+
+    this.dashboardService.reporteventas(this.FECHA_INICIO1,this.FECHA_FIN1)
+      .subscribe(       
+
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            console.log("REPORTE GENERADO CORRECTAMENTE "+this.FECHA_INICIO1+"  "+this.FECHA_FIN1);
+            this.reportesv = response.result;
+          }
+        },
+        (err) => {          
+          console.log("ERROR AL GENERAR REPORTE"+this.FECHA_INICIO1+this.FECHA_FIN1);
+        }        
+      )
+  }
+
+btnGenerarReportePlatos(){
+
+    this.dashboardService.reporteplatos(this.FECHA_INICIO2,this.FECHA_FIN2)
+      .subscribe(       
+
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            console.log("REPORTE GENERADO CORRECTAMENTE "+this.FECHA_INICIO2+"  "+this.FECHA_FIN2);
+            this.reportesp = response.result;
+          }
+        },
+        (err) => {          
+          console.log("ERROR AL GENERAR REPORTE"+this.FECHA_INICIO2+this.FECHA_FIN2);
+        }        
+      )
+  }
   
 }

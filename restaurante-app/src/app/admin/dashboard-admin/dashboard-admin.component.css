@@ -24,3 +24,10 @@
      border-radius: 50%;
      background: #EE0000;
 }
+
+.mat-datepicker-toggle{
+      width: 40px;
+     height: 40px;
+     z-index: 1200;
+}
+
