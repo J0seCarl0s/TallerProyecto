@@ -11,6 +11,9 @@ Route::get('entrada/mostrar/{id}', 'EntradasAlmacen\EntradasAlmacenController@ve
 Route::post('/entrada/editar/{id}', 'Almacen\AlmacenController@editarEntrada');
 Route::post('/entradas/eliminar', 'Almacen\AlmacenController@eliminarEntrada');
 
+Route::get('/estadistica/{Fecha}', 'User\DashboardAdminController@obtenerEstadisticas');
+
+
 Route::get('jhon',function (){
     return response()->json([
         "nombre"=>"jhon"

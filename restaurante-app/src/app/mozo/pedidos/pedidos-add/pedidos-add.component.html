@@ -5,7 +5,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <select [(ngModel)]="idPlato" class="form-control" name="idPlato" required>
-                            <option selected="true" value="0" disabled>-- Escoja el plato --</option>
+                            <option selected="true" value="0" disabled>-- Seleccione el plato --</option>
                             <option *ngFor="let plato of platos" [ngValue]="plato.idplato" [disabled]="!plato.esta_activo">
                               {{ plato.nombre_plato }}
                             </option>           
