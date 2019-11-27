@@ -3,9 +3,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { AlertService } from "../../shared/services/alert.service";
 import { DashboardService } from "../dashboard-admin/dashboard.service";
-import { ChartDataSets, ChartOptions } from 'chart.js';
+import { ChartDataSets, ChartOptions, Chart } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import {FormControl} from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
+
 //import 'rxjs/operators';
 //import { Map } from 'rxjs/operators';
 //import * as pluginAnnotations from 'chartjs-plugin-annotation';
@@ -35,12 +37,15 @@ export class DashboardAdminComponent implements OnInit {
   date1 = new Date();
   horas:any[];
   cantidades:any[];
-  chart:BaseChartDirective;
-  public lineChartData: ChartDataSets[] = //this.datos[0][];
+  cuadroEstadistico: ChartsModule;//= document.getElementById("estadisticas");
+  FECHA_INICIO3:Date=null;
+  FECHA_FIN3:Date=null;
+  reportesCaja: any[];
+
+  public lineChartData: ChartDataSets[] = 
   [
-   /* { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },*/
-    { data: [0, 0, 0, 0, 0, 0,
+   
+    { data: [10, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0], label: 'Ventas del día' }
@@ -52,7 +57,6 @@ export class DashboardAdminComponent implements OnInit {
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
       yAxes: [
         {
@@ -128,7 +132,7 @@ export class DashboardAdminComponent implements OnInit {
 
   ngOnInit() {
   	this.llenarDatos();
-    this.llenarChart();
+    //this.llenarChart();
 
   }
 
@@ -152,15 +156,12 @@ export class DashboardAdminComponent implements OnInit {
     this.horas=[];
     this.cantidades=[];
 
-    //this.selectedDate=Date.now().toString();
     this.dashboardService.graficar(this.date1.toString().substring(11,15)
       +"-"+this.date1.toString().substring(4,7)+"-"+this.date1.toString().substring(8,10))
       .subscribe(
         (response)=>{
           console.log(response);
-          //let data = response['list'];
           if(response.ok){
-            //this.horas = [];
             response.result.forEach((i) => {
                 this.horas.push(i.hora);
                 this.cantidades.push(i.cantidad);
@@ -179,15 +180,7 @@ export class DashboardAdminComponent implements OnInit {
               this.lineChartData[0].data[this.horas[i]]=this.cantidades[i];
             }
             console.log(this.lineChartData[0].data);
-            this.chart.update();
-            //ventas_dia = this.makeArray(response, 'cantidad');
-            /*const horas =this.makeArray(response, 'hora');
-            console.log(ventas_dia);
-            for (var i = horas.length - 1; i >= 0; i--) {
-              
-              this.lineChartData[0].data[horas[i]]=ventas_dia[i];
-            }*/
-            //this.datos = response.result;
+            
           }else{
             console.log("No se pudo obtener la data");
           }
@@ -195,19 +188,15 @@ export class DashboardAdminComponent implements OnInit {
     );
   }
 
-  /*makeArray(array, value) {
-  return array.map(function(a) {
-    return {[value]: a[value]};
-  });
-  }*/
+
 
   btnAceptar(fecha: String){
 
     this.horas=[];
     this.cantidades=[];
-  	
-    this.dashboardService.graficar(fecha.toString().substring(11,15)
-      +"-"+fecha.toString().substring(4,7)+"-"+fecha.toString().substring(8,10))
+        console.log(this.lineChartData[0].data);
+
+    this.dashboardService.graficar(fecha.toString())//.substring(11,15)
       .subscribe(
         (response)=>{
           console.log(response);
@@ -232,7 +221,7 @@ export class DashboardAdminComponent implements OnInit {
               this.lineChartData[0].data[this.horas[i]]=this.cantidades[i];
             }
             console.log(this.lineChartData[0].data);
-            this.chart.update();
+            this.cuadroEstadistico.update();
           }else{
             console.log("No se pudo obtener la data");
           }
@@ -243,7 +232,7 @@ export class DashboardAdminComponent implements OnInit {
   }
 
 
-btnGenerarReporteVentas(){
+  btnGenerarReporteVentas(){
 
     this.dashboardService.reporteventas(this.FECHA_INICIO1,this.FECHA_FIN1)
       .subscribe(       
@@ -261,7 +250,7 @@ btnGenerarReporteVentas(){
       )
   }
 
-btnGenerarReportePlatos(){
+  btnGenerarReportePlatos(){
 
     this.dashboardService.reporteplatos(this.FECHA_INICIO2,this.FECHA_FIN2)
       .subscribe(       
@@ -278,5 +267,23 @@ btnGenerarReportePlatos(){
         }        
       )
   }
-  
+
+  btnCierreCaja(){
+
+    this.dashboardService.reportecaja(this.FECHA_INICIO3,this.FECHA_FIN3)
+      .subscribe(       
+
+        (response)=>{
+          console.log(response);
+          if(response.ok){
+            console.log("REPORTE GENERADO CORRECTAMENTE "+this.FECHA_INICIO3+"  "+this.FECHA_FIN3);
+            this.reportesCaja = response.result;
+          }
+        },
+        (err) => {          
+          console.log("ERROR AL GENERAR REPORTE"+this.FECHA_INICIO3+this.FECHA_FIN3);
+        }        
+      )
+  }
+    
 }

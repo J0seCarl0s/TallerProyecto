@@ -1,5 +1,6 @@
 <p>Bienvenido</p>
 
+    
 <div class="col-md-12">
   <div class="card">
     <div class="card-header card-header-primary">
@@ -56,28 +57,31 @@
 	            <h4 class="card-title ">Reporte de consumo por Fecha y hora</h4>
 	        </div>
          	<div class="card-body">
-	         	<div class="row">
+	         	<div>
 	         		<h4>Elija la fecha</h4>
-	         		<div class="container">
-	         			<div>
+	         		<form (ngSubmit)="btnAceptar(selectedDate)" >
+		              <div class="row">
+		                <div class="col-md-6">
+		                  <div class="form-group">
+		                     <label>Fecha : </label>
+		                  	<input type="date" name="fecha1" placeholder="yyyy-MM-dd" [(ngModel)]="selectedDate"  dateFormat= "dd-mm-yyyy" ng-model="example.value" required/>
 
-							<mat-form-field fxFlexFill>
-					        	<input matInput [matDatepicker]="pickerReminder" placeholder="Date" [(ngModel)]="selectedDate" dateFormat= "dd-mm-yyyy" readonly/>
-					        	<mat-datepicker-toggle matSuffix [for]="pickerReminder"></mat-datepicker-toggle>
-						    </mat-form-field>
-					    	<mat-datepicker #pickerReminder></mat-datepicker>
-					   			 <button (click)="btnAceptar(selectedDate)" class="btn btn-grey btn-round" style="padding:10px">
-					                      Aceptar
-					                      <i class="material-icons">adjust</i>
-					             </button>
-	         			</div>
-	         			
-	         		</div>
+		                  </div>
+		                </div>
+		              </div>               
+		              <div class="pull-right">                     
+		                <button type="submit"  class="btn btn-primary" >
+		                    Aceptar
+		                </button>                    
+		              </div>                  
+           			</form>
+	         		
 			    	<div>
-			    		<div class="flex">
+			    		<!--<canvas id="estadisticas" width="600" height="400"></canvas>-->
+			    		<!--<div class>
   							<div >
 							    <div style="display: block;">
-							    <canvas baseChart width="60" height="30"
+							    <canvas id="estadisticas" baseChart width="60" height="30"
 							                [datasets]="lineChartData"
 							                [labels]="lineChartLabels"
 							                [options]="lineChartOptions"
@@ -91,16 +95,16 @@
 							</div>
 						  	<div class="pull-right" >
 						  		<div class="col-md-12">
-						  		<table class="table table-responsive table-condensed">
-						     		<tr>
-						        		<th *ngFor="let label of lineChartLabels"></th>
-						      		</tr>
-						      
-						    	</table>
-						  	</div>
+							  		<table class="table table-responsive table-condensed">
+							     		<tr>
+							        		<th *ngFor="let label of lineChartLabels"></th>
+							      		</tr>
+							      
+							    	</table>
+						  		</div>
 						    
-						  </div>
-						</div>
+						  	</div>
+						</div>-->
 			    	</div>
 	         	</div>
 
@@ -250,4 +254,71 @@
    
 </div>
 
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title ">Reporte de Cierre de Caja</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="btnCierreCaja()" >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Fecha Inicio : </label>
+                    <input type="date" id="exampleInput3" name="input3"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd" [(ngModel)]="FECHA_INICIO3"  required/>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group"> 
+                  <label for="exampleInputEmail1">Fecha Fin : </label>
+                   <input type="date" id="exampleInput4" name="input4"  ng-model="example.value"
+                    placeholder="yyyy-MM-dd"  [(ngModel)]="FECHA_FIN3" required/>
+
+                  </div>
+                </div>
+              </div>               
+                <div class="pull-right">                     
+                    <button type="submit"  class="btn btn-primary" >
+                      Generar Reporte
+                    </button>                    
+              </div>                  
+            </form>
+          </div>
+
+                <table class="table">
+        <thead class="text-primary">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Monto Total</th>            
+          </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor="let reportedia of reportesCaja; index as i">          
+          <td>
+            {{i+1}}
+          </td>
+          <td>
+            {{reportedia.fecha}}
+          </td>
+          <td>
+            {{reportedia.total}}
+          </td>         
+       
+      </tr>
+
+    </tbody>
+    </table>
+
+
+          
+      </div>
+    
+    </div>
+   
+</div>
          

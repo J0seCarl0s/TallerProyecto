@@ -42,6 +42,8 @@ import { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/
 import { CajaService } from "./admincaja/caja.service";
 import { MesasService as MesasCajaService } from "./admincaja/mesas/mesas.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
+import { DashboardService as AlmaceneroDashboardService} from "./adminalmacen/dashboard-adminalmacen/dashboard.service";
+
 
 import { DashboardService as AdminDashboardService} from "./admin/dashboard-admin/dashboard.service";
 
@@ -102,6 +104,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PlatosService,
 
     //SERVICIOS DEL ALMACENERO
+    AlmaceneroDashboardService,
     InsumosAlmacenService,
     EntradasService,  
     SalidasService,

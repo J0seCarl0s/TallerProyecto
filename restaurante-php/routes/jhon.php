@@ -13,6 +13,8 @@ Route::post('/entradas/eliminar', 'Almacen\AlmacenController@eliminarEntrada');
 
 Route::get('/estadistica/{Fecha}', 'User\DashboardAdminController@obtenerEstadisticas');
 
+Route::get('reporte/cierrecaja', 'Reportes\ReportesController@verReporteCierreCaja');
+
 
 Route::get('jhon',function (){
     return response()->json([

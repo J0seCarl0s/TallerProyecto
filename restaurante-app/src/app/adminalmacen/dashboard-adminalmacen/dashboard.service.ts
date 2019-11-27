@@ -23,11 +23,7 @@ export class DashboardService
         this.httpOptions = { headers: headers };
     }
 
-    graficar(Fecha:String): Observable<any> {
-        var url = this.apiUrl + "estadistica/"+Fecha;
-        console.log(Fecha+"   "+url);
-        return this.http.get(url, this.httpOptions);
-    }
+
 
     listar(): Observable<any>
     {
@@ -76,27 +72,5 @@ export class DashboardService
      }*/
 
 
-     reporteventas(FECHA_INICIO: Date,FECHA_FIN: Date): Observable<any>
-    {
-        
-        var url = this.apiUrl + "reporte/ventas?FECHA_INICIO="+FECHA_INICIO+"&FECHA_FIN="+FECHA_FIN;
-        console.log(url); 
-        return this.http.get(url, this.httpOptions);
-    }
-
-     reporteplatos(FECHA_INICIO: Date,FECHA_FIN: Date): Observable<any>
-    {
-        
-        var url = this.apiUrl + "reporte/platos?FECHA_INICIO="+FECHA_INICIO+"&FECHA_FIN="+FECHA_FIN;
-        console.log(url); 
-        return this.http.get(url, this.httpOptions);
-    }
-
-    reportecaja(FECHA_INICIO: Date, FECHA_FIN:Date): Observable<any>
-    {
-        
-        var url = this.apiUrl + "reporte/cierrecaja?FECHA_INICIO="+FECHA_INICIO+"&FECHA_FIN="+FECHA_FIN;
-        return this.http.get(url, this.httpOptions);
-    }
 
 }

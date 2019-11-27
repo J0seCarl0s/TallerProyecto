@@ -67,5 +67,25 @@ class ReportesController extends Controller
         return response()->json($rtn, 200);
     }
 
-   
+    public function verReporteCierreCaja(Request $request){
+        $parametros = [];
+        $parametros[0] = $request->input('FECHA_INICIO');
+        $parametros[1] = $request->input('FECHA_FIN');
+        
+        try{
+            //Llamo al procedimiento para obtener los proveedores
+            $reporte = \DB::select('call reporte_cierre_caja(?,?)', $parametros);
+            $ok = true;
+        }catch(QueryException $ex){
+            $reporte  = null;
+            $ok = false;
+        }
+
+        $rtn = [
+            'ok' => $ok,
+            'result' => $reporte 
+        ];
+        //retorno los proveedores en formato json y el HTTP status code 200
+        return response()->json($rtn, 200);
+    }
 }
