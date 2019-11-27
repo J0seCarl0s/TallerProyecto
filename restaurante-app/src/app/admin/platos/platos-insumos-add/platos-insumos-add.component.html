@@ -1,59 +1,42 @@
-<div class="col-md-12">
+  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title pull-left">Lista de insumos</h4>
-                    <button class="btn btn-white btn-round pull-right" style="padding:10px">
-                      Agregar nuevo insumo
-                      <i class="material-icons">add</i>
-                    </button>
+                  <h4 class="card-title">Agregar Insumo del Plato</h4>
+                  <p class="card-category">Ingrese el nombre y la cantidad del insumo</p>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <tr><th>
-                          #
-                        </th>
-                        <th>
-                          Nombre insumo
-                        </th>
-                        <th>
-                          Cantidad mínima
-                        </th>
-                        <th>
-                          <!-- Editar -->
-                        </th>
-                        <th>
-                          <!-- Eliminar -->
-                        </th>
-                      </tr></thead>
-                      <tbody>
-                        <tr *ngFor="let insumo of insumos; index as i">
-                          <td>
-                            {{i+1}}
-                          </td>
-                          <td>
-                            {{insumo.nombre_insumo}}
-                          </td>
-                          <td>
-                            {{insumo.cantidad_minima}}
-                          </td>
-                          <td>
-                            <button class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">create</i>
-                            </button>
-                          </td>
-                          <td>
-                            <button class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">delete</i>
-                            </button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <form (ngSubmit)="btnAgregarInsumoPlato()">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <select [(ngModel)]="idInsumo" class="form-control" name="idInsumo" required>
+                            <option selected="true" value="0" disabled>-- Seleccione el insumo --</option>
+                            <option *ngFor="let insumo of insumos" [ngValue]="insumo.idinsumo" >
+                              {{ insumo.nombre_insumo }}
+                            </option>           
+                          </select>                          
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group bmd-form-group">
+                          <input type="number" class="form-control" step="0.1" [(ngModel)]="cantidad_minima" name="cantidadInsumo" required placeholder="Cantidad del insumo">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-primary">
+                        Agregar insumo
+                      </button>
+                      <button class="btn btn-primary" (click)="btnCancelar()">Cancelar</button>
+                    </div>
+                    <div class="clearfix"></div>
+                  </form>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
 

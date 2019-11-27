@@ -16,8 +16,7 @@
             <th scope="col">Nombre del plato</th>
             <th scope="col">Nombre del insumo</th>            
             <th scope="col">Cantidad</th>
-            <th scope="col"></th>            
-            <th scope="col" ></th>
+            <th scope="col"></th>          
           </tr>
         </thead>
       <tbody>
@@ -33,16 +32,9 @@
           </td>
           <td>
             {{insumo.cantidad}}
-          </td>          
-        
+          </td>              
           <td>
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar(1)">
-              <i class="material-icons">create</i>
-              </button>
-            
-          </td>
-          <td>
-            <button  class="btn btn-white btn-round btn-just-icon">
+            <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminar(insumo.idinsumo)">
             <i class="material-icons">delete</i>
           </button>
         </td>

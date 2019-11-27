@@ -12,6 +12,11 @@ import { AppMaterialModule } from './app-material.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgSelectizeModule } from 'ng-selectize';
 
+
+
+//Graficos
+import { ChartsModule } from 'ng2-charts';
+
 // token
 import { TokenGuard } from './shared/guards/token.guard';
 
@@ -37,6 +42,10 @@ import { InsumosService as InsumosAlmacenService } from "./adminalmacen/insumos/
 import { CajaService } from "./admincaja/caja.service";
 import { MesasService as MesasCajaService } from "./admincaja/mesas/mesas.service";
 import { DashboardService} from "./cocinero/dashboard-cocinero/dashboard-cocinero.service";
+import { DashboardService as AlmaceneroDashboardService} from "./adminalmacen/dashboard-adminalmacen/dashboard.service";
+
+
+import { DashboardService as AdminDashboardService} from "./admin/dashboard-admin/dashboard.service";
 
 import { SalidasService} from "./adminalmacen/salidas/salidas.service";
 import { ProveedoresService as ProveedoresAlmacenService } from "./adminalmacen/proveedores/proveedores.service";
@@ -65,6 +74,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DataTablesModule,
     AngularDateTimePickerModule,
     MatDialogModule,
+    ChartsModule,
+
   ],
   providers: [
     DatePipe,
@@ -81,6 +92,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InsumosService,
     UsuariosService,
     RolesService,
+    AdminDashboardService,
 
     MesasServiceAdmin,
 
@@ -92,6 +104,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PlatosService,
 
     //SERVICIOS DEL ALMACENERO
+    AlmaceneroDashboardService,
     InsumosAlmacenService,
     EntradasService,  
     SalidasService,
