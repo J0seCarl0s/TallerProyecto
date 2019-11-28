@@ -71,10 +71,10 @@ import { ProveedoresEditComponent as ProveedoresAlmacenEditComponent} from './ad
 import { ProveedoresInsumosAddComponent as ProveedoresInsumosAlmacenAddComponent } from './adminalmacen/proveedores/proveedores-insumos-add/proveedores-insumos-add.component';
 import { ProveedoresInsumosListComponent as ProveedoresInsumosAlmacenListComponent} from './adminalmacen/proveedores/proveedores-insumos-list/proveedores-insumos-list.component';
 
-import { AlmacenEditComponent as AdminAlmacenAlmacenEditComponent } from "./adminalmacen/almacen/almacen-edit/almacen-edit.component";
+import { AlmacenEditComponent as AlmaceneroAlmacenEditComponent } from './adminalmacen/almacen/almacen-edit/almacen-edit.component';
 
 import { PedidosReadyComponent } from './mozo/pedidos/pedidos-ready/pedidos-ready.component';
-
+//import {AlmaceneroAlmacenEditComponent} from './adminalmacen/almacen/almacen-edit/almacen-edit.component';
 
 export const ROUTING_COMPONENTS=[
   LoginComponent,
@@ -142,7 +142,7 @@ export const ROUTING_COMPONENTS=[
   AlmaceneroProveedoresInsumosEditComponent,
   AlmaceneroProveedoresInsumosAddComponent,
   AlmaceneroAlmacenListComponent,
-  AdminAlmacenAlmacenEditComponent,
+  AlmaceneroAlmacenEditComponent,
 
   Page404Component
 ];
@@ -308,6 +308,10 @@ const routes: Routes = [
       {
         path: 'almacenControl',
         component: AlmaceneroAlmacenListComponent
+      },
+      {
+        path: 'almacen/ajustar/:id',
+        component: AlmaceneroAlmacenEditComponent
       },
     ]
   },

@@ -37,7 +37,7 @@ export class DashboardAdminComponent implements OnInit {
   date1 = new Date();
   horas:any[];
   cantidades:any[];
-  cuadroEstadistico: ChartsModule;//= document.getElementById("estadisticas");
+  //cuadroEstadistico: ChartsModule;//= document.getElementById("estadisticas");
   FECHA_INICIO3:Date=null;
   FECHA_FIN3:Date=null;
   reportesCaja: any[];
@@ -45,7 +45,7 @@ export class DashboardAdminComponent implements OnInit {
   public lineChartData: ChartDataSets[] = 
   [
    
-    { data: [10, 0, 0, 0, 0, 0,
+    { data: [0, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0,
              0, 0, 0, 0, 0, 0], label: 'Ventas del día' }
