@@ -68,10 +68,7 @@ export class InsumosListComponent implements OnInit {
           this.alertService.error("Error al eliminar insumo",null);  
         }
       },
-      (err) => {
-        console.log("Ocurrio un error");
-        this.alertService.error("Error al eliminar insumo",err);
-      }
+      
     )
   }
 

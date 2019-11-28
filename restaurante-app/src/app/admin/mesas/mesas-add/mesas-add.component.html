@@ -1,6 +1,22 @@
+ <div class="col-lg-6 col-md-6">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Mesas</h4>
+          </div>              
+          <div class="card-body">
+            <div class="row">
+              <div *ngFor="let mesa of mesas" class="col-xs-12 col-md-4">
+                <button (click)="btnCambioNumeroMesa(mesa.num_mesa)" class="btn btn-light btn-success" class="btn btn-round" [ngClass]="{'btn-success': mesa.esta_activa, 'btn-secondary': !mesa.esta_activa, 'active': mesa.num_mesa === mesaEscogida}" [disabled]="!mesa.esta_activa">
+                  M{{mesa.num_mesa}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 		<div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
+          <div float="pull-right">
+            <div class="col-md-4 col-lg-4">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Registrar Mesa</h4>
