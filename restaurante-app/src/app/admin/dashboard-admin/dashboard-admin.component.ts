@@ -49,6 +49,11 @@ export class DashboardAdminComponent implements OnInit {
   PieChart;
 
 
+  SeGeneroReporteVentas:Boolean=false;
+  SeGeneroReportePlatos:Boolean=false;
+  titleVentas = 'Gráfico de Lineas de las Ventas';
+  titlePlato = 'Gráfico de Barras de las Ganancias por Plato';
+
 
   constructor(
   	private router:Router, 
@@ -208,13 +213,15 @@ export class DashboardAdminComponent implements OnInit {
   btnGenerarReporteVentas(){
 
     this.dashboardService.reporteventas(this.FECHA_INICIO1,this.FECHA_FIN1)
-      .subscribe(       
+      .subscribe(
 
         (response)=>{
           console.log(response);
           if(response.ok){
+             this.SeGeneroReporteVentas=true;
             console.log("REPORTE GENERADO CORRECTAMENTE "+this.FECHA_INICIO1+"  "+this.FECHA_FIN1);
             this.reportesv = response.result;
+            this.generarGraficoVentas();
           }
         },
         (err) => {          
@@ -231,14 +238,18 @@ export class DashboardAdminComponent implements OnInit {
         (response)=>{
           console.log(response);
           if(response.ok){
+            this.SeGeneroReportePlatos=true;
             console.log("REPORTE GENERADO CORRECTAMENTE "+this.FECHA_INICIO2+"  "+this.FECHA_FIN2);
-            this.reportesp = response.result;
+            this.reportesp = response.result; 
+            console.log(this.reportesp[0].nombre_plato);
+            this.generarGraficoComidas();           
           }
         },
         (err) => {          
           console.log("ERROR AL GENERAR REPORTE"+this.FECHA_INICIO2+this.FECHA_FIN2);
         }        
       )
+
   }
 
   btnCierreCaja(){
@@ -258,5 +269,89 @@ export class DashboardAdminComponent implements OnInit {
         }        
       )
   }
+
+  generarGraficoVentas(){
+
+    
+    this.LineChart = new Chart('lineChartVentas', {
+      type: 'line',
+      data: {
+      labels:[],
+      datasets: [{
+        label: 'Ventas por día',
+        data: [],
+        fill:false,
+        lineTension:0.2,
+        borderColor:"red",
+        borderWidth: 1
+       }]
+    }, 
+    options: {
+    title:{
+        text:"Line Chart",
+        display:true
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+    }
+    });
+
+  for (var i = 0; i < this.reportesv.length; ++i) {
+       this.LineChart.data.labels.push(this.reportesv[i].fecha);
+       this.LineChart.data.datasets[0].data.push(this.reportesv[i].monto_total);
+    }
+   
+    this.LineChart.update();   
+  }
+
+
+
+
+   generarGraficoComidas(){  
+
+
+    this.BarChart = new Chart('barChartPlatos', {
+    type: 'bar',
+    data: {
+    labels: [],
+    datasets: [{
+        label: 'Platos',
+        data: [],
+        backgroundColor:'rgba(255, 99, 132, 0.2)',
+      
+        borderColor: 'rgba(255,99,132,1)',
+            
+       
+        borderWidth: 1
+    }]
+    }, 
+    options: {
+    title:{
+        text:"Bar Chart",
+        display:true
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+    }
+    });
+
+  for (var i = 0; i < this.reportesp.length; ++i) {
+       this.BarChart.data.labels.push(this.reportesp[i].nombre_plato);
+       this.BarChart.data.datasets[0].data.push(this.reportesp[i].total);
+    }
+   
+    this.BarChart.update();   
+  }
+ 
     
 }

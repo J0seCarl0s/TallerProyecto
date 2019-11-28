@@ -137,19 +137,22 @@
 <!--   IVER-------------------------------------------
 -->
 
+<!--   IVER-------------------------------------------
+-->
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-	        <div class="card-header card-header-primary">
-	            <h4 class="card-title ">Reporte de Ventas</h4>
-	        </div>
-	        <div class="card-body">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title ">Reporte de Ventas</h4>
+          </div>
+          <div class="card-body">
             <form (ngSubmit)="btnGenerarReporteVentas()" >
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                      <label for="exampleInputEmail1">Fecha Inicio : </label>
-                  	<input type="date" id="exampleInput1" name="input1"  ng-model="example.value"
+                    <input type="date" id="exampleInput1" name="input1"  ng-model="example.value"
                     placeholder="yyyy-MM-dd" [(ngModel)]="FECHA_INICIO1"  required/>
 
                   </div>
@@ -171,7 +174,7 @@
             </form>
           </div>
 
-                <table class="table">
+      <table *ngIf="SeGeneroReporteVentas"  class="table">
         <thead class="text-primary">
           <tr>
             <th scope="col">#</th>
@@ -197,9 +200,16 @@
     </table>
 
 
-         	
-    	</div>
+          
+      </div>
     
+    </div>
+
+      <div style="text-align:center">
+      <h1 *ngIf="SeGeneroReporteVentas" >
+        {{ titleVentas }}!
+      </h1>
+      <canvas id="lineChartVentas" ></canvas>
     </div>
    
 </div>
@@ -239,7 +249,7 @@
             </form>
           </div>
 
-                <table class="table">
+      <table *ngIf="SeGeneroReportePlatos" class="table">
         <thead class="text-primary">
           <tr>
             <th scope="col">#</th>
@@ -268,6 +278,13 @@
           
       </div>
     
+    </div>
+
+    <div style="text-align:center">
+      <h1   *ngIf="SeGeneroReportePlatos">
+        {{ titlePlato}}!
+      </h1>
+      <canvas id="barChartPlatos" ></canvas>
     </div>
    
 </div>
