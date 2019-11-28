@@ -15,6 +15,8 @@ Route::get('/estadistica/{Fecha}', 'User\DashboardAdminController@obtenerEstadis
 
 Route::get('reporte/cierrecaja', 'Reportes\ReportesController@verReporteCierreCaja');
 
+Route::post('/proveedores/insumo/eliminar/{id}', 'Proveedores\ProveedoresController@eliminarInsumoProveedor');
+
 
 Route::get('jhon',function (){
     return response()->json([

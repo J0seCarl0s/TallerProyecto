@@ -34,7 +34,7 @@ export class MesasServiceAdmin
      listar(): Observable<any>
     {
         var url = this.apiUrl + "mesas";
-        console.log("listar mesas");
+        
         return this.http.get(url, this.httpOptions);
     }
 }

@@ -42,7 +42,8 @@ Route::post('proveedores/eliminar','Proveedores\ProveedoresController@eliminarPr
 Route::get('proveedores/mostrar/{id}','Proveedores\ProveedoresController@obtenerProveedor');
 Route::get('proveedores/mostrar/insumos/{id}', 'Proveedores\ProveedoresController@listarProveedor_Insumos');
 Route::post('proveedores/agregar/insumo/{id}', 'Proveedores\ProveedoresController@agregarInsumoProveedor');
-Route::post('proveedores/insumo/editar/{id}', 'Proveedores\ProveedoresController@editarInsumoProveedor');
+
+
 
 //PLATOS
 Route::post('platos/registrar', 'Platos\PlatosController@registrarPlato');

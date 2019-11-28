@@ -233,4 +233,29 @@ class ProveedoresController extends Controller
 
         return response()->json($rtn, 200);
     }
+
+    public function eliminarInsumoProveedor($id_insumo){
+        //Obtengo los parametros del request
+        $parametros = [];
+        
+        $parametros[0] = $id_insumo;
+
+        
+        try{
+            //Llamo al procedimiento
+            \DB::select('call eliminar_insumo_proveedor(?)', $parametros);
+            $ok = true;
+            $result = "Proveedor eliminado correctamente";
+        }catch(QueryException $ex){
+            $ok = false;
+            $result = "Error al editar el Proveedor";
+        }
+        //retorno los proveedores en formato json y el HTTP status code 200
+        $rtn = [
+            'ok' => $ok,
+            'result' => $result
+        ];
+
+        return response()->json($rtn, 200);
+    }
 }
