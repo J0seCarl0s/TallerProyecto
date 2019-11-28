@@ -10,6 +10,8 @@ import { AlertService } from "../../../shared/services/alert.service";
 })
 export class PedidosReadyComponent implements OnInit {
 
+  idSetInterval;
+  
   constructor(private router:Router,
               private pedidosService:PedidosService, 
               private alertService:AlertService) { }
@@ -17,7 +19,20 @@ export class PedidosReadyComponent implements OnInit {
   pedidos: any[];
 
   ngOnInit() {
-  	this.cargarPedidosListos();
+	  this.cargarPedidosListos();
+	  
+      
+      this.idSetInterval = setInterval(() => {
+        this.cargarPedidosListos();
+        console.log("cargando..............")
+      }, 5000);
+  }
+
+
+  ngOnDestroy() {
+    if (this.idSetInterval) {
+      clearInterval(this.idSetInterval);
+    }
   }
 
   cargarPedidosListos() {

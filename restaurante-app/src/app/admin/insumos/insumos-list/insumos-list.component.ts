@@ -14,6 +14,7 @@ import { AlertService } from "../../../shared/services/alert.service";
 })
 export class InsumosListComponent implements OnInit {
 
+  idSetInterval;
   insumos: any[];
 
   constructor(private router:Router, private insumosService:InsumosService, private alertService:AlertService) {}
@@ -21,6 +22,17 @@ export class InsumosListComponent implements OnInit {
 
   ngOnInit() {
       this.llenarDatos();
+      
+      this.idSetInterval = setInterval(() => {
+        this.llenarDatos();
+        console.log("cargando..............")
+      }, 5000);
+  }
+
+  ngOnDestroy() {
+    if (this.idSetInterval) {
+      clearInterval(this.idSetInterval);
+    }
   }
 
 

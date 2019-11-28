@@ -15,6 +15,8 @@ import { AlertService } from "../../shared/services/alert.service";
 })
 export class DashboardCocineroComponent implements OnInit {
 
+
+  idSetInterval;
 	pedidosCP: any[];
   pedidosSP: any[];
   pedidosEP: any[];
@@ -23,7 +25,12 @@ export class DashboardCocineroComponent implements OnInit {
   constructor(private router:Router, private dashboardService:DashboardService,private alertService:AlertService) { }
 
   ngOnInit() {
-  	 this.llenarDatos();
+     this.llenarDatos();
+     
+     this.idSetInterval = setInterval(() => {
+      this.llenarDatos();
+      console.log("cargando..............")
+    }, 5000);
   }
 
    llenarDatos()
