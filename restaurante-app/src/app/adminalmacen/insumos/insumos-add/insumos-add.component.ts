@@ -15,6 +15,7 @@ export class InsumosAddComponent implements OnInit {
 
   nombre_insumo:string="";
   cantidad_minima:number=0.0;
+  unidades:string="";
 
   constructor(
     private router:Router, 
@@ -27,7 +28,7 @@ export class InsumosAddComponent implements OnInit {
 
   btnAgregarInsumo(){
 
-    this.insumosService.registrar(this.nombre_insumo, this.cantidad_minima)
+    this.insumosService.registrar(this.nombre_insumo, this.cantidad_minima, this.unidades)
       .subscribe(
         (response)=>{
           console.log(response);

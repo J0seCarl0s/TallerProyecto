@@ -37,10 +37,10 @@ export class InsumosService
         return this.http.get(url, this.httpOptions);
     }
 
-    registrar(nombreInsumo:string, cantidadMinima:number): Observable<any>
+    registrar(nombreInsumo:string, cantidadMinima:number, unidades:string): Observable<any>
      {
         var url = this.apiUrl + "insumos/registrar";
-        var data = { nombre_insumo: nombreInsumo, cantidad_minima: cantidadMinima };
+        var data = { nombre_insumo: nombreInsumo, cantidad_minima: cantidadMinima, unidades:unidades };
         
         return this.http.post<any>(url, data, this.httpOptions);
      }

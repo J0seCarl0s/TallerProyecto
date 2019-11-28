@@ -221,7 +221,7 @@ export class DashboardAdminComponent implements OnInit {
               this.lineChartData[0].data[this.horas[i]]=this.cantidades[i];
             }
             console.log(this.lineChartData[0].data);
-            this.cuadroEstadistico.update();
+            //this.cuadroEstadistico.update();
           }else{
             console.log("No se pudo obtener la data");
           }

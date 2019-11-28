@@ -111,10 +111,11 @@ class InsumosController extends Controller
         //Obtengo los parametros del request
         $insumo[0] = $request->input('nombre_insumo');
         $insumo[1] = $request->input('cantidad_minima');
+        $insumo[2] = $request->input('unidades');
 
         try{
             //Llamo al procedimiento
-            \DB::select('call registrar_insumo(?, ?)', $insumo);
+            \DB::select('call registrar_insumo(?, ?, ?)', $insumo);
             $ok = true;
             $result = "Insumo registrado correctamente";
         }catch(QueryException $ex){

@@ -34,9 +34,8 @@
             </div>
           </td>  
           <td>
-            {{existencia.Total}}
-          </td>
-                  
+            {{existencia.Total }} {{ existencia.unidades }}
+          </td>        
           
           <td>
             <button type="button" class="btn btn-outline-dark" (click)="btnEditar(existencia.Id)">Ajustar Cantidad</button>

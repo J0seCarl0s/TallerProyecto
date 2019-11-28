@@ -36,7 +36,7 @@
                             {{insumo.nombre_insumo}}
                           </td>
                           <td>
-                            {{insumo.cantidad_minima}}
+                            {{insumo.cantidad_minima }} {{ insumo.unidades}}
                           </td>
                           <td>
                             <button (click)="btnEditar(insumo.idinsumo)" class="btn btn-success btn-round btn-just-icon">
@@ -44,7 +44,7 @@
                             </button>
                           </td>
                           <td>
-                            <button (click)="btnEliminar(insumo.idinsumo)" class="btn btn-danger btn-round btn-just-icon">
+                            <button (click)="btnEliminar(insumo.idinsumo)" class="btn btn-danger btn-round btn-just-icon" >
                               <i class="material-icons">delete</i>
                             </button>
                           </td>

@@ -30,17 +30,17 @@
             {{insumo.nombre_insumo}}
           </td>
           <td>
-            {{insumo.cantidad_minima}}
+            {{insumo.cantidad_minima}} {{insumo.unidades}}
           </td>          
         
           <td>
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditarInsumo(insumo.idinsumo)">
+              <button  class="btn btn-success btn-round btn-just-icon" (click)="btnEditarInsumo(insumo.idinsumo)">
               <i class="material-icons">create</i>
               </button>
             
           </td>          
           <td>
-            <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminarInsumo(insumo.idinsumo)">
+            <button  class="btn btn-danger btn-round btn-just-icon" (click)="btnEliminarInsumo(insumo.idinsumo)">
             <i class="material-icons">delete</i>
             </button>
           </td>

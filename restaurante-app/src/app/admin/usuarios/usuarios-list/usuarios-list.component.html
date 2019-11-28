@@ -37,8 +37,8 @@
           </td>           
           <td>
              <button  class="btn btn-round btn-just-icon" (click)="btnCambiarEstado(usuario,usuario.state == 1)" [ngClass]="{'btn-success': usuario.state == 1, 'btn-danger': usuario.state != 1}">
-              <i *ngIf="usuario.state == 1" class="material-icons">toggle_on</i>
-              <i *ngIf="usuario.state == 0" class="material-icons">toggle_off</i>
+              <i *ngIf="usuario.state == 0" class="material-icons">toggle_on</i>
+              <i *ngIf="usuario.state == 1" class="material-icons">toggle_off</i>
               </button>
           </td> 
           <td>

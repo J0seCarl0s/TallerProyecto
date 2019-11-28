@@ -37,28 +37,28 @@
             {{plato.created_at}}
           </td>           
           <td>
-             <button  class="btn btn-white btn-round btn-just-icon" (click)="btnListarInsumos(plato.idplato)">
+             <button  class="btn btn-warning btn-round btn-just-icon" (click)="btnListarInsumos(plato.idplato)">
               <i class="material-icons">view_list</i>
               </button>
           </td> 
           <td *ngIf="plato.esta_activo == 1">
-             <button  class="btn btn-white btn-just-icon" (click)="btnDeshabilitar(plato.idplato)">
+             <button  class="btn btn-success btn-round btn-just-icon" (click)="btnDeshabilitar(plato.idplato)">
             <i  class="material-icons">toggle_on</i>
             </button >
           </td>
           <td *ngIf="plato.esta_activo == 0">
-            <button  class="btn btn-white btn-just-icon" (click)="btnHabilitar(plato.idplato)">
+            <button  class="btn btn-danger btn-round btn-just-icon" (click)="btnHabilitar(plato.idplato)">
             <i  class="material-icons">toggle_off</i>
             </button >            
           </td>
            <td>
-              <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEditar(plato.idplato)">
+              <button  class="btn btn-success btn-round btn-just-icon" (click)="btnEditar(plato.idplato)">
               <i class="material-icons">create</i>
               </button>
             
           </td>
           <td>
-            <button  class="btn btn-white btn-round btn-just-icon" (click)="btnEliminar(plato.idplato)">
+            <button  class="btn btn-danger btn-round btn-just-icon" (click)="btnEliminar(plato.idplato)">
             <i class="material-icons">delete</i>
           </button>
         </td>
