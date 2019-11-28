@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
@@ -12,10 +12,9 @@ import { AppMaterialModule } from './app-material.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgSelectizeModule } from 'ng-selectize';
 
-
-
 //Graficos
 import { ChartsModule } from 'ng2-charts';
+
 
 // token
 import { TokenGuard } from './shared/guards/token.guard';
@@ -75,6 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularDateTimePickerModule,
     MatDialogModule,
     ChartsModule,
+    ReactiveFormsModule
 
   ],
   providers: [

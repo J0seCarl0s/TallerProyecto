@@ -15,7 +15,9 @@ import { AlertService } from "../../../shared/services/alert.service";
 export class AlmacenListComponent implements OnInit {
 
 
-	existencias:any[];
+  idSetInterval;
+  existencias:any[];
+  
   constructor(
   		private router:Router, 
   		private almacenControlService:AlmacenControlService, 
@@ -24,7 +26,19 @@ export class AlmacenListComponent implements OnInit {
 
   ngOnInit() {
 
-  	this.llenarDatos();
+    this.llenarDatos();
+
+    this.idSetInterval = setInterval(() => {
+      this.llenarDatos();
+      console.log("cargando..............")
+    }, 5000);
+  }
+
+
+  ngOnDestroy() {
+    if (this.idSetInterval) {
+      clearInterval(this.idSetInterval);
+    }
   }
 
   llenarDatos(){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 import { AlertService } from "../../shared/services/alert.service";
 import { DashboardService } from "../dashboard-admin/dashboard.service";
 import { ChartDataSets, ChartOptions, Chart } from 'chart.js';
@@ -37,104 +38,144 @@ export class DashboardAdminComponent implements OnInit {
   date1 = new Date();
   horas:any[];
   cantidades:any[];
-  cuadroEstadistico: ChartsModule;//= document.getElementById("estadisticas");
   FECHA_INICIO3:Date=null;
   FECHA_FIN3:Date=null;
   reportesCaja: any[];
 
-  public lineChartData: ChartDataSets[] = 
-  [
-   
-    { data: [10, 0, 0, 0, 0, 0,
-             0, 0, 0, 0, 0, 0,
-             0, 0, 0, 0, 0, 0,
-             0, 0, 0, 0, 0, 0], label: 'Ventas del día' }
-  ];
-  public lineChartLabels: Label[] = ['00', '01', '02', '03', '04', '05', '06',
-                                     '07', '08', '09', '10', '11', '12', '13',
-                                     '14', '15', '16', '17', '18', '19', '20',
-                                     '21', '22', '23'];
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: true,
-    scales: {
-      xAxes: [{}],
-      yAxes: [
-        {
-          id: 'y-axis-0',
-          position: 'left',
-        },
-        /*{
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(255,0,0,0.3)',
-          },
-          ticks: {
-            fontColor: 'red',
-          }
-        }*/
-      ]
-    },
-    annotation: {
-      annotations: [
-        {
-          type: 'line',
-          mode: 'vertical',
-          scaleID: 'x-axis-0',
-          value: 'March',
-          borderColor: 'orange',
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: 'orange',
-            content: 'LineAnno'
-          }
-        },
-      ],
-    },
-  };
-  public lineChartColors: Color[] = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
-  public lineChartLegend = true;
-  public lineChartType = 'line';
-  //public lineChartPlugins = [pluginAnnotations];
+
+  title = 'Ng7ChartJs By DotNet Techy';
+  LineChart;
+  BarChart;
+  PieChart;
+
 
   constructor(
   	private router:Router, 
   	private alertService:AlertService, 
-  	private dashboardService:DashboardService) { 
+    private dashboardService:DashboardService,
+		private datePipe: DatePipe
+    ) { 
   	
   }
 
   ngOnInit() {
-  	this.llenarDatos();
-    //this.llenarChart();
+    this.llenarDatos();
+    
+    // Line chart:
+    this.LineChart = new Chart('lineChart', {
+  type: 'line',
+  data: {
+  labels: ["Jan", "Feb", "March", "April", "May", "June","July","Aug","Sep","Oct","Nov","Dec"],
+  datasets: [{
+      label: 'Number of Items Sold in Months',
+      data: [9,7 , 3, 5, 2, 10,15,16,19,3,1,9],
+      fill:false,
+      lineTension:0.2,
+      borderColor:"red",
+      borderWidth: 1
+  }]
+  }, 
+    options: {
+    title:{
+        text:"Line Chart",
+        display:true
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+    }
+    });
 
-  }
+    // Bar chart:
+    this.BarChart = new Chart('barChart', {
+      type: 'bar',
+    data: {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [{
+        label: '# of Votes',
+        data: [9,7 , 3, 5, 2, 10],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]
+    }, 
+    options: {
+    title:{
+        text:"Bar Chart",
+        display:true
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+    }
+    });
+
+    // pie chart:
+    this.PieChart = new Chart('pieChart', {
+      type: 'pie',
+    data: {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [{
+        label: '# of Votes',
+        data: [9,7 , 3, 5, 2, 10],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]
+    }, 
+    options: {
+    title:{
+        text:"Bar Chart",
+        display:true
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+    }
+    });
+
+
+}
 
   llenarDatos(){
     
@@ -151,83 +192,14 @@ export class DashboardAdminComponent implements OnInit {
     );
   }
 
-  llenarChart(){
-
-    this.horas=[];
-    this.cantidades=[];
-
-    this.dashboardService.graficar(this.date1.toString().substring(11,15)
-      +"-"+this.date1.toString().substring(4,7)+"-"+this.date1.toString().substring(8,10))
-      .subscribe(
-        (response)=>{
-          console.log(response);
-          if(response.ok){
-            response.result.forEach((i) => {
-                this.horas.push(i.hora);
-                this.cantidades.push(i.cantidad);
-                //console.log(i.hora);
-                //console.log(i.cantidad);
-            })
-            console.log(this.horas);
-            console.log(this.cantidades);
-            for (var i = 0; i < this.lineChartData[0].data.length ; i++) {
-              
-              this.lineChartData[0].data[i]=0;
-            }
-            
-            for (var i = 0; i < this.horas.length ; i++) {
-              
-              this.lineChartData[0].data[this.horas[i]]=this.cantidades[i];
-            }
-            console.log(this.lineChartData[0].data);
-            
-          }else{
-            console.log("No se pudo obtener la data");
-          }
-        }
-    );
-  }
 
 
 
   btnAceptar(fecha: String){
 
-    this.horas=[];
-    this.cantidades=[];
-        console.log(this.lineChartData[0].data);
 
-    this.dashboardService.graficar(fecha.toString())//.substring(11,15)
-      .subscribe(
-        (response)=>{
-          console.log(response);
-          
-          if(response.ok){
-            //this.horas = [];
-            response.result.forEach((i) => {
-                this.horas.push(i.hora);
-                this.cantidades.push(i.cantidad);
-                //console.log(i.hora);
-                //console.log(i.cantidad);
-            })
-            console.log(this.horas);
-            console.log(this.cantidades);
-            for (var i = 0; i < this.lineChartData[0].data.length ; i++) {
-              
-              this.lineChartData[0].data[i]=0;
-            }
-            
-            for (var i = 0; i < this.horas.length ; i++) {
-              
-              this.lineChartData[0].data[this.horas[i]]=this.cantidades[i];
-            }
-            console.log(this.lineChartData[0].data);
-            //this.cuadroEstadistico.update();
-          }else{
-            console.log("No se pudo obtener la data");
-          }
-          //console.log(this.horas);
-        }
-      );
+    this.selectedDate = this.datePipe.transform(this.selectedDate, 'yyyy-MM-dd ');
+    alert(this.selectedDate);
 
   }
 
