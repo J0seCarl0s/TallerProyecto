@@ -55,6 +55,8 @@ import { AppComponent } from './app.component';
 
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import  { AlmacenControlService as AlmaceneroControlService} from "./adminalmacen/almacen/almacenControl.service";
 //import { HttpModule } from '@angular/http';
 
 
@@ -109,6 +111,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EntradasService,  
     SalidasService,
     ProveedoresAlmacenService,
+    AlmaceneroControlService,
 
     //SERVICIOS DEL COCINERO
     DashboardService,

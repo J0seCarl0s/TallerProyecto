@@ -44,7 +44,7 @@ export class AlmacenListComponent implements OnInit {
 
   btnEditar(id:number){
 
-  	console.log("Navegando a ajustar el almacen: "+id);
+  	console.log("Navegando a ajustar eal almacen: "+id);
 
     this.router.navigate(['/adminalmacen/almacen/ajustar/'+id]);
   }
